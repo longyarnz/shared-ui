@@ -1,4 +1,12 @@
 section.app {
   min-height: 100vh;
   background: #fff;
+
+  & > div {
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
 }
