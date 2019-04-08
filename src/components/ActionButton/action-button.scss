@@ -60,6 +60,8 @@
   flex-direction: row-reverse;
   justify-content: space-between;
   width: 200px;
+  position: relative;
+  transition: all .25s ease;
   
   span {
     padding: 0px;
@@ -68,6 +70,11 @@
   &:hover {
     background-color: $dark2;
     color: $dark4;
+  }
+  
+  &:active {
+    background-color: $dark3;
+    color: #fff;
   }
 }
 
@@ -100,6 +107,53 @@
     &:hover {
       background-color: $dark2;
       color: $dark4;
+    }
+  }
+}
+
+.select-list{
+  $radius: 20px;
+  list-style: none;
+  position: absolute;
+  border-radius: $radius;
+  background-color: $dark1;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 5px;
+  font-size: 80%;
+  height: 0px;
+  min-height: auto;
+  overflow: hidden;
+  transition: all .25s ease;
+  
+  & > li {
+    width: 100%;
+    height: 40px;
+    padding: 10px;
+    color: $dark3;
+    cursor: pointer;
+    text-align: left;
+    transition: all .25s ease;
+    
+    &:hover {
+      background-color: $dark2;
+      color: $dark4;
+    }
+    
+    &:active {
+      background-color: $dark3;
+      color: #fff;
+    }
+
+    &:first-of-type {
+      border-radius: $radius $radius 0px 0px;
+    }
+    
+    &:last-of-type {
+      border-radius: 0px 0px $radius $radius;
     }
   }
 }

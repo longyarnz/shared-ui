@@ -2,6 +2,7 @@ import React from 'react';
 import { TextIconButton } from '../PrimaryButton';
 import { SuccessSecondaryButton, NormalSecondaryButton } from '../SecondaryButton';
 import './action-button.css';
+export { SelectButton } from './SelectButton';
 
 export function DownloadButton(props) {
     return (
@@ -25,11 +26,6 @@ export function RectAddButton(props) {
     )
 }
 
-export function SelectButton(props) {
-    return (
-        <TextIconButton addclass="select-button" icon="arrow_drop_down" text={props.text} {...props} />
-    )
-}
 
 export function SearchButton(props) {
     return (
