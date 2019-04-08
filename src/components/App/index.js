@@ -10,47 +10,66 @@ export default function App() {
             <div>
                 <h3>Primary Buttons</h3>
 
-                <PrimaryButton text="Dark BG" />
-
-                <RoundIconButton />
-
-                <TextIconButton icon="donut_large" text="Loading" />
-
-                <SuccessButton onClick={() => console.log('SUCCESS')} />
-
-                <DangerButton onClick={() => console.log('DANGER')} />
+                <span>
+                    <PrimaryButton text="Dark BG" />
+                </span>
+                <span>
+                    <RoundIconButton />
+                </span>
+                <span>
+                    <TextIconButton icon="donut_large" text="Loading" />
+                </span>
+                <span>
+                    <SuccessButton onClick={() => console.log('SUCCESS')} />
+                </span>
+                <span>
+                    <DangerButton onClick={() => console.log('DANGER')} /></span>
             </div>
 
             <div>
                 <h3>Secondary Buttons</h3>
 
-                <SecondaryButton text="Dark BG" />
-
-                <NormalSecondaryButton text="Normal" />
-
-                <SuccessSecondaryButton text="Success" />
-
-                <DangerSecondaryButton text="Danger" />
+                <span>
+                    <SecondaryButton text="Dark BG" />
+                </span>
+                <span>
+                    <NormalSecondaryButton text="Normal" />
+                </span>
+                <span>
+                    <SuccessSecondaryButton text="Success" />
+                </span>
+                <span>
+                    <DangerSecondaryButton text="Danger" />
+                </span>
             </div>
 
             <div>
                 <h3>Action Buttons</h3>
-
-                <DownloadButton />
-
-                <RectAddButton />
-
-                <RoundAddButton />
-
-                <SearchButton />
-
-                <StartDateButton />
-
-                <EndDateButton />
-
-                <SelectButton text="Select Button" />
-
-                <LongSearchButton text="Search Bar" />
+                
+                <span>
+                    <DownloadButton />
+                </span>
+                <span>
+                    <RectAddButton />
+                </span>
+                <span>
+                    <RoundAddButton />
+                </span>
+                <span>
+                    <SearchButton />
+                </span>
+                <span>
+                    <StartDateButton />
+                </span>
+                <span>
+                    <EndDateButton />
+                </span>
+                <span>
+                    <SelectButton text="Select Button" />
+                </span>
+                <span>
+                    <LongSearchButton text="Search Bar" />
+                </span>
             </div>
         </section>
     )

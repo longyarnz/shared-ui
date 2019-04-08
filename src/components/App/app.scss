@@ -6,7 +6,7 @@ section.app {
     padding: 20px;
     text-align: center;
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: center;
     flex-wrap: wrap;
     margin-bottom: 20px;
@@ -17,6 +17,12 @@ section.app {
       margin-bottom: 20px;
       text-align: left;
       font-weight: bold;
+    }
+
+    & > span {
+      padding: 10px;
+      display: inline-block;
+      margin-bottom: 10px;
     }
   }
 }
