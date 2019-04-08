@@ -1,22 +1,22 @@
 import React from 'react';
 import './primary-button.css';
 
-export default function PrimaryButton({children, ...props}) {
+export default function PrimaryButton(props) {
     const style = {
         width: props.width,
         height: props.height,
-        padding: props.padding,
         ...props.style
     }
     const className = props.className || "primary-button";
+    const addClass = props.addclass || '';
 
     return (
         <button
-            className={className}
             style={style}
             {...props}
+            className={`${className} ${addClass}`}
         >
-            {children || props.text}
+            {props.children || props.text}
         </button>
     )
 }
@@ -30,7 +30,7 @@ export function IconButton(props) {
     )
 }
 
-export function CircleIconButton(props) {
+export function RoundIconButton(props) {
     return (
         <IconButton className="circle-icon-button" icon="donut_large" {...props} />
     )
@@ -40,7 +40,7 @@ export function TextIconButton(props) {
     const className = props.className || 'text-icon-button';
     const iconName = props.icon || 'donut_large';
     const style = {
-        width: props.width || 120,
+        width: props.width,
         height: props.height,
     }
 

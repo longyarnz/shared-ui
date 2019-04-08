@@ -1,21 +1,57 @@
 import React from 'react';
 import './app.css';
-import PrimaryButton, { CircleIconButton, TextIconButton, SuccessButton, DangerButton } from '../PrimaryButton';
+import PrimaryButton, { RoundIconButton, TextIconButton, SuccessButton, DangerButton } from '../PrimaryButton';
+import SecondaryButton, { NormalSecondaryButton, SuccessSecondaryButton, DangerSecondaryButton } from '../SecondaryButton';
+import { DownloadButton, RoundAddButton, SearchButton, RectAddButton, LongSearchButton, SelectButton, StartDateButton, EndDateButton } from '../ActionButton';
 
 export default function App() {
-  return (
-    <section className="app">
-      <div>
-        <PrimaryButton text="Dark BG" />
+    return (
+        <section className="app">
+            <div>
+                <h3>Primary Buttons</h3>
 
-        <CircleIconButton />
+                <PrimaryButton text="Dark BG" />
 
-        <TextIconButton icon="donut_large" text="Loading" />
+                <RoundIconButton />
 
-        <SuccessButton onClick={() => console.log('SUCCESS')} />
+                <TextIconButton icon="donut_large" text="Loading" />
 
-        <DangerButton onClick={() => console.log('DANGER')} />
-      </div>
-    </section>
-  )
+                <SuccessButton onClick={() => console.log('SUCCESS')} />
+
+                <DangerButton onClick={() => console.log('DANGER')} />
+            </div>
+
+            <div>
+                <h3>Secondary Buttons</h3>
+
+                <SecondaryButton text="Dark BG" />
+
+                <NormalSecondaryButton text="Normal" />
+
+                <SuccessSecondaryButton text="Success" />
+
+                <DangerSecondaryButton text="Danger" />
+            </div>
+
+            <div>
+                <h3>Action Buttons</h3>
+
+                <DownloadButton />
+
+                <RectAddButton />
+
+                <RoundAddButton />
+
+                <SearchButton />
+
+                <StartDateButton />
+
+                <EndDateButton />
+
+                <SelectButton text="Select Button" />
+
+                <LongSearchButton text="Search Bar" />
+            </div>
+        </section>
+    )
 }

@@ -8,5 +8,15 @@ section.app {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+
+    h3{
+      width: 100%;
+      justify-self: flex-start;
+      margin-bottom: 20px;
+      text-align: left;
+      font-weight: bold;
+    }
   }
 }

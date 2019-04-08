@@ -1,0 +1,14 @@
+button {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  font-family: Roboto;
+  font-size: 80%;
+  font-weight: normal;
+  transition: all 0.25s ease;
+
+  &:focus,
+  &:hover {
+    outline: none;
+  }
+}

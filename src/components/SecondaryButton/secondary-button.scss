@@ -1,0 +1,53 @@
+@import "../scss/variables";
+@import "../scss/font";
+@import "../scss/button";
+
+.secondary-button {
+  border-radius: 5px;
+  background-color: $dark1;
+  justify-content: center;
+  padding: 10px 30px;
+  border: 1px solid $accent1;
+  color: $accent1;
+
+  &:hover {
+    background-color: darken($accent1, 10%);
+    color: #fff;
+  }
+}
+
+.normal-secondary-button {
+  @extend .secondary-button;
+  border: 1px solid $accent1;
+  color: $accent1;
+  background-color: #fff;
+  
+  &:hover {
+    background-color: $accent1-bg;
+    color: $accent1;
+  }
+}
+
+.success-secondary-button {
+  @extend .secondary-button;
+  border: 1px solid $success;
+  color: $success;
+  background-color: #fff;
+  
+  &:hover {
+    background-color: $success-bg;
+    color: $success;
+  }
+}
+
+.danger-secondary-button {
+  @extend .secondary-button;
+  border: 1px solid $danger;
+  color: $danger;
+  background-color: #fff;
+  
+  &:hover {
+    background-color: $danger-bg;
+    color: $danger;
+  }
+}

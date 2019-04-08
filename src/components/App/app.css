@@ -1,1 +1,1 @@
-section.app{min-height:100vh;background:#fff}section.app>div{padding:20px;text-align:center;display:flex;justify-content:space-around;align-items:center}
+section.app{min-height:100vh;background:#fff}section.app>div{padding:20px;text-align:center;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-pack:distribute;justify-content:space-around;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-wrap:wrap;flex-wrap:wrap;margin-bottom:20px}section.app>div h3{width:100%;justify-self:flex-start;margin-bottom:20px;text-align:left;font-weight:bold}
