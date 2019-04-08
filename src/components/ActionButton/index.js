@@ -2,7 +2,7 @@ import React from 'react';
 import { TextIconButton } from '../PrimaryButton';
 import { SuccessSecondaryButton, NormalSecondaryButton } from '../SecondaryButton';
 import './action-button.css';
-export { SelectButton } from './SelectButton';
+export { SelectButton, Dropdown } from './SelectButton';
 
 export function DownloadButton(props) {
     return (

@@ -2,7 +2,7 @@ import React from 'react';
 import './app.css';
 import PrimaryButton, { RoundIconButton, TextIconButton, SuccessButton, DangerButton } from '../PrimaryButton';
 import SecondaryButton, { NormalSecondaryButton, SuccessSecondaryButton, DangerSecondaryButton } from '../SecondaryButton';
-import { DownloadButton, RoundAddButton, SearchButton, RectAddButton, LongSearchButton, SelectButton, StartDateButton, EndDateButton } from '../ActionButton';
+import { DownloadButton, RoundAddButton, SearchButton, RectAddButton, LongSearchButton, SelectButton, StartDateButton, EndDateButton, Dropdown } from '../ActionButton';
 
 export default function App() {
     return (
@@ -45,7 +45,7 @@ export default function App() {
 
             <div>
                 <h3>Action Buttons</h3>
-                
+
                 <span>
                     <DownloadButton />
                 </span>
@@ -65,7 +65,22 @@ export default function App() {
                     <EndDateButton />
                 </span>
                 <span>
-                    <SelectButton text="Select Button" />
+                    <SelectButton placeholder="Click Me!">
+                        <option value="Selected 1">Select 1</option>
+                        <option value="Selected 2">Select 2</option>
+                        <option value="Selected 3">Select 3</option>
+                        <option value="Selected 4">Select 4</option>
+                        <option value="Selected 5">Select 5</option>
+                    </SelectButton>
+                </span>
+                <span>
+                    <Dropdown placeholder="Click Me To See Dropdown!">
+                        <option value="Selected 1">Select 1</option>
+                        <option value="Selected 2">Select 2</option>
+                        <option value="Selected 3">Select 3</option>
+                        <option value="Selected 4">Select 4</option>
+                        <option value="Selected 5">Select 5</option>
+                    </Dropdown>
                 </span>
                 <span>
                     <LongSearchButton text="Search Bar" />

@@ -61,17 +61,17 @@
   justify-content: space-between;
   width: 200px;
   position: relative;
-  transition: all .25s ease;
-  
+  transition: all 0.25s ease;
+
   span {
     padding: 0px;
   }
-  
+
   &:hover {
     background-color: $dark2;
     color: $dark4;
   }
-  
+
   &:active {
     background-color: $dark3;
     color: #fff;
@@ -89,16 +89,16 @@
   i {
     font-size: 130%;
   }
-  
+
   span {
     padding: 0px;
   }
-  
+
   &:hover {
     background-color: $accent1-bg;
     color: $accent1;
   }
-  
+
   &.dark {
     border: 1px solid transparent;
     background-color: $dark1;
@@ -111,7 +111,7 @@
   }
 }
 
-.select-list{
+.select-list {
   $radius: 20px;
   list-style: none;
   position: absolute;
@@ -125,25 +125,25 @@
   margin-top: 5px;
   font-size: 80%;
   height: 0px;
-  min-height: auto;
+  min-height: 0;
   overflow: hidden;
-  transition: all .25s ease;
-  
-  & > li {
+  transition: all 0.25s ease;
+
+  & > option {
     width: 100%;
     height: 40px;
     padding: 10px;
     color: $dark3;
     cursor: pointer;
     text-align: left;
-    transition: all .25s ease;
-    
+
     &:hover {
       background-color: $dark2;
       color: $dark4;
     }
-    
-    &:active {
+
+    &:active,
+    &.selected {
       background-color: $dark3;
       color: #fff;
     }
@@ -151,7 +151,60 @@
     &:first-of-type {
       border-radius: $radius $radius 0px 0px;
     }
-    
+
+    &:last-of-type {
+      border-radius: 0px 0px $radius $radius;
+    }
+  }
+}
+
+.dropdown {
+  $radius: 5px;
+  border-radius: $radius;
+  border: 1px solid $accent1;
+  background-color: #fff;
+  color: $accent1;
+  justify-content: space-between;
+  width: 210px;
+  position: relative;
+  
+  span {
+    padding: 0px;
+  }
+  
+  &:hover {
+    background-color: $accent1-bg;
+    color: $accent1;
+  }
+}
+
+.dropdown-list {
+  $radius: 5px;
+  border-radius: $radius;
+  border: 1px solid $accent1;
+  border-width: 0px;
+  background-color: #fff;
+  color: $accent1;
+  width: 210px;
+  
+  & > option {
+    color: $accent1;
+
+    &:hover {
+      background-color: $accent1-bg;
+      color: $accent1;
+    }
+
+    &:active,
+    &.selected {
+      background-color: $accent1;
+      color: #fff;
+    }
+
+    &:first-of-type {
+      border-radius: $radius $radius 0px 0px;
+    }
+
     &:last-of-type {
       border-radius: 0px 0px $radius $radius;
     }

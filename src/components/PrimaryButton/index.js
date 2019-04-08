@@ -45,7 +45,7 @@ export function TextIconButton(props) {
     }
 
     return (
-        <PrimaryButton className={className} style={style} {...props}>
+        <PrimaryButton {...props} className={className} style={style}>
             <i style={props.iconStyle}>{iconName}</i>
             <span style={props.textStyle}>{props.text}</span>
         </PrimaryButton>
