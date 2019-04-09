@@ -1,32 +1,45 @@
-@import "../scss/variables";
-@import "../scss/font";
 @import "../scss/button";
 
 .download-button {
+  @extend .success-active;
   padding: 10px;
 
+  i {
+    font-size: 140%;
+  }
+
   &:hover {
-    background-color: $accent1-bg;
-    color: $accent1;
+    background-color: $success-bg;
   }
 }
 
 .round-add-button,
 .search-button {
-  border-radius: 50%;
-  padding: 10px;
+  @extend .primary-icon-active;
 
-  &:hover {
-    background-color: $accent1-bg;
+  i {
+    background-color: #fff;
+    animation: none;
     color: $accent1;
+    border: 1px solid $accent1;
+
+    &:hover {
+      background-color: $accent1-bg;
+    }
   }
 }
 
 .rect-add-button {
+  @extend .primary-active;
   border-radius: 5px;
+  border-color: $accent1;
   background-color: #fff;
   color: $accent1;
   justify-content: center;
+
+  i {
+    font-size: 130%;
+  }
 
   &:hover {
     background-color: $accent1-bg;
@@ -35,15 +48,20 @@
 }
 
 .long-search-button {
+  @extend .primary-active;
   border-radius: 30px;
   background-color: #fff;
   color: $accent1;
   flex-direction: row-reverse;
   justify-content: space-between;
-  width: 200px;
+  width: 100%;
 
   span {
     padding: 0px;
+  }
+
+  i {
+    font-size: 130%;
   }
 
   &:hover {
@@ -59,7 +77,7 @@
   color: $dark3;
   flex-direction: row-reverse;
   justify-content: space-between;
-  width: 200px;
+  width: 100%;
   position: relative;
   transition: all 0.25s ease;
 
@@ -79,12 +97,13 @@
 }
 
 .date-button {
+  @extend .primary-active;
   background-color: #fff;
   color: $accent1;
   border-radius: 5px;
   flex-direction: row-reverse;
   justify-content: space-between;
-  width: 150px;
+  width: 100%;
 
   i {
     font-size: 130%;
@@ -108,6 +127,11 @@
       background-color: $dark2;
       color: $dark4;
     }
+
+    &:active {
+      background-color: $dark3;
+      color: #fff;
+    }
   }
 }
 
@@ -117,7 +141,7 @@
   position: absolute;
   border-radius: $radius;
   background-color: $dark1;
-  width: 200px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -136,6 +160,7 @@
     color: $dark3;
     cursor: pointer;
     text-align: left;
+    transition: all 0.25s ease;
 
     &:hover {
       background-color: $dark2;
@@ -159,19 +184,20 @@
 }
 
 .dropdown {
+  @extend .primary-active;
   $radius: 5px;
   border-radius: $radius;
   border: 1px solid $accent1;
   background-color: #fff;
   color: $accent1;
   justify-content: space-between;
-  width: 210px;
+  width: 100%;
   position: relative;
-  
+
   span {
     padding: 0px;
   }
-  
+
   &:hover {
     background-color: $accent1-bg;
     color: $accent1;
@@ -185,10 +211,11 @@
   border-width: 0px;
   background-color: #fff;
   color: $accent1;
-  width: 210px;
-  
+  width: 100%;
+
   & > option {
     color: $accent1;
+    transition: all 0.25s ease;
 
     &:hover {
       background-color: $accent1-bg;

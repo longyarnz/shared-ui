@@ -1,17 +1,16 @@
-@import '../scss/variables';
-@import '../scss/font';
 @import '../scss/button';
 
 .primary-button{
+  @extend .dark-active;
   border-radius: 25px;
   background-color: $dark1;
   justify-content: center;
   padding: 10px 30px;
-  border: 1px solid $accent1;
-  color: $accent1;
+  border: 1px solid $dark1;
+  color: $dark3;
   
   &:hover{
-    background-color: $accent1;
+    background-color: $dark3;
     color: #fff;
   }
 }
@@ -20,53 +19,83 @@
   border: 1px solid $accent1;
   background-color: $accent1;
   color: #fff;
+  justify-content: center;
 }
 
 .circle-icon-button {
   @extend .icon-button;
-  padding: 2px;
-  border-radius: 50%;
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  
+  i {
+    @extend .fa-spin;
+    animation-duration: .45s;
+    background-color: $accent1;
+    padding: 7.2px;
+    border-radius: 50%;
+    font-size: 200%;
+  }
 }
 
 .text-icon-button {
   @extend .primary-button;
-  background-color: $accent1;
-  color: #fff;
+  background-color: $accent1-bg;
+  color: $accent1;
+  border-color: $accent1;
   padding: 10px;
   justify-content: flex-start;
-
+  
   i {
     background: transparent;
   }
-
+  
   span {
     padding-left: 5%;
   }
-
+  
   &:hover{
-    background-color: darken($accent1, 10%);
+    background-color: $accent1;
     color: #fff;
   } 
 }
 
-.success-button {
+button.loading-text-button{
   @extend .text-icon-button;
-  color: $success;
-  background-color: $success-bg;
-  border: 1px solid $success;
 
   i {
-    background-color: transparent;
-    color: inherit;
+    @extend .fa-spin;
   }
 
-  &:hover{
-    background-color: darken($success-bg, 40%);
+  &:active {
+    background-color: $accent1-bg-dark;
     color: #fff;
   }
 }
 
-.danger-button {
+button.success-button {
+  @extend .text-icon-button;
+  color: $success;
+  background-color: $success-bg;
+  border: 1px solid $success;
+  
+  i {
+    background-color: transparent;
+    color: inherit;
+  }
+  
+  &:hover{
+    background-color: darken($success-bg, 40%);
+    color: #fff;
+  }
+
+  &:active{
+    background-color: darken($success-bg, 20%);
+    color: #fff;
+  }
+}
+
+button.danger-button {
   @extend .text-icon-button;
   color: $danger;
   background-color: $danger-bg;
@@ -79,6 +108,11 @@
 
   &:hover{
     background-color: darken($danger-bg, 40%);
+    color: #fff;
+  }
+  
+  &:active{
+    background-color: darken($danger-bg, 20%);
     color: #fff;
   }
 }

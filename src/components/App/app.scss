@@ -11,7 +11,7 @@ section.app {
     flex-wrap: wrap;
     margin-bottom: 20px;
 
-    h3{
+    h3 {
       width: 100%;
       justify-self: flex-start;
       margin-bottom: 20px;
@@ -20,9 +20,12 @@ section.app {
     }
 
     & > span {
-      padding: 10px;
+      margin: 10px;
       display: inline-block;
       margin-bottom: 10px;
+      position: relative;
+      width: 200px;
+      height: 40px;
     }
   }
 }

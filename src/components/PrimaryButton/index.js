@@ -31,14 +31,15 @@ export function IconButton(props) {
 }
 
 export function RoundIconButton(props) {
+    const icon = props.icon || 'donut_large';
     return (
-        <IconButton className="circle-icon-button" icon="donut_large" {...props} />
+        <IconButton className="circle-icon-button" icon={icon} {...props} />
     )
 }
 
 export function TextIconButton(props) {
     const className = props.className || 'text-icon-button';
-    const iconName = props.icon || 'donut_large';
+    const iconName = props.icon;
     const style = {
         width: props.width,
         height: props.height,
@@ -49,6 +50,12 @@ export function TextIconButton(props) {
             <i style={props.iconStyle}>{iconName}</i>
             <span style={props.textStyle}>{props.text}</span>
         </PrimaryButton>
+    )
+}
+
+export function LoadingTextButton(props) {
+    return (
+        <TextIconButton className="loading-text-button" icon="donut_large" text="Loading" {...props} />
     )
 }
 

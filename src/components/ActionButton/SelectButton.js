@@ -68,11 +68,7 @@ export function SelectButton(props) {
 export function Dropdown(props) {
     return (
         <SelectButton addclass="dropdown" listclass="dropdown-list" placeholder={props.placeholder}>
-            <option value="Selected 1">Select 1</option>
-            <option value="Selected 2">Select 2</option>
-            <option value="Selected 3">Select 3</option>
-            <option value="Selected 4">Select 4</option>
-            <option value="Selected 5">Select 5</option>
+            {props.children}
         </SelectButton>
     )
 }

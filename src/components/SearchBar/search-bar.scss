@@ -1,0 +1,74 @@
+@import "../scss/button";
+
+.search-bar {
+  @extend .primary-active;
+  $transition: all 0.25s ease;
+  width: 100%;
+  height: 100%;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid $accent1;
+  border-radius: 25px;
+  overflow: hidden;
+  padding: 10px;
+  font-size: 80%;
+  transition: $transition;
+
+  input {
+    height: 100%;
+    margin-right: auto;
+    flex: 1;
+    background-color: transparent;
+    transition: $transition;
+
+    &::placeholder {
+      color: $accent1;
+    }
+  }
+
+  button,
+  span {
+    display: flex;
+    align-items: center;
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    transition: $transition;
+
+    & > i {
+      color: $accent1;
+      font-size: 17px;
+      margin-left: 10px;
+      padding: 2px;
+      border-radius: 3px;
+    }
+
+    &#close > i {
+      border-radius: 50%;
+      background-color: $danger-bg;
+      color: $danger;
+    }
+    
+    &[type="submit"] > i {
+      background-color: $success-bg;
+      border-radius: 50%;
+      color: $success;
+    }
+    
+    &:hover {
+      &#close {
+        i {
+          background-color: $danger;
+          color: #fff;
+        }
+      }
+      
+      &[type="submit"] {
+        i {
+          background-color: $success;
+          color: #fff;
+        }
+      }
+    }
+  }
+}

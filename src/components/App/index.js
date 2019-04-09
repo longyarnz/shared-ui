@@ -1,8 +1,9 @@
 import React from 'react';
 import './app.css';
-import PrimaryButton, { RoundIconButton, TextIconButton, SuccessButton, DangerButton } from '../PrimaryButton';
+import PrimaryButton, { RoundIconButton, LoadingTextButton, SuccessButton, DangerButton } from '../PrimaryButton';
 import SecondaryButton, { NormalSecondaryButton, SuccessSecondaryButton, DangerSecondaryButton } from '../SecondaryButton';
-import { DownloadButton, RoundAddButton, SearchButton, RectAddButton, LongSearchButton, SelectButton, StartDateButton, EndDateButton, Dropdown } from '../ActionButton';
+import { DownloadButton, RoundAddButton, SearchButton, RectAddButton, SelectButton, StartDateButton, EndDateButton, Dropdown } from '../ActionButton';
+import SearchBar, { LongSearchButton } from '../SearchBar';
 
 export default function App() {
     return (
@@ -17,13 +18,14 @@ export default function App() {
                     <RoundIconButton />
                 </span>
                 <span>
-                    <TextIconButton icon="donut_large" text="Loading" />
+                    <LoadingTextButton />
                 </span>
                 <span>
-                    <SuccessButton onClick={() => console.log('SUCCESS')} />
+                    <SuccessButton />
                 </span>
                 <span>
-                    <DangerButton onClick={() => console.log('DANGER')} /></span>
+                    <DangerButton />
+                </span>
             </div>
 
             <div>
@@ -47,16 +49,13 @@ export default function App() {
                 <h3>Action Buttons</h3>
 
                 <span>
+                    <RoundAddButton />
+                </span>
+                <span>
                     <DownloadButton />
                 </span>
                 <span>
                     <RectAddButton />
-                </span>
-                <span>
-                    <RoundAddButton />
-                </span>
-                <span>
-                    <SearchButton />
                 </span>
                 <span>
                     <StartDateButton />
@@ -69,21 +68,28 @@ export default function App() {
                         <option value="Selected 1">Select 1</option>
                         <option value="Selected 2">Select 2</option>
                         <option value="Selected 3">Select 3</option>
-                        <option value="Selected 4">Select 4</option>
-                        <option value="Selected 5">Select 5</option>
                     </SelectButton>
                 </span>
                 <span>
-                    <Dropdown placeholder="Click Me To See Dropdown!">
+                    <Dropdown placeholder="Click Me!">
                         <option value="Selected 1">Select 1</option>
                         <option value="Selected 2">Select 2</option>
                         <option value="Selected 3">Select 3</option>
-                        <option value="Selected 4">Select 4</option>
-                        <option value="Selected 5">Select 5</option>
                     </Dropdown>
                 </span>
+            </div>
+
+            <div>
+                <h3>Search Components</h3>
+
                 <span>
-                    <LongSearchButton text="Search Bar" />
+                    <SearchButton />
+                </span>
+                <span>
+                    <LongSearchButton text="Search Button" />
+                </span>
+                <span style={{width: 500}}>
+                    <SearchBar placeholder="Search Bar" />
                 </span>
             </div>
         </section>

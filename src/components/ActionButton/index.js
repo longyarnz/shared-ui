@@ -1,6 +1,6 @@
 import React from 'react';
-import { TextIconButton } from '../PrimaryButton';
-import { SuccessSecondaryButton, NormalSecondaryButton } from '../SecondaryButton';
+import { TextIconButton, RoundIconButton } from '../PrimaryButton';
+import { SuccessSecondaryButton } from '../SecondaryButton';
 import './action-button.css';
 export { SelectButton, Dropdown } from './SelectButton';
 
@@ -14,9 +14,7 @@ export function DownloadButton(props) {
 
 export function RoundAddButton(props) {
     return (
-        <NormalSecondaryButton addclass="round-add-button" {...props}>
-            <i>add</i>
-        </NormalSecondaryButton>
+        <RoundIconButton addclass="round-add-button" icon="add" {...props} />
     )
 }
 
@@ -29,15 +27,7 @@ export function RectAddButton(props) {
 
 export function SearchButton(props) {
     return (
-        <NormalSecondaryButton addclass="search-button" {...props}>
-            <i>search</i>
-        </NormalSecondaryButton>
-    )
-}
-
-export function LongSearchButton(props) {
-    return (
-        <TextIconButton addclass="long-search-button" icon="search" text={props.text} {...props} />
+        <RoundIconButton addclass="search-button" icon="search" {...props} />
     )
 }
 
