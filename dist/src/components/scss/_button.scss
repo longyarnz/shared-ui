@@ -1,0 +1,106 @@
+@import '../scss/font';
+
+@import '../scss/variables';
+
+@import '../scss/base';
+
+
+
+button {
+
+  cursor: pointer;
+
+  width: 100%;
+
+  height: 100%;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  font-family: Roboto;
+
+  font-size: 80%;
+
+  font-weight: normal;
+
+  transition: all 0.25s ease;
+
+
+
+  &:focus,
+
+  &:hover {
+
+    outline: none;
+
+  }
+
+}
+
+
+
+button.dark-active {
+
+  &:active {
+
+    background-color: $dark1;
+
+    color: $dark4;
+
+  }
+
+}
+
+
+
+button.primary-active {
+
+  &:active {
+
+    background-color: $accent1-bg-dark;
+
+  }
+
+}
+
+
+
+button.success-active {
+
+  &:active {
+
+    background-color: $success-bg-dark;
+
+  }
+
+}
+
+
+
+button.danger-active {
+
+  &:active {
+
+    background-color: $danger-bg-dark;
+
+  }
+
+}
+
+
+
+button.primary-icon-active {
+
+  &:active {
+
+    & > i {
+
+      background-color: $accent1-bg-dark;
+
+    }
+
+  }
+
+}
+

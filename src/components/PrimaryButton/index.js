@@ -4,6 +4,7 @@
  */
 import React from 'react';
 import './primary-button.css';
+import 'material-icons/iconfont/material-icons.css';
 import ShouldRender from '../../utils/ShouldRender';
 import Spinner from '../Spinner';
 
@@ -19,23 +20,23 @@ import Spinner from '../Spinner';
  * * `height`: Height of the button.
  * * `onClick`: onclick event function of the button.
  * ### Example
-    ```js
-    <PrimaryButton
-        addclass="override-default-style" 
-        text="Without Children"
-        width={200} 
-        height={40} 
-        onClick={e => console.log(e.target)}
-    />
+    ```html
+        <PrimaryButton
+            addclass="override-default-style" 
+            text="Without Children"
+            width={200} 
+            height={40} 
+            onClick={e => console.log(e.target)}
+        />
 
-    <PrimaryButton
-        addclass="override-default-style" 
-        width={200} 
-        height={40} 
-        onClick={e => console.log(e.target)}
-    >
-        With Children
-    </PrimaryButton>
+        <PrimaryButton
+            addclass="override-default-style" 
+            width={200} 
+            height={40} 
+            onClick={e => console.log(e.target)}
+        >
+            With Children
+        </PrimaryButton>
     ```
  */
 export default function PrimaryButton(props) {
@@ -72,23 +73,23 @@ export default function PrimaryButton(props) {
  * * `height`: Height of the button.
  * * `onClick`: onclick event function of the button.
  * ### Example
- ```js
-    <IconButton
-        addclass="override-default-style" 
-        width={200} 
-        height={40} 
-        icon="add"
-        onClick={e => console.log(e.target)}
-    />
+ ```html
+        <IconButton
+            addclass="override-default-style" 
+            width={200} 
+            height={40} 
+            icon="add"
+            onClick={e => console.log(e.target)}
+        />
 
-    <IconButton
-        addclass="override-default-style" 
-        width={200} 
-        height={40} 
-        onClick={e => console.log(e.target)}
-    >
-        <img src="https://fireflies.ai/img/header.png" alt="logo" />
-    </IconButton
+        <IconButton
+            addclass="override-default-style" 
+            width={200} 
+            height={40} 
+            onClick={e => console.log(e.target)}
+        >
+            <img src="https://fireflies.ai/img/header.png" alt="logo" />
+        </IconButton
  ```
  */
 export function IconButton(props) {
@@ -122,13 +123,13 @@ export function IconButton(props) {
  * * `height`: Height of the button.
  * * `onClick`: onclick event function of the button.
  * ### Example
-    ```js
-    <RoundIconButton 
-        width={200} 
-        height={40} 
-        icon="add" 
-        onClick={e => console.log(e.target)}
-    />
+    ```html
+        <RoundIconButton 
+            width={200} 
+            height={40} 
+            icon="add" 
+            onClick={e => console.log(e.target)}
+        />
     ```
  */
 export function RoundIconButton(props) {
@@ -158,13 +159,13 @@ export function RoundIconButton(props) {
  * * `height`: Height of the button.
  * * `onClick`: onclick event function of the button.
  * ### Example
-    ```js
-    <RoundSpinnerButton 
-        addclass="override-default-style"
-        spinnerColors={['#3b73ff', '#5cb85c', '#d9534f', '#910ac7']} 
-        spinnerSize={25} 
-        onClick={e => console.log(e.target)}
-    />
+    ```html
+        <RoundSpinnerButton 
+            addclass="override-default-style"
+            spinnerColors={['#3b73ff', '#5cb85c', '#d9534f', '#910ac7']} 
+            spinnerSize={25} 
+            onClick={e => console.log(e.target)}
+        />
     ```
 */
 export function RoundSpinnerButton(props) {
@@ -201,9 +202,9 @@ export function RoundSpinnerButton(props) {
  * * `iconStyle`: Inline CSS style for icon.
  * * `onClick`: onclick event function of the button.
  * ### Example
- ```js
-    <TextIconButton addclass="rect-add-button" icon="add" text="Add" {...props} />
- ```
+    ```html
+        <TextIconButton addclass="rect-add-button" icon="add" text="Add" {...props} />
+    ```
  */
 export function TextIconButton(props) {
     const className = props.className || 'text-icon-button';
@@ -240,8 +241,8 @@ export function TextIconButton(props) {
  * * `textStyle`: Inline CSS style for button text.
  * * `onClick`: onclick event function of the button.
  * ### Example
-    ```js
-    <LoadingTextButton spinnerSize={12} />
+    ```html
+        <LoadingTextButton spinnerSize={12} />
     ```
 */
 export function LoadingTextButton(props) {
@@ -283,8 +284,8 @@ export function LoadingTextButton(props) {
  * * `iconStyle`: Inline CSS style for icon.
  * * `onClick`: onclick event function of the button.
  * ### Example
-    ```js
-    <SuccessButton />
+    ```html
+        <SuccessButton />
     ```
  */
 export function SuccessButton(props) {
@@ -313,7 +314,7 @@ export function SuccessButton(props) {
  * * `iconStyle`: Inline CSS style for icon.
  * * `onClick`: onclick event function of the button.
  * ### Example
-    ```js
+    ```html
     <SuccessButton />
     ```
  */
