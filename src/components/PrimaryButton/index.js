@@ -3,10 +3,10 @@
  * @exports JSX.Element
  */
 import React from 'react';
-import './primary-button.css';
-import 'material-icons/iconfont/material-icons.css';
 import ShouldRender from '../../utils/ShouldRender';
 import Spinner from '../Spinner';
+import 'material-icons/iconfont/material-icons.css';
+import './primary-button.css';
 
 /**
  * @name PrimaryButton
@@ -40,6 +40,11 @@ import Spinner from '../Spinner';
     ```
  */
 export default function PrimaryButton(props) {
+    const unsupportedProps = [
+        'addClass', 'spinnerColor', 'spinnerColors',
+        'spinnerDepth', 'spinnerDuration', 'spinnerSize'
+    ];
+
     const className = `${props.className || 'primary-button'} ${props.addclass || ''}`;
     const style = {
         width: props.width,
@@ -47,9 +52,17 @@ export default function PrimaryButton(props) {
         ...props.style
     }
 
+    const newProps = { ...props };
+
+    for (const key in newProps) {
+        if (unsupportedProps.includes(key)) {
+            delete newProps[key];
+        }
+    }
+
     return (
         <button
-            {...props}
+            {...newProps}
             style={style}
             className={className}
         >
@@ -169,7 +182,7 @@ export function RoundIconButton(props) {
     ```
 */
 export function RoundSpinnerButton(props) {
-    const className = `${props.className || 'circle-icon-button'} ${props.addclass || ''}`;
+    const className = `${props.className || 'circle-icon-button loader'} ${props.addclass || ''}`;
     return (
         <IconButton {...props} className={className}>
             <div>

@@ -1,5 +1,9 @@
 @import '../scss/button';
 
+.loader {
+  cursor: progress;
+}
+
 .primary-button{
   @extend .dark-active;
   border-radius: 25px;
@@ -24,25 +28,29 @@
 
 .circle-icon-button {
   @extend .icon-button;
-  background-color: transparent;
+  background-color: $accent1-bg;
   border: none;
   color: #fff;
+  width: 40px;
+  height: 40px;
+  border: 1px solid $accent1;
+  padding: 0px;
+  border-radius: 50%;
   
   i {
     @extend .fa-spin;
     animation-duration: .45s;
     background-color: $accent1;
-    padding: 7.2px;
-    border-radius: 50%;
     font-size: 200%;
+    border: none;
   }
 
   & > div {
-    background-color: $accent1-bg;
+    background-color: transparent;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px;
+    padding: 0px;
     border-radius: 50%;
   }
 }

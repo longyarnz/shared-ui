@@ -9,5 +9,5 @@ export default function AsyncLoader({ path, ...props }) {
         <Suspense fallback={props.fallback ? props.fallback : <Spinner />}>
             <Payload {...props} />
         </Suspense>
-    ), [JSON.stringify(props)]);
+    ), [props]);
 }

@@ -6,25 +6,7 @@ export function SelectButton(props) {
     const valueRef = useRef(null);
     const [toggle, setToggle] = useState(true);
     const [value, setValue] = useState(null);
-
-    useEffect(() => {
-        valueRef.current = toggle;
-    });
-
-    useEffect(() => {
-        const listElements = Array.from(ul.current.children);
-
-        const onClickElement = e => {
-            listElements.forEach(element => element.classList.remove('selected'));
-            const value = e.target.getAttribute('value');
-            setValue(value);
-            e.target.classList.add('selected');
-            toggleDropdown();
-        }
-
-        listElements.forEach(element => element.onclick = onClickElement);
-    }, []);
-
+    
     const toggleDropdown = () => {
         const toggle = valueRef.current;
         setToggle(!toggle);
@@ -33,8 +15,23 @@ export function SelectButton(props) {
         childHeight = toggle ? childHeight : 0;
         ul.current.style.minHeight = `${numberOfChildren * childHeight}px`;
         ul.current.style.borderWidth = toggle ? '1px' : '0px';
-    }
-
+    };
+    
+    useEffect(() => {
+        valueRef.current = toggle;
+        const listElements = Array.from(ul.current.children);
+        
+        const onClickElement = e => {
+            listElements.forEach(element => element.classList.remove('selected'));
+            const value = e.target.getAttribute('value');
+            setValue(value);
+            e.target.classList.add('selected');
+            toggleDropdown();
+        }
+    
+        listElements.forEach(element => element.onclick = onClickElement);
+    });
+    
     const onClick = () => {
         toggleDropdown();
         props.onClick && props.onClick();

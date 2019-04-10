@@ -15,17 +15,18 @@
 
 .round-add-button,
 .search-button {
-  @extend .primary-icon-active;
+  @extend .primary-active;
+  background-color: #fff;
 
   i {
     background-color: #fff;
     animation: none;
     color: $accent1;
-    border: 1px solid $accent1;
+    background-color: transparent;
+  }
 
-    &:hover {
-      background-color: $accent1-bg;
-    }
+  &:hover {
+    background-color: $accent1-bg;
   }
 }
 
@@ -138,6 +139,7 @@
 .select-list {
   $radius: 20px;
   list-style: none;
+  z-index: 2;
   position: absolute;
   border-radius: $radius;
   background-color: $dark1;
