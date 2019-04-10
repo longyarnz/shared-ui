@@ -1,24 +1,10 @@
 import React from 'react';
+import PrimaryButton from '../PrimaryButton';
 import './secondary-button.css';
 
 export default function SecondaryButton(props) {
-    const style = {
-        width: props.width,
-        height: props.height,
-        padding: props.padding,
-        ...props.style
-    }
-    const className = props.className || "secondary-button";
-    const addClass = props.addclass || '';
-
     return (
-        <button
-            style={style}
-            {...props}
-            className={`${className} ${addClass}`}
-        >
-            {props.children || props.text}
-        </button>
+        <PrimaryButton className="secondary-button" {...props} />
     )
 }
 
