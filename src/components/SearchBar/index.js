@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import { TextIconButton } from '../PrimaryButton';
 import './search-bar.css';
 import ShouldRender from '../../utils/ShouldRender';
+import Spinner from '../Spinner';
 
 export default function SearchBar(props) {
     const input = useRef(null);
@@ -75,7 +76,7 @@ export default function SearchBar(props) {
 
             <ShouldRender if={focus && searching && props.done !== true}>
                 <span>
-                    <i className="fa-spin">donut_large</i>
+                    <Spinner size={12} />
                 </span>
             </ShouldRender>
 

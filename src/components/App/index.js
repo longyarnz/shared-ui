@@ -1,6 +1,7 @@
 import React from 'react';
 import './app.css';
-import PrimaryButton, { RoundIconButton, LoadingTextButton, SuccessButton, DangerButton } from '../PrimaryButton';
+import PrimaryButton, { LoadingTextButton, SuccessButton, DangerButton, RoundSpinnerButton } from '../PrimaryButton';
+import Spinner from '../Spinner';
 import SecondaryButton, { NormalSecondaryButton, SuccessSecondaryButton, DangerSecondaryButton } from '../SecondaryButton';
 import { DownloadButton, RoundAddButton, SearchButton, RectAddButton, SelectButton, StartDateButton, EndDateButton, Dropdown } from '../ActionButton';
 import SearchBar, { LongSearchButton } from '../SearchBar';
@@ -15,16 +16,19 @@ export default function App() {
                     <PrimaryButton text="Dark BG" />
                 </span>
                 <span>
-                    <RoundIconButton />
+                    <RoundSpinnerButton spinnerColors={['#3b73ff', '#5cb85c', '#d9534f', '#910ac7']} spinnerSize={25} />
                 </span>
                 <span>
-                    <LoadingTextButton />
+                    <LoadingTextButton spinnerSize={12} />
                 </span>
                 <span>
                     <SuccessButton />
                 </span>
                 <span>
                     <DangerButton />
+                </span>
+                <span>
+                    <Spinner colors={['#3b73ff', '#5cb85c', '#d9534f', '#910ac7']} size={40} />
                 </span>
             </div>
 

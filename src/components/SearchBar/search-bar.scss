@@ -18,6 +18,7 @@
     height: 100%;
     margin-right: auto;
     flex: 1;
+    color: $accent1;
     background-color: transparent;
     transition: $transition;
 
@@ -35,7 +36,7 @@
     background-color: transparent;
     transition: $transition;
 
-    & > i {
+    & > i, & > span {
       color: $accent1;
       font-size: 17px;
       margin-left: 10px;

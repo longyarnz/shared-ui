@@ -36,6 +36,15 @@
     border-radius: 50%;
     font-size: 200%;
   }
+
+  & > div {
+    background-color: $accent1-bg;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 50%;
+  }
 }
 
 .text-icon-button {
@@ -50,7 +59,7 @@
     background: transparent;
   }
   
-  span {
+  span:last-child {
     padding-left: 5%;
   }
   
@@ -62,14 +71,15 @@
 
 button.loading-text-button{
   @extend .text-icon-button;
+  cursor: progress;
 
   i {
     @extend .fa-spin;
   }
 
-  &:active {
-    background-color: $accent1-bg-dark;
-    color: #fff;
+  &:hover {
+    background-color: $accent1-bg;
+    color: $accent1;
   }
 }
 
