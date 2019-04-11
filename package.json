@@ -5,8 +5,6 @@
   "license": "MIT",
   "dependencies": {
     "@babel/core": "7.1.0",
-    "@bit/lekanmedia.fireflies.internal.spinner": "^0.0.6",
-    "@bit/lekanmedia.fireflies.primary.button": "^0.0.6",
     "@svgr/webpack": "2.4.1",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "9.0.0",
