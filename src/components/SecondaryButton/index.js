@@ -17,8 +17,7 @@ import './secondary-button.css';
  * @param {string} props.text Text for the button.
  * @param {JSX.Element} props.children React Elements
  * @param {function} props.onClick onclick event function of the button.
- * @example
- * <SecondaryButton addClass="custom-class" text="Without Children" width={200} height={40} onClick={e => console.log(e)} />
+ * @return {JSX.Element} A `PrimaryButton` with secondary-button style.
  */
 export default function SecondaryButton(props) {
     return (
@@ -37,8 +36,7 @@ export default function SecondaryButton(props) {
  * @param {string} props.text Text for the button.
  * @param {JSX.Element} props.children React Elements
  * @param {function} props.onClick onclick event function of the button.
- * @example
- * <SecondaryButton addClass="custom-class" text="Without Children" width={200} height={40} onClick={e => console.log(e)} />
+ * @return {JSX.Element} A `SecondaryButton` with normal style.
  */
 export function NormalSecondaryButton(props) {
     return (
@@ -57,8 +55,7 @@ export function NormalSecondaryButton(props) {
  * @param {string} props.text Text for the button.
  * @param {JSX.Element} props.children React Elements
  * @param {function} props.onClick onclick event function of the button.
- * @example
- * <SecondaryButton addClass="custom-class" text="Without Children" width={200} height={40} onClick={e => console.log(e)} />
+ * @return {JSX.Element} A `SecondaryButton` with success style.
  */
 export function SuccessSecondaryButton(props) {
     return (
@@ -77,8 +74,7 @@ export function SuccessSecondaryButton(props) {
  * @param {string} props.text Text for the button.
  * @param {JSX.Element} props.children React Elements
  * @param {function} props.onClick onclick event function of the button.
- * @example
- * <SecondaryButton addClass="custom-class" text="Without Children" width={200} height={40} onClick={e => console.log(e)} />
+ * @return {JSX.Element} A `SecondaryButton` with danger style.
  */
 export function DangerSecondaryButton(props) {
     return (

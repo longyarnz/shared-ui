@@ -17,8 +17,7 @@ export { SelectButton, Dropdown } from './SelectButton';
  * @param {number} props.height Height of the button.
  * @param {JSX.Element} props.children React Elements
  * @param {function} props.onClick onclick event function of the button.
- * @example
- * <DownloadButton addClass="custom-class" text="Without Children" width={200} height={40} onClick={e => console.log(e)} />
+ * @return {JSX.Element} A `SuccessSecondaryButton` with a download icon.
  */
 export function DownloadButton(props) {
     const addClass = `download-button ${props.addClass || ''}`;
@@ -41,8 +40,7 @@ export function DownloadButton(props) {
  * @param {object} props.iconStyle Style Inline CSS styles for icon.
  * @param {JSX.Element} props.children React Elements
  * @param {function} props.onClick onclick event function of the button.
- * @example
- * <RoundIconButton addClass="custom-class" width={200} height={40} icon="add" onClick={e => console.log(e)} />
+ * @return {JSX.Element} A `RoundIconButton` with an _add_ icon.
  */
 export function RoundAddButton(props) {
     const addClass = `round-add-button ${props.addClass || ''}`;
@@ -64,8 +62,7 @@ export function RoundAddButton(props) {
  * @param {object} props.textStyle Style Inline CSS styles for the button text.
  * @param {object} props.iconStyle Style Inline CSS styles for icon.
  * @param {function} props.onClick onclick event function of the button.
- * @example
- * <TextIconButton addClass="rect-add-button" icon="add" text="Add" {...props} />
+ * @return {JSX.Element} A `TextIconButton` with an _add_ icon and _Add_ text.
  */
 export function RectAddButton(props) {
     const addClass = `rect-add-button ${props.addClass || ''}`;
@@ -86,8 +83,7 @@ export function RectAddButton(props) {
  * @param {object} props.iconStyle Style Inline CSS styles for icon.
  * @param {JSX.Element} props.children React Elements
  * @param {function} props.onClick onclick event function of the button.
- * @example
- * <RoundIconButton addClass="custom-class" width={200} height={40} icon="add" onClick={e => console.log(e)} />
+ * @return {JSX.Element} A `RoundIconButton` with a _search_ icon.
  */
 export function SearchButton(props) {
     const addClass = `search-button ${props.addClass || ''}`;

@@ -21,11 +21,6 @@ import { TextIconButton } from '../PrimaryButton';
  *     `<option></option>` rendered as dropdown list elements.
  * @param {function} props.onClick onclick event function of the button.
  * @returns {JSX.Element} A `button` and a dropdown list toggled by the `button`.
- * @example
- * <SelectButton placeholder="Click Me!">
- * <option value="Selected 1">Select 1</option>
- * <option value="Selected 2">Select 2</option>
- * </SelectButton>
  */
 export function SelectButton(props) {
     const [toggle, setToggle] = useState(true);
@@ -105,11 +100,6 @@ export function SelectButton(props) {
  *     `<option></option>` rendered as dropdown list elements.
  * @param {function} props.onClick onclick event function of the button.
  * @returns {JSX.Element} A `SelectButton` and dropdown list with a different CSS styling.
- * @example
- * <Dropdown placeholder="Click Me!">
- * <option value="Selected 1">Select 1</option>
- * <option value="Selected 2">Select 2</option>
- * </Dropdown>
  */
 export function Dropdown(props) {
     const addClass = `dropdown ${props.addClass || ''}`;

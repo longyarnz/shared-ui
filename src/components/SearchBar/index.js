@@ -19,8 +19,7 @@ import Spinner from '../Spinner';
  * @param {JSX.Element} props.children React Elements
  * @param {function} props.onSearch A function to collect the search text.
  * @param {function} props.cancelSearch A function to cancel an ongoing search.
- * @example
- * <SearchBar placeholder="Search Bar" done={false} onSearch={searchValue => console.log(searchValue)} />
+ * @return {JSX.Element} A search input with a spinner component.
  */
 export default function SearchBar(props) {
     const [focus, setFocus] = useState(false);
@@ -119,8 +118,7 @@ export default function SearchBar(props) {
  * @param {object} props.textStyle Style Inline CSS styles for the button text.
  * @param {object} props.iconStyle Style Inline CSS styles for icon.
  * @param {function} props.onClick onclick event function of the button.
- * @example
- * <LongSearchButton text="Search Button" />
+ * @return {JSX.Element} A `TextIconButton` with an _search_ icon and _Search_ text.
  */
 export function LongSearchButton(props) {
     const addClass = `long-search-button ${props.addClass || ''}`;

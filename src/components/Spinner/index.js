@@ -19,8 +19,7 @@ import './spinner.css';
  * @param {string} props.duration The duration of a complete revolution of the `Spinner` in seconds.
  * @param {number} props.depth The thickness of the `Spinner` border.
  * @param {function} props.onClick onclick event function of the button.
- * @example
- * <Spinner addClass="custom-class" colors={['#3b73ff', '#5cb85c', '#d9534f', '#910ac7']} size={25} onClick={e => console.log(e)} />
+ * @return {JSX.Element} A rotating spinner icon.
 */
 export default function Spinner(props) {
     const [counter, setCounter] = useState(0);

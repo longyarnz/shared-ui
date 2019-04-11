@@ -19,8 +19,6 @@ import './primary-button.css';
  * @param {JSX.Element} props.children React Elements
  * @param {function} props.onClick onclick event function of the button.
  * @returns {JSX.Element} A HTML `button`
- * @example
- * <PrimaryButton addClass="custom-class" text="Without Children" width={200} height={40} onClick={e => console.log(e)} />
  */
 export default function PrimaryButton(props) {
     const unsupportedProps = [
@@ -67,8 +65,6 @@ export default function PrimaryButton(props) {
  * @param {JSX.Element} props.children React Elements
  * @param {function} props.onClick onclick event function of the button.
  * @returns {JSX.Element} A `PrimaryButton` component with an icon as a child.
- * @example
- * <IconButton addClass="custom-class" width={200} height={40} icon="add" onClick={e => console.log(e)} />
  */
 export function IconButton(props) {
     const className = `${props.className || 'icon-button'} ${props.addClass || ''}`;
@@ -99,8 +95,6 @@ export function IconButton(props) {
  * @param {JSX.Element} props.children React Elements
  * @param {function} props.onClick onclick event function of the button.
  * @returns {JSX.Element} A round `IconButton` component.
- * @example
- * <RoundIconButton addClass="custom-class" width={200} height={40} icon="add" onClick={e => console.log(e)} />
  */
 export function RoundIconButton(props) {
     const icon = props.icon;
@@ -126,8 +120,6 @@ export function RoundIconButton(props) {
  * @param {number} props.spinnerDepth The thickness of the `Spinner` border.
  * @param {function} props.onClick onclick event function of the button.
  * @returns {JSX.Element} A round `IconButton` with a child `Spinner` component.
- * @example
- * <RoundSpinnerButton addClass="custom-class" spinnerColors={['#3b73ff', '#5cb85c', '#d9534f', '#910ac7']} spinnerSize={25} onClick={e => console.log(e)} />
 */
 export function RoundSpinnerButton(props) {
     const className = `${props.className || 'circle-icon-button loader'} ${props.addClass || ''}`;
@@ -160,8 +152,6 @@ export function RoundSpinnerButton(props) {
  * @param {object} props.iconStyle Style Inline CSS styles for icon.
  * @param {function} props.onClick onclick event function of the button.
  * @returns {JSX.Element} A `PrimaryButton` component with an icon and a text node as its children.
- * @example
- * <TextIconButton addClass="rect-add-button" icon="add" text="Add" {...props} />
  */
 export function TextIconButton(props) {
     const className = props.className || 'text-icon-button';
@@ -195,8 +185,6 @@ export function TextIconButton(props) {
  * @param {number} props.spinnerDepth The thickness of the `Spinner` border.
  * @param {function} props.onClick onclick event function of the button.
  * @returns {JSX.Element} A `PrimaryButton` component with a `Spinner` component and text node as its children.
- * @example
- * <LoadingTextButton spinnerSize={12} />
 */
 export function LoadingTextButton(props) {
     const text = props.text || 'Loading';
@@ -234,8 +222,6 @@ export function LoadingTextButton(props) {
  * @param {object} props.iconStyle Style Inline CSS styles for icon.
  * @param {function} props.onClick onclick event function of the button.
  * @returns {JSX.Element} A `TextIconButton` component with a _check_ icon and _Success_ text as its children.
- * @example
- * <SuccessButton />
  */
 export function SuccessButton(props) {
     const text = props.text || 'Success';
@@ -260,8 +246,6 @@ export function SuccessButton(props) {
  * @param {object} props.iconStyle Style Inline CSS styles for icon.
  * @param {function} props.onClick onclick event function of the button.
  * @returns {JSX.Element} A `TextIconButton` component with a _close_ icon and _Danger_ text as its children.
- * @example
- * <DangerButton />
  */
 export function DangerButton(props) {
     const text = props.text || 'Danger';
