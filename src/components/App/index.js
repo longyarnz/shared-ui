@@ -1,7 +1,7 @@
 import React from 'react';
 import './app.css';
-import PrimaryButton, { LoadingTextButton, SuccessButton, DangerButton, RoundSpinnerButton } from '../PrimaryButton';
-import Spinner from '../Spinner';
+import PrimaryButton, { LoadingTextButton, SuccessButton, DangerButton, RoundSpinnerButton } from '@bit/lekanmedia.fireflies.primary.button';
+import Spinner from '@bit/lekanmedia.fireflies.internal.spinner';
 import SecondaryButton, { NormalSecondaryButton, SuccessSecondaryButton, DangerSecondaryButton } from '../SecondaryButton';
 import { DownloadButton, RoundAddButton, SearchButton, RectAddButton, SelectButton, StartDateButton, EndDateButton, Dropdown } from '../ActionButton';
 import SearchBar, { LongSearchButton } from '../SearchBar';

@@ -11,33 +11,16 @@ import './primary-button.css';
 /**
  * @name PrimaryButton
  * @description Renders a HTML Button element
- * @param {{className: string, addclass?: string, width: number, height: number, text?: string, children?: JSX.Element, onClick?: function}} props
- * ### Props
- * Props includes all HTML button props, e.g:
- * * `className`: The default class of the button.
- * * `addclass`: Add extra class styles to overwrite default class.
- * * `width`: Width of the button.
- * * `height`: Height of the button.
- * * `onClick`: onclick event function of the button.
- * ### Example
-    ```html
-        <PrimaryButton
-            addclass="override-default-style" 
-            text="Without Children"
-            width={200} 
-            height={40} 
-            onClick={e => console.log(e.target)}
-        />
-
-        <PrimaryButton
-            addclass="override-default-style" 
-            width={200} 
-            height={40} 
-            onClick={e => console.log(e.target)}
-        >
-            With Children
-        </PrimaryButton>
-    ```
+ * @param {string} props.className The default class of the button.
+ * @param {string} props.addClass Add extra class styles to overwrite default class.
+ * @param {number} props.width Width of the button.
+ * @param {number} props.height Height of the button.
+ * @param {string} props.text Text for the button.
+ * @param {JSX.Element} props.children React Elements
+ * @param {function} props.onClick onclick event function of the button.
+ * @returns {JSX.Element} A HTML `button`
+ * @example
+ * <PrimaryButton addClass="custom-class" text="Without Children" width={200} height={40} onClick={e => console.log(e)} />
  */
 export default function PrimaryButton(props) {
     const unsupportedProps = [
@@ -45,7 +28,7 @@ export default function PrimaryButton(props) {
         'spinnerDepth', 'spinnerDuration', 'spinnerSize'
     ];
 
-    const className = `${props.className || 'primary-button'} ${props.addclass || ''}`;
+    const className = `${props.className || 'primary-button'} ${props.addClass || ''}`;
     const style = {
         width: props.width,
         height: props.height,
@@ -73,40 +56,22 @@ export default function PrimaryButton(props) {
 
 /**
  * @name IconButton
- * @extends PrimaryButton
- * @description Inserts an Icon from the Material-icon library into a `PrimaryButton`.
- * @param {{className: string, addclass?: string, width: number, height: number, icon?: string, children?: JSX.Element, onClick?: function}} props
- * ### Props
- * Props includes all HTML button props, e.g:
- * * `className`: The default class of the button.
- * * `addclass`: Add extra class styles to overwrite default class.
- * * `icon`: Name of material-icon;
- * * `iconStyle`: Inline styles for icon;
- * * `width`: Width of the button.
- * * `height`: Height of the button.
- * * `onClick`: onclick event function of the button.
- * ### Example
- ```html
-        <IconButton
-            addclass="override-default-style" 
-            width={200} 
-            height={40} 
-            icon="add"
-            onClick={e => console.log(e.target)}
-        />
-
-        <IconButton
-            addclass="override-default-style" 
-            width={200} 
-            height={40} 
-            onClick={e => console.log(e.target)}
-        >
-            <img src="https://fireflies.ai/img/header.png" alt="logo" />
-        </IconButton
- ```
+ * @extends `PrimaryButton`
+ * @description Inserts an Icon from the Material Icon library into a `PrimaryButton`.
+ * @param {string} props.className The default class of the button.
+ * @param {string} props.addClass Add extra class styles to overwrite default class.
+ * @param {number} props.width Width of the button.
+ * @param {number} props.height Height of the button.
+ * @param {string} props.icon Google Material Icon for the button.
+ * @param {object} props.iconStyle Style Inline CSS styles for icon.
+ * @param {JSX.Element} props.children React Elements
+ * @param {function} props.onClick onclick event function of the button.
+ * @returns {JSX.Element} A `PrimaryButton` component with an icon as a child.
+ * @example
+ * <IconButton addClass="custom-class" width={200} height={40} icon="add" onClick={e => console.log(e)} />
  */
 export function IconButton(props) {
-    const className = `${props.className || 'icon-button'} ${props.addclass || ''}`;
+    const className = `${props.className || 'icon-button'} ${props.addClass || ''}`;
 
     return (
         <PrimaryButton className={className} {...props}>
@@ -125,29 +90,21 @@ export function IconButton(props) {
  * @name RoundIconButton
  * @extends IconButton
  * @description Renders a round `IconButton`.
- * @param {{className: string, addclass?: string, width: number, height: number, icon?: string, iconStyle?: {}, children?: JSX.Element, onClick?: function}} props
- * ### Props
- * Props includes all HTML button props, e.g:
- * * `className`: The default class of the button.
- * * `addclass`: Add extra class styles to overwrite default class.
- * * `icon`: Name of material-icon;
- * * `iconStyle`: Inline CSS styles for icon;
- * * `width`: Width of the button.
- * * `height`: Height of the button.
- * * `onClick`: onclick event function of the button.
- * ### Example
-    ```html
-        <RoundIconButton 
-            width={200} 
-            height={40} 
-            icon="add" 
-            onClick={e => console.log(e.target)}
-        />
-    ```
+ * @param {string} props.className The default class of the button.
+ * @param {string} props.addClass Add extra class styles to overwrite default class.
+ * @param {number} props.width Width of the button.
+ * @param {number} props.height Height of the button.
+ * @param {string} props.icon Google Material Icon for the button.
+ * @param {object} props.iconStyle Style Inline CSS styles for icon.
+ * @param {JSX.Element} props.children React Elements
+ * @param {function} props.onClick onclick event function of the button.
+ * @returns {JSX.Element} A round `IconButton` component.
+ * @example
+ * <RoundIconButton addClass="custom-class" width={200} height={40} icon="add" onClick={e => console.log(e)} />
  */
 export function RoundIconButton(props) {
     const icon = props.icon;
-    const className = `${props.className || 'circle-icon-button'} ${props.addclass || ''}`;
+    const className = `${props.className || 'circle-icon-button'} ${props.addClass || ''}`;
 
     return (
         <IconButton {...props} className={className} icon={icon} />
@@ -156,33 +113,24 @@ export function RoundIconButton(props) {
 
 /**
  * @name RoundSpinnerButton
- * @extends IconButton
+ * @extends `IconButton`
  * @description Renders a `Spinner` component into an `IconButton`.
- * @param {{className: string, addclass?: string, width: number, height: number, spinnerSize: number, spinnerColor?: string, spinnerColors?: [string], spinnerDuration?: string, spinnerDepth?: number, onClick?: function}} props
- * ### Props
- * Props includes all HTML button props, e.g:
- * * `spinnerSize`: The size of the width and height of the `Spinner`.
- * * `spinnerColor`: A single color for the `Spinner`.
- * * `spinnerColors`: An array of color hex strings for the `Spinner`. It overides `spinnerColor`.
- * * `spinnerDuration`: The duration of a complete revolution of the `Spinner` in seconds.
- * * `spinnerDepth`: The thickness of the `Spinner`.
- * * `className`: The default class of the button.
- * * `addclass`: Add extra class styles to overwrite default class.
- * * `width`: Width of the button.
- * * `height`: Height of the button.
- * * `onClick`: onclick event function of the button.
- * ### Example
-    ```html
-        <RoundSpinnerButton 
-            addclass="override-default-style"
-            spinnerColors={['#3b73ff', '#5cb85c', '#d9534f', '#910ac7']} 
-            spinnerSize={25} 
-            onClick={e => console.log(e.target)}
-        />
-    ```
+ * @param {string} props.className The default class of the button.
+ * @param {string} props.addClass Add extra class styles to overwrite default class.
+ * @param {number} props.width Width of the button.
+ * @param {number} props.height Height of the button.
+ * @param {number} props.spinnerSize The size of the width and height of the `Spinner`.
+ * @param {string} props.spinnerColor A single color for the `Spinner`.
+ * @param {[string]} props.spinnerColors An array of color hex strings for the `Spinner`. It overides `spinnerColor`.
+ * @param {string} props.spinnerDuration The duration of a complete revolution of the `Spinner` in seconds.
+ * @param {number} props.spinnerDepth The thickness of the `Spinner` border.
+ * @param {function} props.onClick onclick event function of the button.
+ * @returns {JSX.Element} A round `IconButton` with a child `Spinner` component.
+ * @example
+ * <RoundSpinnerButton addClass="custom-class" spinnerColors={['#3b73ff', '#5cb85c', '#d9534f', '#910ac7']} spinnerSize={25} onClick={e => console.log(e)} />
 */
 export function RoundSpinnerButton(props) {
-    const className = `${props.className || 'circle-icon-button loader'} ${props.addclass || ''}`;
+    const className = `${props.className || 'circle-icon-button loader'} ${props.addClass || ''}`;
     return (
         <IconButton {...props} className={className}>
             <div>
@@ -200,24 +148,20 @@ export function RoundSpinnerButton(props) {
 
 /**
  * @name TextIconButton
- * @extends PrimaryButton
+ * @extends `PrimaryButton`
  * @description Renders an icon and a text into an `PrimaryButton`.
- * @param {{className: string, addclass?: string, width: number, height: number, text: string, textStyle: {}, icon: string, iconStyle: {}, onClick?: function}} props
- * ### Props
- * Props includes all HTML button props, e.g:
- * * `className`: The default class of the button.
- * * `addclass`: Add extra class styles to overwrite default class.
- * * `width`: Width of the button.
- * * `height`: Height of the button.
- * * `text`: Text in the button.
- * * `textStyle`: Inline CSS style for button text.
- * * `icon`: Name of material-icon.
- * * `iconStyle`: Inline CSS style for icon.
- * * `onClick`: onclick event function of the button.
- * ### Example
-    ```html
-        <TextIconButton addclass="rect-add-button" icon="add" text="Add" {...props} />
-    ```
+ * @param {string} props.className The default class of the button.
+ * @param {string} props.addClass Add extra class styles to overwrite default class.
+ * @param {number} props.width Width of the button.
+ * @param {number} props.height Height of the button.
+ * @param {string} props.text Text for the button.
+ * @param {object} props.textStyle Style Inline CSS styles for the button text.
+ * @param {string} props.icon Google Material Icon for the button.
+ * @param {object} props.iconStyle Style Inline CSS styles for icon.
+ * @param {function} props.onClick onclick event function of the button.
+ * @returns {JSX.Element} A `PrimaryButton` component with an icon and a text node as its children.
+ * @example
+ * <TextIconButton addClass="rect-add-button" icon="add" text="Add" {...props} />
  */
 export function TextIconButton(props) {
     const className = props.className || 'text-icon-button';
@@ -236,27 +180,23 @@ export function TextIconButton(props) {
 
 /**
  * @name LoadingTextButton
- * @extends PrimaryButton
+ * @extends `PrimaryButton`
  * @description Renders a `Spinner` component and a text node into a `PrimaryButton`.
- * @param {{className: string, addclass?: string, width: number, height: number, spinnerSize: number, spinnerColor?: string, spinnerColors?: [string], spinnerDuration?: string, spinnerDepth?: number, text: string, textStyle: {}, onClick?: function}} props
- * ### Props
- * Props includes all HTML button props, e.g:
- * * `spinnerSize`: The size of the width and height of the `Spinner`.
- * * `spinnerColor`: A single color for the `Spinner`.
- * * `spinnerColors`: An array of color hex strings for the `Spinner`. It overides `spinnerColor`.
- * * `spinnerDuration`: The duration of a complete revolution of the `Spinner` in seconds.
- * * `spinnerDepth`: The thickness of the `Spinner`.
- * * `className`: The default class of the button.
- * * `addclass`: Add extra class styles to overwrite default class.
- * * `width`: Width of the button.
- * * `height`: Height of the button.
- * * `text`: Text in the button.
- * * `textStyle`: Inline CSS style for button text.
- * * `onClick`: onclick event function of the button.
- * ### Example
-    ```html
-        <LoadingTextButton spinnerSize={12} />
-    ```
+ * @param {string} props.className The default class of the button.
+ * @param {string} props.addClass Add extra class styles to overwrite default class.
+ * @param {number} props.width Width of the button.
+ * @param {number} props.height Height of the button.
+ * @param {string} props.text Text for the button.
+ * @param {object} props.textStyle Style Inline CSS styles for the button text.
+ * @param {number} props.spinnerSize The size of the width and height of the `Spinner`.
+ * @param {string} props.spinnerColor A single color for the `Spinner`.
+ * @param {[string]} props.spinnerColors An array of color hex strings for the `Spinner`. It overides `spinnerColor`.
+ * @param {string} props.spinnerDuration The duration of a complete revolution of the `Spinner` in seconds.
+ * @param {number} props.spinnerDepth The thickness of the `Spinner` border.
+ * @param {function} props.onClick onclick event function of the button.
+ * @returns {JSX.Element} A `PrimaryButton` component with a `Spinner` component and text node as its children.
+ * @example
+ * <LoadingTextButton spinnerSize={12} />
 */
 export function LoadingTextButton(props) {
     const text = props.text || 'Loading';
@@ -282,24 +222,20 @@ export function LoadingTextButton(props) {
 
 /**
  * @name SuccessButton
- * @extends TextIconButton
+ * @extends `TextIconButton`
  * @description Renders a _check_ icon and a _success_ text into a `TextIconButton`.
- * @param {{className: string, addclass?: string, width: number, height: number, text?: string, textStyle?: {}, icon?: string, iconStyle?: {}, onClick?: function}} props
- * ### Props
- * Props includes all HTML button props, e.g:
- * * `className`: The default class of the button.
- * * `addclass`: Add extra class styles to overwrite default class.
- * * `width`: Width of the button.
- * * `height`: Height of the button.
- * * `text`: Text in the button.
- * * `textStyle`: Inline CSS style for button text.
- * * `icon`: Name of material-icon.
- * * `iconStyle`: Inline CSS style for icon.
- * * `onClick`: onclick event function of the button.
- * ### Example
-    ```html
-        <SuccessButton />
-    ```
+ * @param {string} props.className The default class of the button.
+ * @param {string} props.addClass Add extra class styles to overwrite default class.
+ * @param {number} props.width Width of the button.
+ * @param {number} props.height Height of the button.
+ * @param {string} props.text Text for the button.
+ * @param {object} props.textStyle Style Inline CSS styles for the button text.
+ * @param {string} props.icon Google Material Icon for the button.
+ * @param {object} props.iconStyle Style Inline CSS styles for icon.
+ * @param {function} props.onClick onclick event function of the button.
+ * @returns {JSX.Element} A `TextIconButton` component with a _check_ icon and _Success_ text as its children.
+ * @example
+ * <SuccessButton />
  */
 export function SuccessButton(props) {
     const text = props.text || 'Success';
@@ -312,24 +248,20 @@ export function SuccessButton(props) {
 
 /**
  * @name DangerButton
- * @extends TextIconButton
+ * @extends `TextIconButton`
  * @description Renders a _close_ icon and a _Danger_ text into a `TextIconButton`.
- * @param {{className: string, addclass?: string, width: number, height: number, text?: string, textStyle?: {}, icon: string, iconStyle: {}, onClick?: function}} props
- * ### Props
- * Props includes all HTML button props, e.g:
- * * `className`: The default class of the button.
- * * `addclass`: Add extra class styles to overwrite default class.
- * * `width`: Width of the button.
- * * `height`: Height of the button.
- * * `text`: Text in the button.
- * * `textStyle`: Inline CSS style for button text.
- * * `icon`: Name of material-icon.
- * * `iconStyle`: Inline CSS style for icon.
- * * `onClick`: onclick event function of the button.
- * ### Example
-    ```html
-    <SuccessButton />
-    ```
+ * @param {string} props.className The default class of the button.
+ * @param {string} props.addClass Add extra class styles to overwrite default class.
+ * @param {number} props.width Width of the button.
+ * @param {number} props.height Height of the button.
+ * @param {string} props.text Text for the button.
+ * @param {object} props.textStyle Style Inline CSS styles for the button text.
+ * @param {string} props.icon Google Material Icon for the button.
+ * @param {object} props.iconStyle Style Inline CSS styles for icon.
+ * @param {function} props.onClick onclick event function of the button.
+ * @returns {JSX.Element} A `TextIconButton` component with a _close_ icon and _Danger_ text as its children.
+ * @example
+ * <DangerButton />
  */
 export function DangerButton(props) {
     const text = props.text || 'Danger';

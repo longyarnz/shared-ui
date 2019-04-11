@@ -1,6 +1,27 @@
+/**
+ * @fileoverview A React Spinner component
+ * @exports JSX.Element
+ */
 import React, { useState, useEffect } from 'react';
 import './spinner.css';
 
+/**
+ * @name Spinner
+ * @extends `IconButton`
+ * @description Renders a `Spinner` component into an `IconButton`.
+ * @param {string} props.className The default class of the button.
+ * @param {string} props.addClass Add extra class styles to overwrite default class.
+ * @param {number} props.width Width of the button.
+ * @param {number} props.height Height of the button.
+ * @param {number} props.size The size of the width and height of the `Spinner`.
+ * @param {string} props.color A single color for the `Spinner`.
+ * @param {[string]} props.colors An array of color hex strings for the `Spinner`. It overides `props.color`.
+ * @param {string} props.duration The duration of a complete revolution of the `Spinner` in seconds.
+ * @param {number} props.depth The thickness of the `Spinner` border.
+ * @param {function} props.onClick onclick event function of the button.
+ * @example
+ * <Spinner addClass="custom-class" colors={['#3b73ff', '#5cb85c', '#d9534f', '#910ac7']} size={25} onClick={e => console.log(e)} />
+*/
 export default function Spinner(props) {
     const [counter, setCounter] = useState(0);
 
@@ -14,7 +35,7 @@ export default function Spinner(props) {
         };
     });
 
-    const className = `spinner ${props.addclass || ''}`;
+    const className = `spinner ${props.addClass || ''}`;
 
     const color = props.colors
         ? `${props.colors[counter % props.colors.length]} `
