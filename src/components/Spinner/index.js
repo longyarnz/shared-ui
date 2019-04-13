@@ -45,7 +45,8 @@ export default function Spinner(props) {
         width: props.size || 0,
         height: props.size || 0,
         animationDuration: props.duration,
-        borderWidth: props.thickness
+        borderWidth: props.thickness || 1,
+        borderStyle: 'solid'
     };
 
     return (

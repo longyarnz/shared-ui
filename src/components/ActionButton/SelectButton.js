@@ -68,7 +68,7 @@ export function SelectButton(props) {
     const listClass = `select-list ${props.listClass || ''}`;
 
     return (
-        <>
+        <div className="select-button-container">
             <TextIconButton
                 {...props}
                 addClass={addClass}
@@ -80,7 +80,7 @@ export function SelectButton(props) {
             <ul className={listClass} style={props.dropdownStyle} ref={ul}>
                 {props.children}
             </ul>
-        </>
+        </div>
     )
 }
 

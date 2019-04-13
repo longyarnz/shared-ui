@@ -58,7 +58,6 @@ export default function SearchBar(props) {
         props.onSearch && props.onSearch(e.target.value[0].value);
         setSearching(true);
         setTimeout(() => input.current.blur(), 100);
-        setTimeout(() => setSearching(false), 5000);
     }
 
     const setPlaceholder = text => {
@@ -70,7 +69,7 @@ export default function SearchBar(props) {
             <input
                 type="text"
                 name="search"
-                placeholder={props.placeholder}
+                placeholder={props.placeholder || 'Search'}
                 required={true}
                 disabled={!focus}
                 ref={input}
@@ -93,7 +92,7 @@ export default function SearchBar(props) {
 
             <ShouldRender if={focus && searching && props.done !== true}>
                 <span>
-                    <Spinner size={12} />
+                    <Spinner colors={['#3b73ff', '#5cb85c', '#d9534f', '#910ac7']} size={14} />
                 </span>
             </ShouldRender>
 

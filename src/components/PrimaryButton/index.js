@@ -23,7 +23,7 @@ import './primary-button.css';
 export default function PrimaryButton(props) {
     const unsupportedProps = [
         'addClass', 'spinnerColor', 'spinnerColors',
-        'spinnerDepth', 'spinnerDuration', 'spinnerSize'
+        'spinnerDepth', 'spinnerDuration', 'spinnerSize', 'listClass'
     ];
 
     const className = `${props.className || 'primary-button'} ${props.addClass || ''}`;

@@ -1,5 +1,11 @@
 @import "../scss/button";
 
+.no-border {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
 .search-bar {
   @extend .primary-active;
   $transition: all 0.25s ease;
@@ -15,6 +21,7 @@
   transition: $transition;
 
   input {
+    @extend .no-border;
     height: 100%;
     margin-right: auto;
     flex: 1;
@@ -29,6 +36,7 @@
 
   button,
   span {
+    @extend .no-border;
     display: flex;
     align-items: center;
     width: auto;
@@ -36,7 +44,13 @@
     background-color: transparent;
     transition: $transition;
 
-    & > i, & > span {
+    &:nth-of-type(2) {
+      display: inline-block;
+    }
+    
+    & > i,
+    & > span {
+      @extend .no-border;
       color: $accent1;
       font-size: 17px;
       margin-left: 10px;
@@ -49,13 +63,13 @@
       background-color: $danger-bg;
       color: $danger;
     }
-    
+
     &[type="submit"] > i {
       background-color: $success-bg;
       border-radius: 50%;
       color: $success;
     }
-    
+
     &:hover {
       &#close {
         i {
@@ -63,7 +77,7 @@
           color: #fff;
         }
       }
-      
+
       &[type="submit"] {
         i {
           background-color: $success;
