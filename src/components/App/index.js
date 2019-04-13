@@ -5,6 +5,7 @@ import Spinner from '../Spinner';
 import SecondaryButton, { NormalSecondaryButton, SuccessSecondaryButton, DangerSecondaryButton } from '../SecondaryButton';
 import { DownloadButton, RoundAddButton, SearchButton, RectAddButton, SelectButton, StartDateButton, EndDateButton, Dropdown } from '../ActionButton';
 import SearchBar, { LongSearchButton } from '../SearchBar';
+import DarkSelector, { NormalSelector, SuccessSelector, DangerSelector } from '../Selector';
 
 export default function App() {
     return (
@@ -13,10 +14,13 @@ export default function App() {
                 <h3>Primary Buttons</h3>
 
                 <span>
-                    <PrimaryButton text="Dark BG" />
+                    <RoundSpinnerButton spinnerColors={['#3b73ff', '#5cb85c', '#d9534f', '#910ac7']} spinnerSize={25} />
                 </span>
                 <span>
-                    <RoundSpinnerButton spinnerColors={['#3b73ff', '#5cb85c', '#d9534f', '#910ac7']} spinnerSize={25} />
+                    <Spinner colors={['#3b73ff', '#5cb85c', '#d9534f', '#910ac7']} size={40} />
+                </span>
+                <span>
+                    <PrimaryButton text="Dark BG" />
                 </span>
                 <span>
                     <LoadingTextButton spinnerSize={12} />
@@ -26,9 +30,6 @@ export default function App() {
                 </span>
                 <span>
                     <DangerButton />
-                </span>
-                <span>
-                    <Spinner colors={['#3b73ff', '#5cb85c', '#d9534f', '#910ac7']} size={40} />
                 </span>
             </div>
 
@@ -96,6 +97,34 @@ export default function App() {
                 </span>
                 <span style={{width: 500}}>
                     <SearchBar placeholder="Search Bar" />
+                </span>
+            </div>
+
+            <div>
+                <h3>Selector Components</h3>
+
+                <span>
+                    <DarkSelector text="Disabled" disabled={true} />
+                </span>
+
+                <span>
+                    <DarkSelector text="Dark" />
+                </span>
+
+                <span>
+                    <DarkSelector text="Selected" selected={true} />
+                </span>
+
+                <span>
+                    <NormalSelector text="Normal" />
+                </span>
+
+                <span>
+                    <SuccessSelector text="Success" />
+                </span>
+
+                <span>
+                    <DangerSelector text="Danger" />
                 </span>
             </div>
         </section>

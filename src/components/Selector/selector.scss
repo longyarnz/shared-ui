@@ -1,0 +1,172 @@
+@import "../scss/button";
+
+button.selector {
+  @extend .primary-active;
+  @extend .tag-button;
+  cursor: default;
+  border-radius: 25px;
+
+  i {
+    border-radius: 50%;
+    transition: inherit;
+    padding: 2px;
+    font-size: 115%;
+
+    &:hover,
+    &:focus {
+      color: #fff;
+    }
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    background: initial;
+  }
+}
+
+button.normal-selector {
+  @extend .selector;
+  border-color: $accent1;
+
+  i {
+    color: $danger;
+    background-color: $danger-bg;
+
+    &:hover,
+    &:focus {
+      background-color: $danger;
+    }
+
+    &:active {
+      background-color: $danger-bg-dark;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    color: $accent1;
+  }
+}
+
+button.dark-selector {
+  @extend .selector;
+  color: $dark3;
+  background-color: $dark1;
+  border-color: $dark1;
+
+  &:disabled {
+    color: $dark2;
+    cursor: not-allowed;
+
+    i,
+    i:hover,
+    i:focus,
+    i:active {
+      cursor: not-allowed;
+      color: $dark2;
+      background-color: $dark1;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: $dark2;
+      background-color: $dark1;
+    }
+  }
+
+  &.selected,
+  &.selected:hover,
+  &.selected:focus,
+  &.selected:active {
+    color: $accent1;
+    background-color: $accent1-bg;
+    border-color: $accent1-bg;
+
+    i {
+      color: $danger;
+      background-color: $danger-bg;
+
+      &:hover,
+      &:focus {
+        background-color: $danger;
+        color: #fff;
+      }
+
+      &:active {
+        background-color: $danger-bg-dark;
+      }
+    }
+  }
+
+  i {
+    color: $danger-bg-dark;
+    background-color: $danger-bg;
+
+    &:hover,
+    &:focus {
+      background-color: $danger;
+    }
+
+    &:active {
+      background-color: $danger-bg-dark;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    color: $dark4;
+    background-color: $dark1;
+  }
+}
+
+button.success-selector {
+  @extend .selector;
+  color: $success;
+  border-color: $success;
+
+  i {
+    color: $success;
+    background-color: $success-bg;
+
+    &:hover,
+    &:focus {
+      background-color: $success;
+    }
+
+    &:active {
+      background-color: $success-bg-dark;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    color: $success;
+  }
+}
+
+button.danger-selector {
+  @extend .selector;
+  color: $danger;
+  border-color: $danger;
+
+  i {
+    color: $danger;
+    background-color: $danger-bg;
+
+    &:hover,
+    &:focus {
+      background-color: $danger;
+    }
+
+    &:active {
+      background-color: $danger-bg-dark;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    color: $danger;
+  }
+}

@@ -22,7 +22,7 @@ import './primary-button.css';
  */
 export default function PrimaryButton(props) {
     const unsupportedProps = [
-        'addClass', 'spinnerColor', 'spinnerColors',
+        'addClass', 'spinnerColor', 'spinnerColors', 'onClickIcon',
         'spinnerDepth', 'spinnerDuration', 'spinnerSize', 'listClass'
     ];
 
@@ -154,15 +154,21 @@ export function RoundSpinnerButton(props) {
  * @returns {JSX.Element} A `PrimaryButton` component with an icon and a text node as its children.
  */
 export function TextIconButton(props) {
-    const className = props.className || 'text-icon-button';
+    const className = `${props.className || 'text-icon-button'} ${props.addClass || ''}`;
+
     const style = {
         width: props.width,
         height: props.height,
     }
 
+    const onClickIcon = e => {
+        e.stopPropagation();
+        props.onClickIcon && props.onClickIcon();
+    }
+
     return (
         <PrimaryButton {...props} className={className} style={style}>
-            <i style={props.iconStyle}>{props.icon}</i>
+            <i style={props.iconStyle} onClick={onClickIcon}>{props.icon}</i>
             <span style={props.textStyle}>{props.text}</span>
         </PrimaryButton>
     )

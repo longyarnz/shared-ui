@@ -1,11 +1,5 @@
 @import "../scss/button";
 
-.no-border {
-  border: none;
-  outline: none;
-  box-shadow: none;
-}
-
 .search-bar {
   @extend .primary-active;
   $transition: all 0.25s ease;
@@ -86,4 +80,9 @@
       }
     }
   }
+}
+
+.long-search-button {
+  @extend .primary-active;
+  @extend .tag-button;
 }

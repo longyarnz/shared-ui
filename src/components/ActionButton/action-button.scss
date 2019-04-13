@@ -48,33 +48,6 @@
   }
 }
 
-.long-search-button {
-  @extend .primary-active;
-  border-radius: 30px;
-  background-color: #fff;
-  color: $accent1;
-  flex-direction: row-reverse;
-  justify-content: space-between;
-  width: 100%;
-
-  span {
-    padding: 0px;
-
-    &:last-child{
-      padding-left: 0px;
-    }
-  }
-
-  i {
-    font-size: 130%;
-  }
-
-  &:hover {
-    background-color: $accent1-bg;
-    color: $accent1;
-  }
-}
-
 .date-button {
   @extend .primary-active;
   background-color: #fff;

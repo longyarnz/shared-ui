@@ -34,3 +34,36 @@
 .loader {
   cursor: progress;
 }
+
+
+.no-border {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.tag-button {
+  border-radius: 30px;
+  background-color: #fff;
+  color: $accent1;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  width: 100%;
+
+  span {
+    padding: 0px;
+
+    &:last-child{
+      padding-left: 0px;
+    }
+  }
+
+  i {
+    font-size: 130%;
+  }
+
+  &:hover {
+    background-color: $accent1-bg;
+    color: $accent1;
+  }
+}
