@@ -13,30 +13,6 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "lekanmedia.shared-ui/internal/spinner@1.0.0": {
-        "files": [
-            {
-                "relativePath": "src/components/Spinner/spinner.css",
-                "test": false,
-                "name": "spinner.css"
-            }
-        ],
-        "mainFile": "src/components/Spinner/spinner.css",
-        "origin": "AUTHORED",
-        "exported": true
-    },
-    "lekanmedia.shared-ui/internal/index@1.0.1": {
-        "files": [
-            {
-                "relativePath": "src/components/Spinner/index.js",
-                "test": false,
-                "name": "index.js"
-            }
-        ],
-        "mainFile": "src/components/Spinner/index.js",
-        "origin": "AUTHORED",
-        "exported": true
-    },
     "lekanmedia.shared-ui/action-button@1.0.2": {
         "files": [
             {
@@ -109,6 +85,57 @@
         "mainFile": "src/components/SearchBar/index.js",
         "origin": "AUTHORED",
         "exported": true
+    },
+    "spinner": {
+        "files": [
+            {
+                "relativePath": "src/components/Spinner/index.js",
+                "test": false,
+                "name": "index.js"
+            },
+            {
+                "relativePath": "src/components/Spinner/spinner.css",
+                "test": false,
+                "name": "spinner.css"
+            }
+        ],
+        "mainFile": "src/components/Spinner/index.js",
+        "origin": "AUTHORED",
+        "exported": false
+    },
+    "selector": {
+        "files": [
+            {
+                "relativePath": "src/components/Selector/SelectorBuilder.js",
+                "test": false,
+                "name": "SelectorBuilder.js"
+            },
+            {
+                "relativePath": "src/components/Selector/index.js",
+                "test": false,
+                "name": "index.js"
+            },
+            {
+                "relativePath": "src/components/Selector/selector.css",
+                "test": false,
+                "name": "selector.css"
+            }
+        ],
+        "mainFile": "src/components/Selector/index.js",
+        "origin": "AUTHORED",
+        "exported": false
+    },
+    "internal/utils": {
+        "files": [
+            {
+                "relativePath": "src/utils/Utils.js",
+                "test": false,
+                "name": "Utils.js"
+            }
+        ],
+        "mainFile": "src/utils/Utils.js",
+        "origin": "AUTHORED",
+        "exported": false
     },
     "version": "14.0.5"
 }

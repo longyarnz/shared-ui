@@ -1,6 +1,7 @@
 import React from 'react';
 import { TextIconButton } from '../PrimaryButton';
 import './selector.css';
+import Spinner from '../Spinner';
 
 /**
  * @name Selector
@@ -22,7 +23,7 @@ export function Selector(props) {
     const addClass = `tag ${props.addClass || ''}`;
 
     return (
-        <TextIconButton {...props} addClass={addClass}  icon={props.icon} text={props.text} />
+        <TextIconButton {...props} addClass={addClass} icon={props.icon} text={props.text} />
     )
 }
 
@@ -30,7 +31,7 @@ export default function DarkSelector(props) {
     const addClass = `dark-selector ${props.selected ? 'selected' : ''} ${props.addClass || ''}`;
 
     return (
-        <Selector  icon="close" {...props} addClass={addClass} text={props.text} />
+        <Selector icon="close" {...props} addClass={addClass} text={props.text} />
     )
 }
 
@@ -38,22 +39,43 @@ export function NormalSelector(props) {
     const addClass = `normal-selector ${props.selected ? 'selected' : ''} ${props.addClass || ''}`;
 
     return (
-        <Selector  icon="close" {...props} addClass={addClass} text={props.text} />
+        <Selector icon="close" {...props} addClass={addClass} text={props.text} />
     )
 }
 
-export function SuccessSelector (props) {
+export function SuccessSelector(props) {
     const addClass = `success-selector ${props.addClass || ''}`;
-    
+
     return (
-        <Selector  icon="check" {...props} addClass={addClass} text={props.text} />
+        <Selector icon="check" {...props} addClass={addClass} text={props.text} />
     )
 }
 
-export function DangerSelector (props) {
+export function DangerSelector(props) {
     const addClass = `danger-selector ${props.addClass || ''}`;
 
     return (
-        <Selector  icon="close" {...props} addClass={addClass} text={props.text} />
+        <Selector icon="close" {...props} addClass={addClass} text={props.text} />
     )
+}
+
+/**
+ * @name ActiveSelector
+ * @extends `Selector`
+ * @description Wraps a `Selector` and renders a `Spinner` when the `Selector` is clicked.
+ * @param {boolean} props.isActive A boolean value to render the `Spinner` component.
+ * @return {JSX.Element} A wrapped Selector Component.
+ */
+export function ActiveSelector(props) {
+    const customIcon = props.isActive ? (
+        <Spinner colors={['#3b73ff', '#5cb85c', '#d9534f', '#910ac7']} size={14} />
+    ) : null;
+
+    const newProps = Object.assign({}, props, { customIcon });
+
+    const { component: Component } = props;
+
+    return (
+        <Component {...newProps} />
+    );
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './app.css';
 import PrimaryButton, { LoadingTextButton, SuccessButton, DangerButton, RoundSpinnerButton } from '../PrimaryButton';
 import Spinner from '../Spinner';
@@ -6,8 +6,19 @@ import SecondaryButton, { NormalSecondaryButton, SuccessSecondaryButton, DangerS
 import { DownloadButton, RoundAddButton, SearchButton, RectAddButton, SelectButton, StartDateButton, EndDateButton, Dropdown } from '../ActionButton';
 import SearchBar, { LongSearchButton } from '../SearchBar';
 import DarkSelector, { NormalSelector, SuccessSelector, DangerSelector } from '../Selector';
+import SelectorBuilder from '../Selector/SelectorBuilder';
 
 export default function App() {
+    const cache = useRef(null);
+    const [isDeleting, setIsDeleting] = useState([]);
+    const [selectors, setSelectors] = useState(['Antelope', 'Buffalo', 'Cheetah', 'Dragon', 'Eagle', 'Flamingo']);
+
+    useEffect(() => {
+        cache.current = selectors;
+
+        return () => cache.current = selectors;
+    }, [selectors])
+
     return (
         <section className="app">
             <div>
@@ -95,7 +106,7 @@ export default function App() {
                 <span>
                     <LongSearchButton text="Search Button" />
                 </span>
-                <span style={{width: 500}}>
+                <span style={{ width: 500 }}>
                     <SearchBar placeholder="Search Bar" />
                 </span>
             </div>
@@ -126,6 +137,26 @@ export default function App() {
                 <span>
                     <DangerSelector text="Danger" />
                 </span>
+            </div>
+
+            <div>
+                <h3>Selector Builder</h3>
+
+                <SelectorBuilder
+                    selectors={selectors}
+                    isDeleting={isDeleting}
+                    addSelector={text => {
+                        return new Promise(resolve => setTimeout(() => {
+                            resolve(setSelectors(cache.current.concat([text])));
+                        }, 3000));
+                    }}
+                    removeSelector={text => {
+                        setIsDeleting(isDeleting.concat(text));
+                        setTimeout(() => {
+                            setSelectors(cache.current.filter(i => i !== text))
+                        }, 3000);
+                    }}
+                />
             </div>
         </section>
     )

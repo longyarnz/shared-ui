@@ -1,8 +1,10 @@
 export function FlatList(props) {
     const { list, listView } = props;
-    return Array.isArray(list) ? (
-        list.map(listView)
-    ) : null;
+    const listIsArray = Array.isArray(list);
+    const listItems = listIsArray ? list.map(listView) : [];
+    props.prepend && listItems.unshift(props.prepend);
+    props.append && listItems.push(props.append);
+    return listIsArray ? listItems.filter(i => i !== null) : null;
 }
 
 export function ForLoop(props) {

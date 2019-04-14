@@ -22,8 +22,8 @@ import './primary-button.css';
  */
 export default function PrimaryButton(props) {
     const unsupportedProps = [
-        'addClass', 'spinnerColor', 'spinnerColors', 'onClickIcon',
-        'spinnerDepth', 'spinnerDuration', 'spinnerSize', 'listClass'
+        'addClass', 'spinnerColor', 'spinnerColors', 'onClickIcon', 'customIcon', 'isActive',
+        'spinnerDepth', 'spinnerDuration', 'spinnerSize', 'listClass', 'iconStyle', 'component'
     ];
 
     const className = `${props.className || 'primary-button'} ${props.addClass || ''}`;
@@ -168,7 +168,14 @@ export function TextIconButton(props) {
 
     return (
         <PrimaryButton {...props} className={className} style={style}>
-            <i style={props.iconStyle} onClick={onClickIcon}>{props.icon}</i>
+            <ShouldRender if={!props.customIcon}>
+                <i style={props.iconStyle} onClick={onClickIcon}>{props.icon}</i>
+            </ShouldRender>
+
+            <ShouldRender if={props.customIcon}>
+                {props.customIcon}
+            </ShouldRender>
+
             <span style={props.textStyle}>{props.text}</span>
         </PrimaryButton>
     )

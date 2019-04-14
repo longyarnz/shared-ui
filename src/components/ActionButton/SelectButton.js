@@ -75,6 +75,7 @@ export function SelectButton(props) {
                 icon={iconName}
                 text={text}
                 onClick={onClick}
+                onClickIcon={onClick}
             />
 
             <ul className={listClass} style={props.dropdownStyle} ref={ul}>

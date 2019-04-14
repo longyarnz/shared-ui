@@ -24,10 +24,12 @@ import Spinner from '../Spinner';
 export default function SearchBar(props) {
     const [focus, setFocus] = useState(false);
     const [searching, setSearching] = useState(false);
-    const input = useRef(null);
+    let input = useRef(null);
+
+    input = props.domRef ? props.domRef : input;
     const className = `search-bar ${props.className || ''}`;
 
-    const triggerSearch = () => {
+    const triggerSearchField = () => {
         if (focus) return;
         setFocus(true);
         input.current.placeholder = '';
@@ -36,6 +38,11 @@ export default function SearchBar(props) {
 
     const clearFormValue = () => {
         if (!focus) return;
+
+        else if (props.clearForm) {
+            props.clearForm();
+            return;
+        }
 
         else if (searching) {
             setSearching(false);
@@ -55,17 +62,19 @@ export default function SearchBar(props) {
 
     const searchValue = e => {
         e.preventDefault();
-        props.onSearch && props.onSearch(e.target.value[0].value);
+        props.onSearch && props.onSearch(e.target[0].value);
         setSearching(true);
-        setTimeout(() => input.current.blur(), 100);
+        setTimeout(() => input.current && input.current.blur(), 100);
     }
 
     const setPlaceholder = text => {
         input.current.placeholder = text;
     }
 
+    const searchIcon = props.searchIcon || 'search';
+
     return (
-        <form className={className} onClick={triggerSearch} onSubmit={searchValue}>
+        <form className={className} onClick={triggerSearchField} onSubmit={searchValue}>
             <input
                 type="text"
                 name="search"
@@ -98,7 +107,7 @@ export default function SearchBar(props) {
 
             <ShouldRender if={!focus}>
                 <span>
-                    <i>search</i>
+                    <i>{searchIcon}</i>
                 </span>
             </ShouldRender>
         </form>
