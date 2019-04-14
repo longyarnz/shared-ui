@@ -1,17 +1,13 @@
-import React, { Fragment, useState, useEffect, useRef } from 'react';
+import React, { Fragment, useState, useRef } from 'react';
 import { FlatList } from '../../utils/Utils';
 import { RoundAddButton } from '../ActionButton';
 import { NormalSelector, ActiveSelector } from '.';
 import ShouldRender from '../../utils/ShouldRender';
 import SearchBar from '../SearchBar';
 
-export default function SelectorBuilder({ removeSelector, ...props }) {
+export function SelectorBuilder(props) {
     const [addingSelector, setAddingSelector] = useState(false);
     const input = useRef(null);
-
-    useEffect(() => {
-
-    }, [addingSelector])
 
     const selectors = props.selectors || [];
 
@@ -43,21 +39,29 @@ export default function SelectorBuilder({ removeSelector, ...props }) {
     const append = (
         <Fragment key={`selector-${selectors.length}`}>
             <ShouldRender if={addingSelector}>
-                <span>
+                <span style={props.viewStyle}>
                     <AddTag ref={input} />
                 </span>
             </ShouldRender>
 
             <ShouldRender if={!addingSelector}>
-                <RoundAddButton onClick={toggleTag} />
+                <span style={props.viewStyle}>
+                    <RoundAddButton onClick={toggleTag} />
+                </span>
             </ShouldRender>
         </Fragment>
     )
 
+    const removeSelector = text => {
+        if (addingSelector) return;
+
+        props.removeSelector(text);
+    }
+
     const view = (text, i) => {
         const isActive = props.isDeleting.some(i => i === text);
         return (
-            <span key={`selector-${i}`}>
+            <span style={props.viewStyle} key={`selector-${i}`}>
                 <ActiveSelector
                     text={text}
                     key={Math.random()}
@@ -67,7 +71,7 @@ export default function SelectorBuilder({ removeSelector, ...props }) {
                 />
             </span>
         )
-    }   ;
+    };
 
     return (
         <FlatList

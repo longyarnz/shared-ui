@@ -2,6 +2,7 @@ import React from 'react';
 import { TextIconButton } from '../PrimaryButton';
 import './selector.css';
 import Spinner from '../Spinner';
+export { SelectorBuilder } from './SelectorBuilder';
 
 /**
  * @name Selector

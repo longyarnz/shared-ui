@@ -13,7 +13,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "lekanmedia.shared-ui/action-button@1.0.2": {
+    "lekanmedia.shared-ui/action-button@1.0.3": {
         "files": [
             {
                 "relativePath": "src/components/ActionButton/SelectButton.js",
@@ -35,7 +35,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "lekanmedia.shared-ui/primary-button@1.0.2": {
+    "lekanmedia.shared-ui/primary-button@1.0.3": {
         "files": [
             {
                 "relativePath": "src/components/PrimaryButton/index.js",
@@ -52,7 +52,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "lekanmedia.shared-ui/secondary-button@1.0.2": {
+    "lekanmedia.shared-ui/secondary-button@1.0.3": {
         "files": [
             {
                 "relativePath": "src/components/SecondaryButton/index.js",
@@ -69,7 +69,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "lekanmedia.shared-ui/search-bar@1.0.4": {
+    "lekanmedia.shared-ui/search-bar@1.0.5": {
         "files": [
             {
                 "relativePath": "src/components/SearchBar/index.js",
@@ -86,7 +86,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "spinner": {
+    "lekanmedia.shared-ui/spinner@0.0.1": {
         "files": [
             {
                 "relativePath": "src/components/Spinner/index.js",
@@ -101,9 +101,21 @@
         ],
         "mainFile": "src/components/Spinner/index.js",
         "origin": "AUTHORED",
-        "exported": false
+        "exported": true
     },
-    "selector": {
+    "lekanmedia.shared-ui/internal/utils@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/utils/Utils.js",
+                "test": false,
+                "name": "Utils.js"
+            }
+        ],
+        "mainFile": "src/utils/Utils.js",
+        "origin": "AUTHORED",
+        "exported": true
+    },
+    "lekanmedia.shared-ui/selector@0.0.4": {
         "files": [
             {
                 "relativePath": "src/components/Selector/SelectorBuilder.js",
@@ -123,19 +135,7 @@
         ],
         "mainFile": "src/components/Selector/index.js",
         "origin": "AUTHORED",
-        "exported": false
-    },
-    "internal/utils": {
-        "files": [
-            {
-                "relativePath": "src/utils/Utils.js",
-                "test": false,
-                "name": "Utils.js"
-            }
-        ],
-        "mainFile": "src/utils/Utils.js",
-        "origin": "AUTHORED",
-        "exported": false
+        "exported": true
     },
     "version": "14.0.5"
 }

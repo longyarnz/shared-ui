@@ -5,8 +5,7 @@ import Spinner from '../Spinner';
 import SecondaryButton, { NormalSecondaryButton, SuccessSecondaryButton, DangerSecondaryButton } from '../SecondaryButton';
 import { DownloadButton, RoundAddButton, SearchButton, RectAddButton, SelectButton, StartDateButton, EndDateButton, Dropdown } from '../ActionButton';
 import SearchBar, { LongSearchButton } from '../SearchBar';
-import DarkSelector, { NormalSelector, SuccessSelector, DangerSelector } from '../Selector';
-import SelectorBuilder from '../Selector/SelectorBuilder';
+import DarkSelector, { NormalSelector, SuccessSelector, DangerSelector, SelectorBuilder } from '../Selector';
 
 export default function App() {
     const cache = useRef(null);
