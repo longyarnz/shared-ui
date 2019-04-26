@@ -152,6 +152,7 @@ export function RoundSpinnerButton(props) {
  * @param {string} props.icon Google Material Icon for the button.
  * @param {object} props.iconStyle Style Inline CSS styles for icon.
  * @param {function} props.onClick onclick event function of the button.
+ * @param {function} props.onClickIcon onclick event function of the icon in the button.
  * @returns {JSX.Element} A `PrimaryButton` component with an icon and a text node as its children.
  */
 export function TextIconButton(props) {
