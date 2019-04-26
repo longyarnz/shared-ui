@@ -22,8 +22,9 @@ import './primary-button.css';
  */
 export default function PrimaryButton(props) {
     const unsupportedProps = [
-        'addClass', 'spinnerColor', 'spinnerColors', 'onClickIcon', 'customIcon', 'isActive',
-        'spinnerDepth', 'spinnerDuration', 'spinnerSize', 'listClass', 'iconStyle', 'component'
+        'addClass', 'spinnerColor', 'spinnerColors', 'onClickIcon', 'customClick',
+        'customIcon', 'isActive', 'childHeight','component', 'preventDefaultClick',
+        'spinnerDepth', 'spinnerDuration', 'spinnerSize', 'listClass', 'iconStyle',
     ];
 
     const className = `${props.className || 'primary-button'} ${props.addClass || ''}`;

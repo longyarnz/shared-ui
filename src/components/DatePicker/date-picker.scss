@@ -1,0 +1,105 @@
+@import '../scss/button';
+
+.date-button {
+  @extend .primary-active;
+  background-color: #fff;
+  color: $accent1;
+  border-radius: 5px;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  width: 100%;
+
+  i {
+    font-size: 130%;
+  }
+
+  span {
+    padding: 0px;
+  }
+
+  &:hover {
+    background-color: $accent1-bg;
+    color: $accent1;
+  }
+
+  &.dark {
+    border: 1px solid transparent;
+    background-color: $dark1;
+    color: $dark3;
+
+    &:hover {
+      background-color: $dark2;
+      color: $dark4;
+    }
+
+    &:active {
+      background-color: $dark3;
+      color: #fff;
+    }
+  }
+}
+
+button.date-picker > span {
+  display: inline-flex;
+  align-items: center;
+  padding: 0px;
+
+  &:last-of-type {
+    font-size: 110%;
+    padding: 0px;
+  }
+}
+
+span.icons > i {
+  margin: 0px 0px 0px 10px;
+  font-size: 14px;
+  transition: inherit;
+  font-size: 115%;
+
+  &:first-of-type {
+    border-radius: 50%;
+    padding: 5px;
+    color: $danger;
+    background-color: $danger-bg;
+    
+    &:hover,
+    &:focus {
+      background-color: $danger;
+      color: #fff;
+    }
+    
+    &:active {
+      background-color: $danger-bg-dark;
+    }
+  }
+
+  &:first-of-type {
+    color: $danger;
+    background-color: $danger-bg;
+  }
+}
+
+.date-picker-list {
+  width: auto;
+
+  & * {
+    color: $accent1 !important;
+  }
+
+  .p-datepicker {
+    border: none;
+    display: none;
+  }
+
+  .p-datepicker table td.p-datepicker-today > span {
+    background-color: $accent1-bg;
+  }
+
+  .p-datepicker table td > span.p-highlight {
+    color: #fff !important;
+  }
+}
+
+@import './calendar.scss';
+@import './calendar.min.scss';
+@import './theme.scss';

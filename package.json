@@ -1,10 +1,12 @@
 {
   "name": "shared_ui",
   "version": "0.0.1",
-  "author": "LekanMedia <lekanmedia@gmail.com>",
+  "author": "LekanMedia <longyarnz@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "@babel/core": "7.1.0",
+    "@bit/primefaces.primereact.calendar": "^3.1.0",
+    "@bit/primefaces.primereact.internal.stylelinks": "^3.1.0",
     "@svgr/webpack": "2.4.1",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "9.0.0",
@@ -116,6 +118,12 @@
   "babel": {
     "presets": [
       "react-app"
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-class-properties"
     ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.4.0"
   }
 }

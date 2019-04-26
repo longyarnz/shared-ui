@@ -3,10 +3,11 @@ import './app.css';
 import PrimaryButton, { LoadingTextButton, SuccessButton, DangerButton, RoundSpinnerButton } from '../PrimaryButton';
 import Spinner from '../Spinner';
 import SecondaryButton, { NormalSecondaryButton, SuccessSecondaryButton, DangerSecondaryButton } from '../SecondaryButton';
-import { DownloadButton, RoundAddButton, SearchButton, RectAddButton, StartDateButton, EndDateButton } from '../ActionButton';
+import { DownloadButton, RoundAddButton, SearchButton, RectAddButton } from '../ActionButton';
 import { SelectButton, Dropdown } from '../Dropdown';
 import SearchBar, { LongSearchButton } from '../SearchBar';
 import DarkSelector, { NormalSelector, SuccessSelector, DangerSelector, SelectorBuilder } from '../Selector';
+import DatePicker from '../DatePicker';
 
 export default function App() {
     const cache = useRef(null);
@@ -73,19 +74,13 @@ export default function App() {
                 <span>
                     <RectAddButton />
                 </span>
-                <span>
-                    <StartDateButton />
-                </span>
-                <span>
-                    <EndDateButton />
-                </span>
             </div>
 
             <div>
                 <h3>Dropdown Components</h3>
 
                 <span>
-                    <SelectButton placeholder="Click Me!">
+                    <SelectButton placeholder="Click Me!" onSelect={e => console.log(e)}>
                         <option value="Selected 1">Select 1</option>
                         <option value="Selected 2">Select 2</option>
                         <option value="Selected 3">Select 3</option>
@@ -93,7 +88,7 @@ export default function App() {
                     </SelectButton>
                 </span>
                 <span>
-                    <Dropdown placeholder="Click Me!">
+                    <Dropdown placeholder="Click Me!" onSelect={e => console.log(e)}>
                         <option value="Selected 1">Select 1</option>
                         <option value="Selected 2">Select 2</option>
                         <option value="Selected 3">Select 3</option>
@@ -113,6 +108,14 @@ export default function App() {
                 </span>
                 <span style={{ width: 500 }}>
                     <SearchBar placeholder="Search Bar" />
+                </span>
+            </div>
+
+            <div>
+                <h3>Date Picker</h3>
+
+                <span>
+                    <DatePicker onSelect={(e, date) => console.log(e, date)} />
                 </span>
             </div>
 
@@ -143,7 +146,7 @@ export default function App() {
                     <DangerSelector text="Danger" />
                 </span>
             </div>
-
+            
             <div>
                 <h3>Selector Builder</h3>
 
@@ -163,6 +166,7 @@ export default function App() {
                     }}
                 />
             </div>
+
         </section>
     )
 }

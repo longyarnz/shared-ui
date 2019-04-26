@@ -33,13 +33,16 @@ export function SelectButton(props) {
         valueRef.current = toggle;
         const listElements = Array.from(ul.current.children);
         
-        const onClickElement = e => {
-            listElements.forEach(element => element.classList.remove('selected'));
-            const value = e.target.getAttribute('value');
-            setValue(value);
-            e.target.classList.add('selected');
-            toggleDropdown();
-        }
+        const onClickElement = !props.preventDefaultClick 
+            ?   e => {
+                listElements.forEach(element => element.classList.remove('selected'));
+                e.target.classList.add('selected');
+                const value = e.target.getAttribute('value');
+                setValue(value);
+                props.onSelect && props.onSelect(value);
+                toggleDropdown();
+            } 
+            :  null; 
     
         listElements.forEach(element => element.onclick = onClickElement);
     });
@@ -60,7 +63,12 @@ export function SelectButton(props) {
         props.onClick && props.onClick();
     }
 
-    const iconName = toggle ? 'arrow_drop_down' : 'close';
+    let CustomIcon = props.customIcon; 
+    CustomIcon = CustomIcon 
+        ?   <CustomIcon toggleDropdown={toggleDropdown} /> 
+        :   null;
+
+    const iconName = toggle ? props.iconName || 'arrow_drop_down' : 'close';
 
     const text = value || props.placeholder;
 
@@ -77,6 +85,7 @@ export function SelectButton(props) {
                 text={text}
                 onClick={onClick}
                 onClickIcon={onClick}
+                customIcon={CustomIcon}
             />
 
             <ul className={listClass} style={props.dropdownStyle} ref={ul}>
@@ -108,7 +117,7 @@ export function Dropdown(props) {
     const listClass = `dropdown-list ${props.listClass || ''}`;
 
     return (
-        <SelectButton addClass={addClass} listClass={listClass} placeholder={props.placeholder}>
+        <SelectButton {...props} addClass={addClass} listClass={listClass} placeholder={props.placeholder}>
             {props.children}
         </SelectButton>
     )
