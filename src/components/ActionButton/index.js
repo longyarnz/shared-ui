@@ -6,7 +6,6 @@ import React from 'react';
 import { TextIconButton, RoundIconButton } from '../PrimaryButton';
 import { SuccessSecondaryButton } from '../SecondaryButton';
 import './action-button.css';
-export { SelectButton, Dropdown } from './SelectButton';
 
 /**
  * @name DownloadButton

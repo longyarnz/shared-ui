@@ -728,55 +728,6 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
-"@bit/lekanmedia.fireflies.internal._base@0.0.3":
-  version "0.0.3"
-  resolved "https://node.bit.dev/lekanmedia.fireflies.internal._base/-/lekanmedia.fireflies.internal._base-0.0.3.tgz#a0cd952478285ae943e5f6432444fce856765892"
-  integrity sha1-oM2VJHgoWulD5fZDJET86FZ2WJI=
-
-"@bit/lekanmedia.fireflies.internal._button@0.0.3":
-  version "0.0.3"
-  resolved "https://node.bit.dev/lekanmedia.fireflies.internal._button/-/lekanmedia.fireflies.internal._button-0.0.3.tgz#e1eb881affbf37a995201cc7bcccd2efa4ca4aac"
-  integrity sha1-4euIGv+/N6mVIBzHvMzS76TKSqw=
-  dependencies:
-    "@bit/lekanmedia.fireflies.internal._base" "0.0.3"
-    "@bit/lekanmedia.fireflies.internal._font" "0.0.3"
-    "@bit/lekanmedia.fireflies.internal._variables" "0.0.3"
-
-"@bit/lekanmedia.fireflies.internal._font@0.0.3":
-  version "0.0.3"
-  resolved "https://node.bit.dev/lekanmedia.fireflies.internal._font/-/lekanmedia.fireflies.internal._font-0.0.3.tgz#302d17d403da6d7f20dd9ace4da409ea8810334a"
-  integrity sha1-MC0X1APabX8g3ZrOTaQJ6ogQM0o=
-
-"@bit/lekanmedia.fireflies.internal._variables@0.0.3":
-  version "0.0.3"
-  resolved "https://node.bit.dev/lekanmedia.fireflies.internal._variables/-/lekanmedia.fireflies.internal._variables-0.0.3.tgz#6fd42c02da3aaf05d69822b6079d77297e65fda3"
-  integrity sha1-b9QsAto6rwXWmCK2B513KX5l/aM=
-
-"@bit/lekanmedia.fireflies.internal.should-render@0.0.3":
-  version "0.0.3"
-  resolved "https://node.bit.dev/lekanmedia.fireflies.internal.should-render/-/lekanmedia.fireflies.internal.should-render-0.0.3.tgz#1ea67441af2ea7de52b574a0a1832a0702a8f166"
-  integrity sha1-HqZ0Qa8up95StXSgoYMqBwKo8WY=
-
-"@bit/lekanmedia.fireflies.internal.spinner@0.0.6", "@bit/lekanmedia.fireflies.internal.spinner@^0.0.6":
-  version "0.0.6"
-  resolved "https://node.bit.dev/lekanmedia.fireflies.internal.spinner/-/lekanmedia.fireflies.internal.spinner-0.0.6.tgz#1304637cc97eab6aa0935be926e8c9142e9ff3e4"
-  integrity sha1-EwRjfMl+q2qgk1vpJujJFC6f8+Q=
-  dependencies:
-    "@bit/lekanmedia.fireflies.internal._base" "0.0.3"
-    "@bit/lekanmedia.fireflies.internal._variables" "0.0.3"
-    react "^16.8.6"
-
-"@bit/lekanmedia.fireflies.primary.button@^0.0.6":
-  version "0.0.6"
-  resolved "https://node.bit.dev/lekanmedia.fireflies.primary.button/-/lekanmedia.fireflies.primary.button-0.0.6.tgz#c5512359a43263883cde493fcb3db61821aa305f"
-  integrity sha1-xVEjWaQyY4g83kk/yz22GCGqMF8=
-  dependencies:
-    "@bit/lekanmedia.fireflies.internal._button" "0.0.3"
-    "@bit/lekanmedia.fireflies.internal.should-render" "0.0.3"
-    "@bit/lekanmedia.fireflies.internal.spinner" "0.0.6"
-    material-icons "^0.3.1"
-    react "^16.8.6"
-
 "@csstools/convert-colors@^1.4.0":
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"

@@ -3,7 +3,8 @@ import './app.css';
 import PrimaryButton, { LoadingTextButton, SuccessButton, DangerButton, RoundSpinnerButton } from '../PrimaryButton';
 import Spinner from '../Spinner';
 import SecondaryButton, { NormalSecondaryButton, SuccessSecondaryButton, DangerSecondaryButton } from '../SecondaryButton';
-import { DownloadButton, RoundAddButton, SearchButton, RectAddButton, SelectButton, StartDateButton, EndDateButton, Dropdown } from '../ActionButton';
+import { DownloadButton, RoundAddButton, SearchButton, RectAddButton, StartDateButton, EndDateButton } from '../ActionButton';
+import { SelectButton, Dropdown } from '../Dropdown';
 import SearchBar, { LongSearchButton } from '../SearchBar';
 import DarkSelector, { NormalSelector, SuccessSelector, DangerSelector, SelectorBuilder } from '../Selector';
 
@@ -78,6 +79,11 @@ export default function App() {
                 <span>
                     <EndDateButton />
                 </span>
+            </div>
+
+            <div>
+                <h3>Dropdown Components</h3>
+
                 <span>
                     <SelectButton placeholder="Click Me!">
                         <option value="Selected 1">Select 1</option>
