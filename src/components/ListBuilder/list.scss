@@ -1,0 +1,133 @@
+@import "../scss/font";
+@import "../scss/variables";
+@import "../scss/base";
+
+.list {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+
+  & > .list-row-header,
+  & > .list-row {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px 0px;
+
+    & > *:first-child {
+      flex-basis: 25%;
+      padding-left: 20px;
+      justify-content: flex-start;
+
+      @media screen and (max-width: 768px) {
+        padding-left: 5px;
+      }
+    }
+
+    & > span,
+    & > figure,
+    & > figure > figcaption {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+
+      &:not(figcaption) {
+        flex: 1;
+        margin: 0px 5px;
+      }
+    }
+
+    & > figure {
+      & > div {
+        width: 34px;
+        height: 34px;
+        display: flex;
+        align-items: center;
+        border-radius: 50%;
+        overflow: hidden;
+
+        img {
+          font-size: 50%;
+          width: 100%;
+        }
+      }
+
+      & > figcaption {
+        font-size: 80%;
+        margin-left: 10px;
+      }
+    }
+
+    &:not(.list-row) {
+      background-color: $dark3;
+      border-radius: 5px 5px 0px 0px;
+
+      & > span {
+        color: $dark1;
+        font-weight: bold;
+      }
+
+      & > span:first-of-type {
+        left: 20px;
+      }
+    }
+
+    &:not(.list-row-header) {
+      cursor: pointer;
+      transition: all 0.25s ease;
+      background-color: $dark1;
+
+      & > span,
+      & > figcaption {
+        color: $dark3;
+        font-size: 80%;
+        transition: inherit;
+      }
+
+      &.selected {
+        background-color: #fff;
+        position: relative;
+
+        &:hover,
+        &:focus {
+          background-color: initial;
+          color: $accent1;
+
+          span {
+            color: $accent1;
+          }
+        }
+
+        &::before {
+          content: "";
+          width: 3px;
+          height: 40px;
+          background-color: $accent1;
+          position: absolute;
+          left: -3px;
+          transition: all 0.25s ease;
+        }
+      }
+
+      &:last-of-type {
+        border-radius: 0px 0px 5px 5px;
+      }
+
+      &:hover,
+      &:focus {
+        background-color: $dark2;
+      }
+
+      &:active {
+        background-color: $dark3;
+
+        & > span {
+          color: $dark1;
+        }
+      }
+    }
+  }
+}
