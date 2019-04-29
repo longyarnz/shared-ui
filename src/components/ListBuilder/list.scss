@@ -16,6 +16,7 @@
     align-items: center;
     justify-content: space-around;
     padding: 20px 0px;
+    height: 65px;
 
     & > *:first-child {
       flex-basis: 25%;
@@ -31,7 +32,7 @@
     & > figure,
     & > figure > figcaption {
       display: inline-flex;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
 
       &:not(figcaption) {
@@ -62,27 +63,29 @@
     }
 
     &:not(.list-row) {
-      background-color: $dark3;
-      border-radius: 5px 5px 0px 0px;
-
+      background-color: $accent1-bg;
+      text-transform: uppercase;
+      font-size: 80%;
+      
       & > span {
-        color: $dark1;
-        font-weight: bold;
+        font-weight: 900;
+        color: $black;
       }
-
+      
       & > span:first-of-type {
         left: 20px;
       }
     }
-
+    
     &:not(.list-row-header) {
       cursor: pointer;
       transition: all 0.25s ease;
-      background-color: $dark1;
-
+      background-color: #fff;
+      border-bottom: 1px solid #eee;
+      
       & > span,
       & > figcaption {
-        color: $dark3;
+        color: $black;
         font-size: 80%;
         transition: inherit;
       }
@@ -90,15 +93,16 @@
       &.selected {
         background-color: #fff;
         position: relative;
+        color: $accent1;
+
+        span {
+          color: $accent1;
+        }
 
         &:hover,
         &:focus {
           background-color: initial;
-          color: $accent1;
 
-          span {
-            color: $accent1;
-          }
         }
 
         &::before {
@@ -110,10 +114,6 @@
           left: -3px;
           transition: all 0.25s ease;
         }
-      }
-
-      &:last-of-type {
-        border-radius: 0px 0px 5px 5px;
       }
 
       &:hover,

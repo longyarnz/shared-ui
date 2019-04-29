@@ -6,7 +6,7 @@
 
 .primary-button{
   @extend .dark-active;
-  border-radius: 25px;
+  border-radius: $radius;
   background-color: $dark1;
   justify-content: center;
   padding: 10px 30px;

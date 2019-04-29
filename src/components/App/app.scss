@@ -31,5 +31,17 @@ section.app {
       width: 200px;
       height: 40px;
     }
+
+    .prepend-icon {
+      &::after {
+        @extend .material-icons !optional;
+        content: "filter_list";
+        font-family: "Material Icons";
+      }
+
+      & > span {
+        margin-right: auto;
+      }
+    }
   }
 }

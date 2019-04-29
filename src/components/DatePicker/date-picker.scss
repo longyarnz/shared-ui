@@ -55,10 +55,11 @@ span.icons > i {
   font-size: 14px;
   transition: inherit;
   font-size: 115%;
+  transition: all .25s ease;
 
   &:first-of-type {
     border-radius: 50%;
-    padding: 5px;
+    padding: 2px;
     color: $danger;
     background-color: $danger-bg;
     
@@ -83,7 +84,7 @@ span.icons > i {
   width: auto;
 
   & * {
-    color: $accent1 !important;
+    color: $accent1;
   }
 
   .p-datepicker {
@@ -97,6 +98,15 @@ span.icons > i {
 
   .p-datepicker table td > span.p-highlight {
     color: #fff !important;
+  }
+
+  .p-datepicker table td > span, .p-highlight {
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
   }
 }
 

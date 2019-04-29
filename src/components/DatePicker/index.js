@@ -33,7 +33,7 @@ export default function DatePicker(props) {
         return (
             <span className="icons">
                 <i onClick={onClick}>close</i>
-                <i>calendar_today</i>
+                <i>insert_invitation</i>
             </span>
         )
     }

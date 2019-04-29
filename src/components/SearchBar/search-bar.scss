@@ -8,7 +8,7 @@
   display: inline-flex;
   align-items: center;
   border: 1px solid $accent1;
-  border-radius: 25px;
+  border-radius: $radius;
   overflow: hidden;
   padding: 10px;
   font-size: 80%;
@@ -20,7 +20,7 @@
     margin-right: auto;
     width: 100%;
     color: $accent1;
-    border-radius: 25px;
+    border-radius: $radius;
     background-color: transparent;
     transition: $transition;
 

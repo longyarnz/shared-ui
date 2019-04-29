@@ -26,12 +26,12 @@ import './dropdown.css';
 export function SelectButton(props) {
     const [toggle, setToggle] = useState(true);
     const [value, setValue] = useState(null);
-    const ul = useRef(null);
+    const div = useRef(null);
     const valueRef = useRef(null);
     
     useEffect(() => {
         valueRef.current = toggle;
-        const listElements = Array.from(ul.current.children);
+        const listElements = Array.from(div.current.children);
         
         const onClickElement = !props.preventDefaultClick 
             ?   e => {
@@ -51,11 +51,11 @@ export function SelectButton(props) {
     const toggleDropdown = () => {
         const toggle = valueRef.current;
         setToggle(!toggle);
-        const numberOfChildren = Array.from(ul.current.children).length;
+        const numberOfChildren = Array.from(div.current.children).length;
         let childHeight = props.childHeight || 40;
         childHeight = toggle ? childHeight : 0;
-        ul.current.style.minHeight = `${numberOfChildren * childHeight}px`;
-        ul.current.style.borderWidth = toggle ? '1px' : '0px';
+        div.current.style.minHeight = `${numberOfChildren * childHeight}px`;
+        div.current.style.borderWidth = toggle ? '1px' : '0px';
     };
     
     const onClick = () => {
@@ -68,7 +68,7 @@ export function SelectButton(props) {
         ?   <CustomIcon toggleDropdown={toggleDropdown} /> 
         :   null;
 
-    const iconName = toggle ? props.iconName || 'arrow_drop_down' : 'close';
+    const iconName = toggle ? props.iconName || 'keyboard_arrow_down' : 'close';
 
     const text = value || props.placeholder;
 
@@ -88,9 +88,9 @@ export function SelectButton(props) {
                 customIcon={CustomIcon}
             />
 
-            <ul className={listClass} style={props.dropdownStyle} ref={ul}>
+            <div className={listClass} style={props.dropdownStyle} ref={div}>
                 {props.children}
-            </ul>
+            </div>
         </div>
     )
 }
