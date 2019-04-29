@@ -1,0 +1,26 @@
+@import '../scss/button';
+
+.toggle-button {
+  border-radius: 15px;
+  border: 2px solid $accent1;
+  padding: 0px;
+  transition: all .25s ease;
+  position: relative;
+  align-items: center;
+  justify-content: flex-start;
+  
+  span {
+    background: $accent1;
+    border-radius: 50%;
+    position: relative;
+    transition: all .25s ease;
+  }
+
+  &:focus, &:hover, &:active {
+    background: initial;
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+  }
+}

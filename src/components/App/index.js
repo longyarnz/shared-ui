@@ -9,6 +9,7 @@ import SearchBar, { LongSearchButton } from '../SearchBar';
 import DarkSelector, { NormalSelector, SuccessSelector, DangerSelector, SelectorBuilder } from '../Selector';
 import DatePicker from '../DatePicker';
 import ListBuilder from '../ListBuilder';
+import ToggleButton from '../ToggleButton';
 
 export default function App() {
     const cache = useRef(null);
@@ -155,7 +156,7 @@ export default function App() {
                     <DangerSelector text="Danger" />
                 </span>
             </div>
-            
+
             <div>
                 <h3>Selector Builder</h3>
 
@@ -175,21 +176,32 @@ export default function App() {
                     }}
                 />
             </div>
-            
+
             <div>
                 <h3>List Builder</h3>
 
                 <ListBuilder
                     headers={['Name', 'Alerts', 'Count', 'Call']}
                     rows={[
-                        ['Pep Guardiola',  'Invoice', 87, 5],
-                        [{text: 'Zenedine Zidane', src: 'assets/img/logo.png'},  'Pricing', 7, 15],
-                        [{text: 'Alex Fergusson', src: 'assets/img/logo.png'},  'Invites', 18, 50],
-                        [{text: 'Jose Mourinho', src: 'assets/img/logo.png'},  'Upgrade', 0, 1],
+                        ['Pep Guardiola', 'Invoice', 87, 5],
+                        [{ text: 'Zenedine Zidane', src: 'assets/img/logo.png' }, 'Pricing', 7, 15],
+                        [{ text: 'Alex Fergusson', src: 'assets/img/logo.png' }, 'Invites', 18, 50],
+                        [{ text: 'Jose Mourinho', src: 'assets/img/logo.png' }, 'Upgrade', 0, 1],
                     ]}
                     onClick={rowData => console.log(rowData)}
                     defaultSelectedRow={2}
                 />
+            </div>
+
+            <div>
+                <h3>Toggle Button</h3>
+                <span>
+                    <ToggleButton onToggle={e => console.log(e)} />
+                </span>
+
+                <span>
+                    <ToggleButton onToggle={e => console.log(e)} disabled={true} />
+                </span>
             </div>
 
         </section>
