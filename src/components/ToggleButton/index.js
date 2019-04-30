@@ -4,30 +4,31 @@ import './toggle-button.css';
 
 export default function ToggleButton(props) {
     const [state, setState] = useState(props.on || false);
-    const { width = 40, height = 25 } = props;
-
-    const size = height * 0.6;
-
+    const { width = 40, height = 25, color = '#3b73ff' } = props;
+    
+    const size = height * 0.6, borderRadius = height * 0.5, margin = (size / 0.6 * (0.4 / 2) - 1);
+    
     const buttonStyle = {
-        borderColor: props.disabled ? '#ccc' : state ? '#3b73ff' : '#4D4F5C'
+        borderColor: props.disabled ? '#ccc' : state ? color : '#4D4F5C',
+        borderRadius
     }
-
+    
     const spanStyle = {
         height: size,
         width: size,
-        marginLeft: state ? `calc(100% - ${size}px - 2px)` : 2,
-        backgroundColor: props.disabled ? '#ccc' : state ? '#3b73ff' : '#4D4F5C'
+        marginLeft: state ? `calc(100% - ${size}px - ${margin}px)` : margin,
+        backgroundColor: props.disabled ? '#ccc' : state ? color : '#4D4F5C'
     }
-
+    
     const addClass = `toggle-button ${props.addClass || ''} ${props.disabled ? 'disabled' : ''}`;
-
+    
     const toggle = () => {
         if (props.disabled) return;
-
+        
         setState(!state);
         props.onToggle && props.onToggle(!state);
     }
-
+    
     return (
         <PrimaryButton
             style={buttonStyle}

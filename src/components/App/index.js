@@ -195,12 +195,17 @@ export default function App() {
 
             <div>
                 <h3>Toggle Button</h3>
+
+                <span>
+                    <ToggleButton onToggle={e => console.log(e)} disabled={true} />
+                </span>
+                
                 <span>
                     <ToggleButton onToggle={e => console.log(e)} />
                 </span>
 
                 <span>
-                    <ToggleButton onToggle={e => console.log(e)} disabled={true} />
+                    <ToggleButton color="#e82a73" on={true} height={80} width={200} onToggle={e => console.log(e)} />
                 </span>
             </div>
 
