@@ -1,6 +1,6 @@
 @import "../scss/button";
 
-.download-button {
+button.download-button {
   @extend .success-active;
   padding: 10px;
 
@@ -10,6 +10,10 @@
 
   &:hover {
     background-color: $success-bg;
+  }
+
+  &:active {
+    background-color: darken($success-bg-dark, 10%);
   }
 }
 
@@ -27,6 +31,10 @@
 
   &:hover {
     background-color: $accent1-bg;
+  }
+
+  &:active {
+    background-color: $accent1;
   }
 }
 

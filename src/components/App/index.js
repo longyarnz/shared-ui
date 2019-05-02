@@ -14,6 +14,7 @@ import ToggleButton from '../ToggleButton';
 export default function App() {
     const cache = useRef(null);
     const [isDeleting, setIsDeleting] = useState([]);
+    const [searchEnd, setSearchEnd] = useState(false);
     const [selectors, setSelectors] = useState(['Antelope', 'Buffalo', 'Cheetah', 'Dragon', 'Eagle', 'Flamingo']);
 
     useEffect(() => {
@@ -117,7 +118,15 @@ export default function App() {
                     <LongSearchButton text="Search Button" />
                 </span>
                 <span style={{ width: 500 }}>
-                    <SearchBar placeholder="Search Bar" />
+                    <SearchBar 
+                        placeholder="Search Bar" 
+                        done={searchEnd}
+                        onSearch={searchText => {
+                            setSearchEnd(false);
+                            console.log(searchText);
+                            setTimeout(() => setSearchEnd(true), 1000);
+                        }}
+                    />
                 </span>
             </div>
 
@@ -145,7 +154,7 @@ export default function App() {
                 </span>
 
                 <span>
-                    <NormalSelector text="Normal" />
+                    <NormalSelector text="Normal" onClickIcon={e => console.log(e)} />
                 </span>
 
                 <span>
@@ -169,7 +178,7 @@ export default function App() {
                         }, 3000));
                     }}
                     removeSelector={text => {
-                        setIsDeleting(isDeleting.concat(text));
+                        setIsDeleting(isDeleting.concat([text]));
                         setTimeout(() => {
                             setSelectors(cache.current.filter(i => i !== text))
                         }, 3000);

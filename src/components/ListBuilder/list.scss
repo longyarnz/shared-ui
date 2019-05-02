@@ -8,7 +8,7 @@
   justify-content: flex-start;
   align-items: flex-start;
   flex-wrap: wrap;
-
+  
   & > .list-row-header,
   & > .list-row {
     width: 100%;
@@ -17,6 +17,7 @@
     justify-content: space-around;
     padding: 20px 0px;
     height: 65px;
+    border-bottom: 1px solid #eee;
 
     & > *:first-child {
       flex-basis: 25%;
@@ -81,7 +82,6 @@
       cursor: pointer;
       transition: all 0.25s ease;
       background-color: #fff;
-      border-bottom: 1px solid #eee;
       
       & > span,
       & > figcaption {
@@ -118,11 +118,11 @@
 
       &:hover,
       &:focus {
-        background-color: $dark2;
+        background-color: $accent1-bg;
       }
 
       &:active {
-        background-color: $dark3;
+        background-color: $accent1-bg-dark;
 
         & > span {
           color: $dark1;

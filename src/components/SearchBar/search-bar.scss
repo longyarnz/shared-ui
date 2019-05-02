@@ -23,6 +23,7 @@
     border-radius: $radius;
     background-color: transparent;
     transition: $transition;
+    padding-left: 2px;
 
     &::placeholder {
       color: $accent1;

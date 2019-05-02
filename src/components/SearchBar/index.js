@@ -44,7 +44,7 @@ export default function SearchBar(props) {
             return;
         }
 
-        else if (searching) {
+        else if (searching && !props.done) {
             setSearching(false);
             props.cancelSearch && props.cancelSearch();
         }
@@ -93,7 +93,7 @@ export default function SearchBar(props) {
                 </span>
             </ShouldRender>
 
-            <ShouldRender if={focus && !searching}>
+            <ShouldRender if={focus && (!searching || props.done)}>
                 <button type="submit">
                     <i>arrow_forward</i>
                 </button>

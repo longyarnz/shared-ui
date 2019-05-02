@@ -107,12 +107,12 @@ button.success-button {
   }
   
   &:hover{
-    background-color: darken($success-bg, 40%);
     color: #fff;
+    background-color: $success;
   }
 
   &:active{
-    background-color: darken($success-bg, 20%);
+    background-color: $success-bg;
     color: #fff;
   }
 }
@@ -129,12 +129,12 @@ button.danger-button {
   }
 
   &:hover{
-    background-color: darken($danger-bg, 40%);
+    background-color: $danger;
     color: #fff;
   }
   
   &:active{
-    background-color: darken($danger-bg, 20%);
+    background-color: $danger-bg;
     color: #fff;
   }
 }
