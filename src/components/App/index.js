@@ -10,6 +10,7 @@ import DarkSelector, { NormalSelector, SuccessSelector, DangerSelector, Selector
 import DatePicker from '../DatePicker';
 import ListBuilder from '../ListBuilder';
 import ToggleButton from '../ToggleButton';
+import { IntegrationContainer } from '../Container';
 
 export default function App() {
     const cache = useRef(null);
@@ -82,7 +83,7 @@ export default function App() {
             <div>
                 <h3>Dropdown Components</h3>
 
-                <span>
+                <span style={{ width: 200 }}>
                     <SelectButton placeholder="Click Me!" onSelect={e => console.log(e)}>
                         <option value="Selected 1">Select 1</option>
                         <option value="Selected 2">Select 2</option>
@@ -90,7 +91,7 @@ export default function App() {
                         <option value="Selected 4">Select 4</option>
                     </SelectButton>
                 </span>
-                <span>
+                <span style={{ width: 200 }}>
                     <Dropdown placeholder="Click Me!" onSelect={e => console.log(e)}>
                         <option value="Selected 1">Select 1</option>
                         <option value="Selected 2">Select 2</option>
@@ -111,10 +112,10 @@ export default function App() {
             <div>
                 <h3>Search Components</h3>
 
-                <span>
+                <span style={{ width: 200 }}>
                     <SearchButton />
                 </span>
-                <span>
+                <span style={{ width: 150 }}>
                     <LongSearchButton text="Search Button" />
                 </span>
                 <span style={{ width: 500 }}>
@@ -141,27 +142,27 @@ export default function App() {
             <div>
                 <h3>Selector Components</h3>
 
-                <span>
+                <span style={{ width: 100 }}>
                     <DarkSelector text="Disabled" disabled={true} />
                 </span>
 
-                <span>
+                <span style={{ width: 100 }}>
                     <DarkSelector text="Dark" />
                 </span>
 
-                <span>
+                <span style={{ width: 100 }}>
                     <DarkSelector text="Selected" selected={true} />
                 </span>
 
-                <span>
+                <span style={{ width: 100 }}>
                     <NormalSelector text="Normal" onClickIcon={e => console.log(e)} />
                 </span>
 
-                <span>
+                <span style={{ width: 100 }}>
                     <SuccessSelector text="Success" />
                 </span>
 
-                <span>
+                <span style={{ width: 100 }}>
                     <DangerSelector text="Danger" />
                 </span>
             </div>
@@ -172,6 +173,7 @@ export default function App() {
                 <SelectorBuilder
                     selectors={selectors}
                     isDeleting={isDeleting}
+                    containerStyle={{ width: 100 }}
                     addSelector={text => {
                         return new Promise(resolve => setTimeout(() => {
                             resolve(setSelectors(cache.current.concat([text])));
@@ -215,6 +217,44 @@ export default function App() {
 
                 <span>
                     <ToggleButton color="#e82a73" on={true} height={80} width={200} onToggle={e => console.log(e)} />
+                </span>
+            </div>
+
+            <div>
+                <h3>Integration Containers</h3>
+
+                <span>
+                    <IntegrationContainer 
+                        name="Zapier" 
+                        src="/assets/img/zapier.png" 
+                        href="https://google.com" 
+                    />
+                </span>
+
+                <span>
+                    <IntegrationContainer 
+                        name="Hubpot" 
+                        new={true}
+                        src="/assets/img/hubspot.png" 
+                        href="https://google.com" 
+                    />
+                </span>
+
+                <span>
+                    <IntegrationContainer 
+                        name="Salesforce" 
+                        src="/assets/img/salesforce.png" 
+                        href="https://google.com" 
+                    />
+                </span>
+
+                <span>
+                    <IntegrationContainer 
+                        name="Gmail" 
+                        src="/assets/img/gmail.png" 
+                        href="https://google.com" 
+                        integrated={true}
+                    />
                 </span>
             </div>
 

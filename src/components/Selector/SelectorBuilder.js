@@ -39,13 +39,13 @@ export function SelectorBuilder(props) {
     const append = (
         <Fragment key={`selector-${selectors.length}`}>
             <ShouldRender if={addingSelector}>
-                <span style={props.viewStyle}>
+                <span style={props.containerStyle}>
                     <AddTag ref={input} />
                 </span>
             </ShouldRender>
 
             <ShouldRender if={!addingSelector}>
-                <span style={props.viewStyle}>
+                <span style={props.containerStyle}>
                     <RoundAddButton onClick={toggleTag} />
                 </span>
             </ShouldRender>
@@ -61,7 +61,7 @@ export function SelectorBuilder(props) {
     const view = (text, i) => {
         const isActive = props.isDeleting.some(i => i === text);
         return (
-            <span style={props.viewStyle} key={`selector-${i}`}>
+            <span style={props.containerStyle} key={`selector-${i}`}>
                 <ActiveSelector
                     text={text}
                     key={Math.random()}
