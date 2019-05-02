@@ -35,7 +35,7 @@ export function IntegrationContainer(props) {
 
     const actionText = props.integrated ? 'Remove' : 'Connect';
 
-    const spanText = props.integrated ? 'Disconnect from' : 'Integrate with';
+    const spanText = props.integrated ? 'Disconnect from' : 'Connect to';
 
     const style = {
         width: props.size || 250,
