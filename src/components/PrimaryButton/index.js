@@ -22,8 +22,9 @@ import './primary-button.css';
  */
 export default function PrimaryButton(props) {
     const unsupportedProps = [
-        'addClass', 'spinnerColor', 'spinnerColors', 'onClickIcon', 'customIcon', 'isActive',
-        'spinnerDepth', 'spinnerDuration', 'spinnerSize', 'listClass', 'iconStyle', 'component'
+        'addClass', 'spinnerColor', 'spinnerColors', 'onClickIcon', 'customClick',
+        'customIcon', 'isActive', 'childHeight','component', 'preventDefaultClick',
+        'spinnerDepth', 'spinnerDuration', 'spinnerSize', 'listClass', 'iconStyle',
     ];
 
     const className = `${props.className || 'primary-button'} ${props.addClass || ''}`;
@@ -151,6 +152,7 @@ export function RoundSpinnerButton(props) {
  * @param {string} props.icon Google Material Icon for the button.
  * @param {object} props.iconStyle Style Inline CSS styles for icon.
  * @param {function} props.onClick onclick event function of the button.
+ * @param {function} props.onClickIcon onclick event function of the icon in the button.
  * @returns {JSX.Element} A `PrimaryButton` component with an icon and a text node as its children.
  */
 export function TextIconButton(props) {

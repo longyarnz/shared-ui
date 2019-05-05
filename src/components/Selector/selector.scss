@@ -4,7 +4,7 @@ button.selector {
   @extend .primary-active;
   @extend .tag-button;
   cursor: default;
-  border-radius: 25px;
+  border-radius: $radius;
 
   i {
     border-radius: 50%;

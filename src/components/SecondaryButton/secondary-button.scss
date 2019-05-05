@@ -28,28 +28,38 @@
   }
 }
 
-.success-secondary-button {
+button.success-secondary-button {
   @extend .secondary-button;
   @extend .success-active;
   border: 1px solid $success;
   color: $success;
   background-color: #fff;
   
-  &:hover {
+  &:hover, &:focus {
     background-color: $success-bg;
     color: $success;
   }
+  
+  &:active {
+    background-color: $success;
+    color: #fff;
+  }
 }
 
-.danger-secondary-button {
+button.danger-secondary-button {
   @extend .secondary-button;
   @extend .danger-active;
   border: 1px solid $danger;
   color: $danger;
   background-color: #fff;
   
-  &:hover {
+  &:hover, &:focus {
     background-color: $danger-bg;
     color: $danger;
+  }
+  
+  &:active {
+    background-color: $danger;
+    color: #fff;
   }
 }

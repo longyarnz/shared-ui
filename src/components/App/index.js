@@ -3,13 +3,19 @@ import './app.css';
 import PrimaryButton, { LoadingTextButton, SuccessButton, DangerButton, RoundSpinnerButton } from '../PrimaryButton';
 import Spinner from '../Spinner';
 import SecondaryButton, { NormalSecondaryButton, SuccessSecondaryButton, DangerSecondaryButton } from '../SecondaryButton';
-import { DownloadButton, RoundAddButton, SearchButton, RectAddButton, SelectButton, StartDateButton, EndDateButton, Dropdown } from '../ActionButton';
+import { DownloadButton, RoundAddButton, SearchButton, RectAddButton } from '../ActionButton';
+import { SelectButton, Dropdown } from '../Dropdown';
 import SearchBar, { LongSearchButton } from '../SearchBar';
 import DarkSelector, { NormalSelector, SuccessSelector, DangerSelector, SelectorBuilder } from '../Selector';
+import DatePicker from '../DatePicker';
+import ListBuilder from '../ListBuilder';
+import ToggleButton from '../ToggleButton';
+import { IntegrationContainer } from '../Container';
 
 export default function App() {
     const cache = useRef(null);
     const [isDeleting, setIsDeleting] = useState([]);
+    const [searchEnd, setSearchEnd] = useState(false);
     const [selectors, setSelectors] = useState(['Antelope', 'Buffalo', 'Cheetah', 'Dragon', 'Eagle', 'Flamingo']);
 
     useEffect(() => {
@@ -72,68 +78,91 @@ export default function App() {
                 <span>
                     <RectAddButton />
                 </span>
-                <span>
-                    <StartDateButton />
-                </span>
-                <span>
-                    <EndDateButton />
-                </span>
-                <span>
-                    <SelectButton placeholder="Click Me!">
+            </div>
+
+            <div>
+                <h3>Dropdown Components</h3>
+
+                <span style={{ width: 200 }}>
+                    <SelectButton placeholder="Click Me!" onSelect={e => console.log(e)}>
                         <option value="Selected 1">Select 1</option>
                         <option value="Selected 2">Select 2</option>
                         <option value="Selected 3">Select 3</option>
                         <option value="Selected 4">Select 4</option>
                     </SelectButton>
                 </span>
-                <span>
-                    <Dropdown placeholder="Click Me!">
+                <span style={{ width: 200 }}>
+                    <Dropdown placeholder="Click Me!" onSelect={e => console.log(e)}>
                         <option value="Selected 1">Select 1</option>
                         <option value="Selected 2">Select 2</option>
                         <option value="Selected 3">Select 3</option>
                         <option value="Selected 4">Select 4</option>
                     </Dropdown>
                 </span>
+                <span>
+                    <SelectButton addClass="prepend-icon" placeholder="Filter" onSelect={e => console.log(e)}>
+                        <option value="Selected 1">Select 1</option>
+                        <option value="Selected 2">Select 2</option>
+                        <option value="Selected 3">Select 3</option>
+                        <option value="Selected 4">Select 4</option>
+                    </SelectButton>
+                </span>
             </div>
 
             <div>
                 <h3>Search Components</h3>
 
-                <span>
+                <span style={{ width: 200 }}>
                     <SearchButton />
                 </span>
-                <span>
+                <span style={{ width: 150 }}>
                     <LongSearchButton text="Search Button" />
                 </span>
                 <span style={{ width: 500 }}>
-                    <SearchBar placeholder="Search Bar" />
+                    <SearchBar 
+                        placeholder="Search Bar" 
+                        done={searchEnd}
+                        onSearch={searchText => {
+                            setSearchEnd(false);
+                            console.log(searchText);
+                            setTimeout(() => setSearchEnd(true), 1000);
+                        }}
+                    />
+                </span>
+            </div>
+
+            <div>
+                <h3>Date Picker</h3>
+
+                <span>
+                    <DatePicker onSelect={(e, date) => console.log(e, date)} />
                 </span>
             </div>
 
             <div>
                 <h3>Selector Components</h3>
 
-                <span>
+                <span style={{ width: 100 }}>
                     <DarkSelector text="Disabled" disabled={true} />
                 </span>
 
-                <span>
+                <span style={{ width: 100 }}>
                     <DarkSelector text="Dark" />
                 </span>
 
-                <span>
+                <span style={{ width: 100 }}>
                     <DarkSelector text="Selected" selected={true} />
                 </span>
 
-                <span>
-                    <NormalSelector text="Normal" />
+                <span style={{ width: 100 }}>
+                    <NormalSelector text="Normal" onClickIcon={e => console.log(e)} />
                 </span>
 
-                <span>
+                <span style={{ width: 100 }}>
                     <SuccessSelector text="Success" />
                 </span>
 
-                <span>
+                <span style={{ width: 100 }}>
                     <DangerSelector text="Danger" />
                 </span>
             </div>
@@ -144,19 +173,100 @@ export default function App() {
                 <SelectorBuilder
                     selectors={selectors}
                     isDeleting={isDeleting}
+                    containerStyle={{ width: 100 }}
                     addSelector={text => {
                         return new Promise(resolve => setTimeout(() => {
                             resolve(setSelectors(cache.current.concat([text])));
                         }, 3000));
                     }}
                     removeSelector={text => {
-                        setIsDeleting(isDeleting.concat(text));
+                        setIsDeleting(isDeleting.concat([text]));
                         setTimeout(() => {
                             setSelectors(cache.current.filter(i => i !== text))
                         }, 3000);
                     }}
                 />
             </div>
+
+            <div>
+                <h3>List Builder</h3>
+
+                <ListBuilder
+                    headers={['Name', 'Alerts', 'Count', 'Call']}
+                    rows={[
+                        ['Pep Guardiola', 'Invoice', 87, 5],
+                        [{ text: 'Zenedine Zidane', src: 'assets/img/logo.png' }, 'Pricing', 7, 15],
+                        [{ text: 'Alex Fergusson', src: 'assets/img/logo.png' }, 'Invites', 18, 50],
+                        [{ text: 'Jose Mourinho', src: 'assets/img/logo.png' }, 'Upgrade', 0, 1],
+                    ]}
+                    onClick={rowData => console.log(rowData)}
+                    defaultSelectedRow={2}
+                />
+            </div>
+
+            <div>
+                <h3>Toggle Button</h3>
+
+                <span>
+                    <ToggleButton onToggle={e => console.log(e)} disabled={true} />
+                </span>
+                
+                <span>
+                    <ToggleButton onToggle={e => console.log(e)} />
+                </span>
+
+                <span>
+                    <ToggleButton color="#e82a73" on={true} height={80} width={200} onToggle={e => console.log(e)} />
+                </span>
+            </div>
+
+            <div>
+                <h3>Integration Containers</h3>
+
+                <span>
+                    <IntegrationContainer 
+                        name="Zapier" 
+                        src="/assets/img/zapier.png" 
+                        href="https://fireflies.ai" 
+                        integrated={true}
+                    />
+                </span>
+
+                <span>
+                    <IntegrationContainer 
+                        name="Hubpot" 
+                        new={true}
+                        src="/assets/img/hubspot.png" 
+                        href="https://fireflies.ai" 
+                    />
+                </span>
+
+                <span>
+                    <IntegrationContainer 
+                        name="Salesforce" 
+                        src="/assets/img/salesforce.png" 
+                        href="https://fireflies.ai" 
+                    />
+                </span>
+
+                <span>
+                    <IntegrationContainer 
+                        name="Slack" 
+                        src="/assets/img/slack.png" 
+                        href="https://fireflies.ai" 
+                    />
+                </span>
+
+                <span>
+                    <IntegrationContainer 
+                        name="Gmail" 
+                        src="/assets/img/gmail.png" 
+                        href="https://fireflies.ai" 
+                        integrated={true}
+                    />
+                </span>
+            </div>
+
         </section>
     )
 }

@@ -6,7 +6,6 @@ import React from 'react';
 import { TextIconButton, RoundIconButton } from '../PrimaryButton';
 import { SuccessSecondaryButton } from '../SecondaryButton';
 import './action-button.css';
-export { SelectButton, Dropdown } from './SelectButton';
 
 /**
  * @name DownloadButton
@@ -90,21 +89,5 @@ export function SearchButton(props) {
 
     return (
         <RoundIconButton addClass={addClass} icon="search" {...props} />
-    )
-}
-
-export function StartDateButton(props) {
-    const { day = 'DD', month = 'MM', year = 'YYYY' } = props;
-    const text = `${day}/${month}/${year}`;
-    return (
-        <TextIconButton addClass="date-button" icon="calendar_today" text={text} {...props} />
-    )
-}
-
-export function EndDateButton(props) {
-    const { day = 'DD', month = 'MM', year = 'YYYY' } = props;
-    const text = `${day}/${month}/${year}`;
-    return (
-        <TextIconButton addClass="date-button dark" icon="calendar_today" text={text} {...props} />
     )
 }

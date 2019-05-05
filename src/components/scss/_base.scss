@@ -43,7 +43,7 @@
 }
 
 .tag-button {
-  border-radius: 30px;
+  border-radius: $radius;
   background-color: #fff;
   color: $accent1;
   flex-direction: row-reverse;

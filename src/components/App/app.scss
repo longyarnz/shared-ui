@@ -1,6 +1,7 @@
 section.app {
   min-height: 100vh;
   background: #fff;
+  padding: 20px 0px;
 
   & > div {
     padding: 20px;
@@ -28,8 +29,20 @@ section.app {
       display: inline-block;
       margin-bottom: 10px;
       position: relative;
-      width: 200px;
-      height: 40px;
+      width: auto;
+      height: auto;
+    }
+
+    .prepend-icon {
+      &::after {
+        @extend .material-icons !optional;
+        content: "filter_list";
+        font-family: "Material Icons";
+      }
+
+      & > span {
+        margin-right: auto;
+      }
     }
   }
 }

@@ -20,6 +20,12 @@ button {
 }
 
 button.dark-active {
+  transition: all .25s ease;
+
+  i {
+    transition: inherit;
+  }
+  
   &:active {
     background-color: $dark1;
     color: $dark4;
@@ -27,24 +33,48 @@ button.dark-active {
 }
 
 button.primary-active {
+  transition: all .25s ease;
+
+  i {
+    transition: inherit;
+  }
+  
   &:active {
     background-color: $accent1-bg-dark;
   }
 }
 
 button.success-active {
+  transition: all .25s ease;
+
+  i {
+    transition: inherit;
+  }
+  
   &:active {
     background-color: $success-bg-dark;
   }
 }
 
 button.danger-active {
+  transition: all .25s ease;
+
+  i {
+    transition: inherit;
+  }
+  
   &:active {
     background-color: $danger-bg-dark;
   }
 }
 
 button.primary-icon-active {
+  transition: all .25s ease;
+
+  i {
+    transition: inherit;
+  }
+  
   &:active {
     & > i {
       background-color: $accent1-bg-dark;
