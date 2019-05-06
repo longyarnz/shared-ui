@@ -27,7 +27,7 @@ export default function PrimaryButton(props) {
         'spinnerDepth', 'spinnerDuration', 'spinnerSize', 'listClass', 'iconStyle',
     ];
 
-    const className = `${props.className || 'primary-button'} ${props.addClass || ''}`;
+    const className = `${props.className || 'primary-button'} ${props.addClass || ''}`.trim();
     const style = {
         width: props.width,
         height: props.height,
@@ -68,7 +68,7 @@ export default function PrimaryButton(props) {
  * @returns {JSX.Element} A `PrimaryButton` component with an icon as a child.
  */
 export function IconButton(props) {
-    const className = `${props.className || 'icon-button'} ${props.addClass || ''}`;
+    const className = `${props.className || 'icon-button'}`;
 
     return (
         <PrimaryButton className={className} {...props}>
@@ -99,7 +99,7 @@ export function IconButton(props) {
  */
 export function RoundIconButton(props) {
     const icon = props.icon;
-    const className = `${props.className || 'circle-icon-button'} ${props.addClass || ''}`;
+    const className = `${props.className || 'circle-icon-button'}`;
 
     return (
         <IconButton {...props} className={className} icon={icon} />
@@ -123,7 +123,7 @@ export function RoundIconButton(props) {
  * @returns {JSX.Element} A round `IconButton` with a child `Spinner` component.
 */
 export function RoundSpinnerButton(props) {
-    const className = `${props.className || 'circle-icon-button loader'} ${props.addClass || ''}`;
+    const className = `${props.className || 'circle-icon-button loader'}`;
     return (
         <IconButton {...props} className={className}>
             <div>
@@ -156,7 +156,7 @@ export function RoundSpinnerButton(props) {
  * @returns {JSX.Element} A `PrimaryButton` component with an icon and a text node as its children.
  */
 export function TextIconButton(props) {
-    const className = `${props.className || 'text-icon-button'} ${props.addClass || ''}`;
+    const className = `${props.className || 'text-icon-button'}`;
 
     const style = {
         width: props.width,

@@ -74,7 +74,7 @@ export function SelectButton(props) {
 
     const addClass = `select-button ${props.addClass || ''}`;
 
-    const listClass = `select-list ${props.listClass || ''}`;
+    const listClass = `select-list ${props.listClass || ''}`.trim();
 
     return (
         <div className="select-button-container">
