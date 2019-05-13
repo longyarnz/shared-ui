@@ -60,7 +60,7 @@ export default function DatePicker(props) {
             customIcon={CustomIcon}
             preventDefaultClick={true}
             listClass={listClass}
-            childHeight={390}
+            childHeight={355}
         >
             <div>
                 <Calendar

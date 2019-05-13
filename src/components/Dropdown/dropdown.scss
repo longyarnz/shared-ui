@@ -1,137 +1,140 @@
-@import "../scss/button";
+@import '../scss/button';
 
 .select-button-container {
-  position: relative;
-  display: inline-block;
-  width: 100%;
+	position: relative;
+	display: inline-block;
+	width: 100%;
 }
 
 .select-button {
-  border-radius: $radius;
-  border: 1px solid transparent;
-  background-color: $dark1;
-  color: $dark3;
-  flex-direction: row-reverse;
-  justify-content: space-between;
-  width: 100%;
-  transition: all 0.25s ease;
+	border-radius: $radius;
+	border: 1px solid transparent;
+	background-color: $dark1;
+	color: $dark3;
+	flex-direction: row-reverse;
+	justify-content: space-between;
+	width: 100%;
+	transition: all 0.25s ease;
 
-  span {
-    padding: 0px;
-  }
+	span {
+		padding: 0px;
+	}
 
-  &:hover {
-    background-color: $dark2;
-    color: $dark4;
-  }
+	&:hover {
+		background-color: $dark2;
+		color: $dark4;
+	}
 
-  &:active {
-    background-color: $dark3;
-    color: #fff;
-  }
+	&:active {
+		background-color: $dark3;
+		color: #fff;
+	}
 }
 
 .select-list {
-  $radius: 20px;
-  list-style: none;
-  z-index: 2;
-  position: absolute;
-  border-radius: $radius;
-  background-color: $dark1;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  margin-top: 5px;
-  font-size: 80%;
-  height: 0px;
-  padding: 0px;
-  min-height: 0;
-  overflow: hidden;
-  transition: all 0.25s ease;
+	$radius: 20px;
+	list-style: none;
+	z-index: 2;
+	position: absolute;
+	border-radius: $radius;
+	background-color: $dark1;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	margin-top: 5px;
+	font-size: 80%;
+	height: 0px;
+	padding: 0px;
+	min-height: 0;
+	overflow: hidden;
+	transition: all  0.25s ease;
 
-  & > option {
+	& > div {
     width: 100%;
-    height: 40px;
-    padding: 10px;
-    color: $dark3;
-    cursor: pointer;
-    text-align: left;
-    transition: all 0.25s ease;
 
-    &:hover {
-      background-color: $dark2;
-      color: $dark4;
-    }
+		option {
+			width: 100%;
+			height: 40px;
+			padding: 10px;
+			color: $dark3;
+			cursor: pointer;
+			text-align: left;
+			transition: all 0.25s ease;
 
-    &:active,
-    &.selected {
-      background-color: $dark3;
-      color: #fff;
-    }
+			&:hover {
+				background-color: $dark2;
+				color: $dark4;
+			}
 
-    &:first-of-type {
-      border-radius: $radius $radius 0px 0px;
-    }
+			&:active,
+			&.selected {
+				background-color: $dark3;
+				color: #fff;
+			}
 
-    &:last-of-type {
-      border-radius: 0px 0px $radius $radius;
-    }
-  }
+			&:first-of-type {
+				border-radius: $radius $radius 0px 0px;
+			}
+
+			&:last-of-type {
+				border-radius: 0px 0px $radius $radius;
+			}
+		}
+	}
 }
 
 .dropdown {
-  @extend .primary-active;
-  $radius: 5px;
-  border-radius: $radius;
-  border: 1px solid $accent1;
-  background-color: #fff;
-  color: $accent1;
-  justify-content: space-between;
-  width: 100%;
-  position: relative;
+	@extend .primary-active;
+	$radius: 5px;
+	border-radius: $radius;
+	border: 1px solid $accent1;
+	background-color: #fff;
+	color: $accent1;
+	justify-content: space-between;
+	width: 100%;
+	position: relative;
 
-  span {
-    padding: 0px;
-  }
+	span {
+		padding: 0px;
+	}
 
-  &:hover {
-    background-color: $accent1-bg;
-    color: $accent1;
-  }
+	&:hover {
+		background-color: $accent1-bg;
+		color: $accent1;
+	}
 }
 
 .dropdown-list {
-  $radius: 5px;
-  border-radius: $radius;
-  border: 1px solid $accent1;
-  border-width: 0px;
-  background-color: #fff;
-  color: $accent1;
-  width: 100%;
+	$radius: 5px;
+	border-radius: $radius;
+	border: 1px solid $accent1;
+	background-color: #fff;
+	color: $accent1;
+	width: 100%;
 
-  & > option {
-    color: $accent1;
-    transition: all 0.25s ease;
+	& > div option {
+		color: $accent1;
+		transition: all 0.25s ease;
 
-    &:hover {
-      background-color: $accent1-bg;
-      color: $accent1;
-    }
+		&:hover {
+			background-color: $accent1-bg;
+			color: $accent1;
+		}
 
-    &:active,
-    &.selected {
-      background-color: $accent1;
-      color: #fff;
-    }
+		&:active,
+		&.selected {
+			background-color: $accent1;
+			color: #fff;
+		}
 
-    &:first-of-type {
-      border-radius: $radius $radius 0px 0px;
-    }
+		&:first-of-type {
+			border-radius: $radius $radius 0px 0px;
+		}
 
-    &:last-of-type {
-      border-radius: 0px 0px $radius $radius;
-    }
-  }
+		&:last-of-type {
+			border-radius: 0px 0px $radius $radius;
+		}
+	}
 }

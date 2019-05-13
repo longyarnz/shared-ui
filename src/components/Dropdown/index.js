@@ -13,8 +13,9 @@ import './dropdown.css';
  * @param {string} props.className The default class of the button.
  * @param {string} props.addClass Add extra class styles to overwrite default class.
  * @param {string} props.listClass Add extra class styles to overwrite default class of the dropdown list.
- * @param {string} props.text Text for the button.
- * @param {object} props.textStyle Style Inline CSS styles for the button text.
+ * @param {string} props.placeholder Placeholder text for the button.
+ * @param {string} props.defaultValue Default value for initial render.
+ * @param {object} props.textStyle Inline CSS styles for the button text.
  * @param {string} props.icon Google Material Icon for the button.
  * @param {object} props.iconStyle Style Inline CSS styles for icon.
  * @param {object} props.dropdownStyle Style Inline CSS styles for the dropdown list.
@@ -25,7 +26,7 @@ import './dropdown.css';
  */
 export function SelectButton(props) {
     const [toggle, setToggle] = useState(true);
-    const [value, setValue] = useState(null);
+    const [value, setValue] = useState(props.defaultValue);
     const div = useRef(null);
     const valueRef = useRef(null);
     
@@ -35,16 +36,23 @@ export function SelectButton(props) {
         
         const onClickElement = !props.preventDefaultClick 
             ?   e => {
-                listElements.forEach(element => element.classList.remove('selected'));
-                e.target.classList.add('selected');
-                const value = e.target.getAttribute('value');
-                setValue(value);
+                setValue(e.target.getAttribute('value'));
                 props.onSelect && props.onSelect(value);
                 toggleDropdown();
             } 
             :  null; 
     
-        listElements.forEach(element => element.onclick = onClickElement);
+        listElements.forEach(element => {
+            element.onclick = onClickElement;
+            element.classList.remove('selected');
+            element.getAttribute('value') === value 
+                && element.classList.add('selected');
+        });
+
+        const numberOfChildren = Array.from(div.current.children).length;
+        const childHeight = props.childHeight || 40;
+        div.current.style.height = `${numberOfChildren * childHeight}px`;
+        div.current.parentElement.style.borderColor = !toggle ? null : 'transparent';
     });
 
     
@@ -54,8 +62,7 @@ export function SelectButton(props) {
         const numberOfChildren = Array.from(div.current.children).length;
         let childHeight = props.childHeight || 40;
         childHeight = toggle ? childHeight : 0;
-        div.current.style.minHeight = `${numberOfChildren * childHeight}px`;
-        div.current.style.borderWidth = toggle ? '1px' : '0px';
+        div.current.parentElement.style.minHeight = `${numberOfChildren * childHeight}px`;
     };
     
     const onClick = () => {
@@ -88,8 +95,10 @@ export function SelectButton(props) {
                 customIcon={CustomIcon}
             />
 
-            <div className={listClass} style={props.dropdownStyle} ref={div}>
-                {props.children}
+            <div className={listClass} style={props.dropdownStyle}>
+                <div ref={div}>
+                    {props.children}
+                </div>
             </div>
         </div>
     )
@@ -117,8 +126,6 @@ export function Dropdown(props) {
     const listClass = `dropdown-list ${props.listClass || ''}`;
 
     return (
-        <SelectButton {...props} addClass={addClass} listClass={listClass} placeholder={props.placeholder}>
-            {props.children}
-        </SelectButton>
+        <SelectButton {...props} addClass={addClass} listClass={listClass} placeholder={props.placeholder} />
     )
 }

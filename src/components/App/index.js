@@ -84,7 +84,7 @@ export default function App() {
                 <h3>Dropdown Components</h3>
 
                 <span style={{ width: 200 }}>
-                    <SelectButton placeholder="Click Me!" onSelect={e => console.log(e)}>
+                    <SelectButton placeholder="Click Me!" onSelect={e => console.log(e)} defaultValue="Selected 1">
                         <option value="Selected 1">Select 1</option>
                         <option value="Selected 2">Select 2</option>
                         <option value="Selected 3">Select 3</option>
@@ -119,8 +119,8 @@ export default function App() {
                     <LongSearchButton text="Search Button" />
                 </span>
                 <span style={{ width: 500 }}>
-                    <SearchBar 
-                        placeholder="Search Bar" 
+                    <SearchBar
+                        placeholder="Search Bar"
                         done={searchEnd}
                         onSearch={searchText => {
                             setSearchEnd(false);
@@ -210,13 +210,13 @@ export default function App() {
                 <span>
                     <ToggleButton onToggle={e => console.log(e)} disabled={true} />
                 </span>
-                
+
                 <span>
                     <ToggleButton onToggle={e => console.log(e)} />
                 </span>
 
                 <span>
-                    <ToggleButton color="#e82a73" on={true} height={80} width={200} onToggle={e => console.log(e)} />
+                    <ToggleButton color="#e82a73" defaultValue={true} height={80} width={200} onToggle={e => console.log(e)} />
                 </span>
             </div>
 
@@ -224,44 +224,44 @@ export default function App() {
                 <h3>Integration Containers</h3>
 
                 <span>
-                    <IntegrationContainer 
-                        name="Zapier" 
-                        src="/assets/img/zapier.png" 
-                        href="https://fireflies.ai" 
+                    <IntegrationContainer
+                        name="Zapier"
+                        src="/assets/img/zapier.png"
+                        href="https://fireflies.ai"
                         integrated={true}
                     />
                 </span>
 
                 <span>
-                    <IntegrationContainer 
-                        name="Hubpot" 
+                    <IntegrationContainer
+                        name="Hubpot"
                         new={true}
-                        src="/assets/img/hubspot.png" 
-                        href="https://fireflies.ai" 
+                        src="/assets/img/hubspot.png"
+                        href="https://fireflies.ai"
                     />
                 </span>
 
                 <span>
-                    <IntegrationContainer 
-                        name="Salesforce" 
-                        src="/assets/img/salesforce.png" 
-                        href="https://fireflies.ai" 
+                    <IntegrationContainer
+                        name="Salesforce"
+                        src="/assets/img/salesforce.png"
+                        href="https://fireflies.ai"
                     />
                 </span>
 
                 <span>
-                    <IntegrationContainer 
-                        name="Slack" 
-                        src="/assets/img/slack.png" 
-                        href="https://fireflies.ai" 
+                    <IntegrationContainer
+                        name="Slack"
+                        src="/assets/img/slack.png"
+                        href="https://fireflies.ai"
                     />
                 </span>
 
                 <span>
-                    <IntegrationContainer 
-                        name="Gmail" 
-                        src="/assets/img/gmail.png" 
-                        href="https://fireflies.ai" 
+                    <IntegrationContainer
+                        name="Gmail"
+                        src="/assets/img/gmail.png"
+                        href="https://fireflies.ai"
                         integrated={true}
                     />
                 </span>
