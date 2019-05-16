@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PrimaryButton from '../PrimaryButton';
-import './toggle-button.css';
+import styles from './toggle-button.module.css';
 
 /**
  * @name ToggleButton
@@ -34,7 +34,7 @@ export default function ToggleButton(props) {
         backgroundColor: props.disabled ? '#ccc' : state ? onColor : offColor
     }
     
-    const addClass = `toggle-button ${props.addClass || ''} ${props.disabled ? 'disabled' : ''}`;
+    const addClass = `${styles['toggle-button']} ${props.addClass || ''} ${props.disabled ? styles['disabled'] : ''}`.trim();
     
     const toggle = () => {
         if (props.disabled) return;
@@ -46,7 +46,7 @@ export default function ToggleButton(props) {
     return (
         <PrimaryButton
             style={buttonStyle}
-            addClass={addClass}
+            className={addClass}
             onClick={toggle}
             width={width}
             height={height}

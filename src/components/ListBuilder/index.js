@@ -1,6 +1,6 @@
 import React, { Fragment, useRef } from 'react';
 import { FlatList } from '../../utils/Utils';
-import './list.css';
+import styles from './list.module.css';
 import ShouldRender from '../../utils/ShouldRender';
 
 function HeaderRow(props) {
@@ -9,7 +9,7 @@ function HeaderRow(props) {
     }
 
     return (
-        <div className="list-row-header" onClick={collectRowData}>
+        <div className={styles['list-row-header']} onClick={collectRowData}>
             <FlatList
                 list={props.lists}
                 listView={(item, i) => (
@@ -24,13 +24,13 @@ function Row(props) {
     const div = useRef(null);
 
     const collectRowData = e => {
-        const divs = document.querySelectorAll('.list-row');
-        divs.forEach(div => div.classList.remove('selected'));
-        div.current.classList.toggle('selected');
+        const divs = document.querySelectorAll(`.${styles['list-row']}`);
+        divs.forEach(div => div.classList.remove(styles['selected']));
+        div.current.classList.toggle(styles['selected']);
         props.onClick && props.onClick(props.lists);
     }
 
-    const className = props.selected ? 'list-row selected' : 'list-row';
+    const className = `${styles['list-row']} ${props.selected ? styles['selected'] : ''}`.trim();
 
     return (
         <div className={className} ref={div} onClick={collectRowData} style={props.rowStyle}>
@@ -73,7 +73,7 @@ function Row(props) {
  * @returns {JSX.Element} A table component.
  */
 export default function ListBuilder(props) {
-    const className = `list ${props.addClass || ''}`;
+    const className = `${styles['list']} ${props.addClass || ''}`;
 
     return (
         <section className={className} style={props.containerStyle}>

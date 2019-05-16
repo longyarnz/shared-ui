@@ -1,11 +1,14 @@
 @import "../scss/button";
 @import "../scss/tag-button";
 
-.shared-ui-button.selector {
-  @extend .primary-active;
+.selector {
   @extend .tag-button;
   cursor: default;
   border-radius: $radius;
+  height: 100%;
+  min-height: 40px;
+  padding: 10px;
+  border: 1px solid;
 
   i {
     border-radius: 50%;
@@ -50,7 +53,7 @@
   }
 }
 
-.shared-ui-button.normal-selector {
+.normal-selector {
   @extend .selector;
   border-color: $accent1;
 
@@ -74,7 +77,7 @@
   }
 }
 
-.shared-ui-button.dark-selector {
+.dark-selector {
   @extend .selector;
   color: $dark3;
   background-color: $dark1;
@@ -125,7 +128,7 @@
   }
 }
 
-.shared-ui-button.success-selector {
+.success-selector {
   @extend .selector;
   color: $success;
   border-color: $success;
@@ -150,7 +153,7 @@
   }
 }
 
-.shared-ui-button.danger-selector {
+.danger-selector {
   @extend .selector;
   color: $danger;
   border-color: $danger;

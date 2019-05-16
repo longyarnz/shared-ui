@@ -4,9 +4,9 @@
  */
 import React, { useRef, useState, useEffect } from 'react';
 import { TextIconButton } from '../PrimaryButton';
-import './dropdown.css';
+import styles from './dropdown.module.css';
 
-/**
+/**`    
  * @name SelectButton
  * @description Renders a HTML Button element and a dropdown list into a parent container;
  * @extends `TextIconButton`
@@ -47,7 +47,7 @@ export function SelectButton(props) {
             element.classList.remove('selected');
             element.toggleDropdown = toggleDropdown;
             element.getAttribute('value') === value 
-                && element.classList.add('selected');
+                && element.classList.add(styles['selected']);
         });
 
         const numberOfChildren = Array.from(div.current.children).length;
@@ -80,15 +80,15 @@ export function SelectButton(props) {
 
     const text = value || props.placeholder;
 
-    const addClass = `select-button ${props.addClass || ''}`;
+    const addClass = `${styles['select-button']} ${props.addClass || ''}`;
 
-    const listClass = `select-list ${props.listClass || ''}`.trim();
+    const listClass = `${styles['select-list']} ${props.listClass || ''}`.trim();
 
     return (
-        <div className="select-button-container">
+        <div className={styles['select-button-container']}>
             <TextIconButton
                 {...props}
-                addClass={addClass}
+                className={addClass}
                 icon={iconName}
                 text={text}
                 onClick={onClick}
@@ -123,8 +123,8 @@ export function SelectButton(props) {
  * @returns {JSX.Element} A `SelectButton` and dropdown list with a different CSS styling.
  */
 export function Dropdown(props) {
-    const addClass = `dropdown ${props.addClass || ''}`;
-    const listClass = `dropdown-list ${props.listClass || ''}`;
+    const addClass = props.addClass || styles['dropdown'];
+    const listClass = `${styles['dropdown-list']} ${props.listClass || ''}`;
 
     return (
         <SelectButton {...props} addClass={addClass} listClass={listClass} placeholder={props.placeholder} />

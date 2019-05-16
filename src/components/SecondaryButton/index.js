@@ -4,7 +4,7 @@
  */
 import React from 'react';
 import PrimaryButton from '../PrimaryButton';
-import './secondary-button.css';
+import styles from './secondary-button.module.css';
 
 /**
  * @name SecondaryButton
@@ -21,7 +21,7 @@ import './secondary-button.css';
  */
 export default function SecondaryButton(props) {
     return (
-        <PrimaryButton className="secondary-button" {...props} />
+        <PrimaryButton className={styles['secondary-button']} {...props} />
     )
 }
 
@@ -40,7 +40,7 @@ export default function SecondaryButton(props) {
  */
 export function NormalSecondaryButton(props) {
     return (
-        <SecondaryButton className="normal-secondary-button" text={props.text} {...props} />
+        <SecondaryButton className={styles['normal-secondary-button']} text={props.text} {...props} />
     )
 }
 
@@ -59,7 +59,7 @@ export function NormalSecondaryButton(props) {
  */
 export function SuccessSecondaryButton(props) {
     return (
-        <SecondaryButton className="success-secondary-button" text={props.text} {...props} />
+        <SecondaryButton className={styles['success-secondary-button']} text={props.text} {...props} />
     )
 }
 
@@ -78,6 +78,6 @@ export function SuccessSecondaryButton(props) {
  */
 export function DangerSecondaryButton(props) {
     return (
-        <SecondaryButton className="danger-secondary-button" text={props.text} {...props} />
+        <SecondaryButton className={styles['danger-secondary-button']} text={props.text} {...props} />
     )
 }

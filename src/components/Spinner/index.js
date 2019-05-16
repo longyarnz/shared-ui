@@ -3,7 +3,7 @@
  * @exports JSX.Element
  */
 import React, { useState, useEffect } from 'react';
-import './spinner.css';
+import styles from './spinner.module.css';
 
 /**
  * @name Spinner
@@ -34,7 +34,7 @@ export default function Spinner(props) {
         };
     });
 
-    const className = `spinner ${props.addClass || ''}`;
+    const className = `${styles['spinner']} ${props.addClass || ''}`.trim();
 
     const color = '#3b73ff';
 

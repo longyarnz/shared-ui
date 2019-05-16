@@ -81,6 +81,10 @@
         align-items: center;
         border-radius: 3px;
 
+        &.remove {
+          padding: 5px;
+        }
+
         span {
           margin: 0px 10px 0px 0px;
           text-transform: uppercase;

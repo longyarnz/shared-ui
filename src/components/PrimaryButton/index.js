@@ -5,8 +5,7 @@
 import React from 'react';
 import ShouldRender from '../../utils/ShouldRender';
 import Spinner from '../Spinner';
-import 'material-icons/iconfont/material-icons.css';
-import './primary-button.css';
+import styles from './primary-button.module.css';
 
 /**
  * @name PrimaryButton
@@ -28,7 +27,7 @@ function Button(props) {
         'spinnerDepth', 'spinnerDuration', 'spinnerSize', 'listClass', 'iconStyle', 'forwardRef'
     ];
 
-    const className = `shared-ui-button ${props.className || 'primary-button'} ${props.addClass || ''}`.trim();
+    const className = `${styles['shared-ui-button']} ${props.className || styles['primary-button']} ${props.addClass || ''}`.trim();
     const style = {
         width: props.width,
         height: props.height,
@@ -76,7 +75,7 @@ const PrimaryButton = React.forwardRef(
  * @returns {JSX.Element} A `PrimaryButton` component with an icon as a child.
  */
 export function IconButton(props) {
-    const className = `${props.className || 'icon-button'}`;
+    const className = props.className || styles['icon-button'];
 
     return (
         <PrimaryButton className={className} {...props}>
@@ -107,7 +106,7 @@ export function IconButton(props) {
  */
 export function RoundIconButton(props) {
     const icon = props.icon;
-    const className = `${props.className || 'circle-icon-button'}`;
+    const className = props.className || styles['circle-icon-button'];
 
     return (
         <IconButton {...props} className={className} icon={icon} />
@@ -131,7 +130,7 @@ export function RoundIconButton(props) {
  * @returns {JSX.Element} A round `IconButton` with a child `Spinner` component.
 */
 export function RoundSpinnerButton(props) {
-    const className = `${props.className || 'circle-icon-button loader'}`;
+    const className = props.className || `${styles['circle-icon-button']} ${styles['loader']}`;
     return (
         <IconButton {...props} className={className}>
             <div>
@@ -164,7 +163,7 @@ export function RoundSpinnerButton(props) {
  * @returns {JSX.Element} A `PrimaryButton` component with an icon and a text node as its children.
  */
 export function TextIconButton(props) {
-    const className = `${props.className || 'text-icon-button'}`;
+    const className = props.className || styles['text-icon-button'];
 
     const style = {
         width: props.width,
@@ -220,7 +219,7 @@ export function LoadingTextButton(props) {
     }
 
     return (
-        <PrimaryButton {...props} className="loading-text-button" style={style}>
+        <PrimaryButton {...props} className={styles['loading-text-button']} style={style}>
             <Spinner
                 size={props.spinnerSize}
                 color={props.spinnerColor}
@@ -253,7 +252,7 @@ export function SuccessButton(props) {
     const icon = props.icon || 'check';
 
     return (
-        <TextIconButton className="success-button" icon={icon} text={text} {...props} />
+        <TextIconButton className={styles['success-button']} icon={icon} text={text} {...props} />
     )
 }
 
@@ -277,7 +276,7 @@ export function DangerButton(props) {
     const icon = props.icon || 'close';
 
     return (
-        <TextIconButton className="danger-button" icon={icon} text={text} {...props} />
+        <TextIconButton className={styles['danger-button']} icon={icon} text={text} {...props} />
     )
 }
 

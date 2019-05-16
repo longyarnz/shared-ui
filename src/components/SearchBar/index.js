@@ -5,9 +5,9 @@
 
 import React, { useState, useRef } from 'react';
 import { TextIconButton } from '../PrimaryButton';
-import './search-bar.css';
 import ShouldRender from '../../utils/ShouldRender';
 import Spinner from '../Spinner';
+import styles from './search-bar.module.css';
 
 /**
  * @name SearchBar
@@ -27,7 +27,7 @@ export default function SearchBar(props) {
     let input = useRef(null);
 
     input = props.domRef ? props.domRef : input;
-    const className = `search-bar ${props.className || ''}`;
+    const className = `${styles['search-bar']} ${props.className || ''}`;
 
     const triggerSearchField = () => {
         if (focus) return;
@@ -88,7 +88,7 @@ export default function SearchBar(props) {
             />
 
             <ShouldRender if={focus}>
-                <span id="close" onClick={clearFormValue}>
+                <span id={styles['close']} onClick={clearFormValue}>
                     <i>close</i>
                 </span>
             </ShouldRender>
@@ -129,7 +129,7 @@ export default function SearchBar(props) {
  * @return {JSX.Element} A `TextIconButton` with an _search_ icon and _Search_ text.
  */
 export function LongSearchButton(props) {
-    const addClass = `long-search-button ${props.addClass || ''}`;
+    const addClass = `${styles['long-search-button']} ${props.addClass || ''}`;
 
     return (
         <TextIconButton addClass={addClass} icon="search" text={props.text} {...props} />

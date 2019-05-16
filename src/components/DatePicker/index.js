@@ -1,7 +1,10 @@
 import React, { useState, useRef } from 'react';
-import { Dropdown } from '../Dropdown';
+import { SelectButton } from '../Dropdown';
 import { Calendar } from '@bit/primefaces.primereact.calendar';
-import './date-picker.css';
+import './calendar.css';
+import './calendar.x.css';
+import './theme.css';
+import styles from './date-picker.module.css';
 
 /**
  * @name DatePicker
@@ -32,7 +35,7 @@ export default function DatePicker(props) {
         }
 
         return (
-            <span className="icons">
+            <span className={styles['icons']}>
                 <i onClick={onClick}>close</i>
                 <i>insert_invitation</i>
             </span>
@@ -52,17 +55,17 @@ export default function DatePicker(props) {
         div.current.toggleDropdown();
     }
 
-    const addClass = `date-picker ${props.addClass || ''}`;
-    const listClass = `date-picker-list ${props.listClass || ''}`;
+    const addClass = `${styles['date-picker']} ${props.addClass || ''}`;
+    const listClass = `${styles['date-picker-list']} ${props.listClass || ''}`;
 
     return (
-        <Dropdown
+        <SelectButton
             addClass={addClass}
             placeholder={text || 'DD/MM/YYYY'}
             customIcon={CustomIcon}
             preventDefaultClick={true}
             listClass={listClass}
-            childHeight={355}
+            childHeight={360}
         >
             <div ref={div}>
                 <Calendar
@@ -71,6 +74,6 @@ export default function DatePicker(props) {
                     inline={true}
                 />
             </div>
-        </Dropdown>
+        </SelectButton>
     )
 }

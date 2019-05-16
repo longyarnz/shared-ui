@@ -28,7 +28,7 @@
   }
 }
 
-.shared-ui-button.success-secondary-button {
+.success-secondary-button {
   @extend .secondary-button;
   @extend .success-active;
   border: 1px solid $success;
@@ -46,7 +46,7 @@
   }
 }
 
-.shared-ui-button.danger-secondary-button {
+.danger-secondary-button {
   @extend .secondary-button;
   @extend .danger-active;
   border: 1px solid $danger;

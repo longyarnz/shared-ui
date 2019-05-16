@@ -51,7 +51,6 @@ body .p-inputtext {
   color: #333333;
   background: #ffffff;
   padding: 0.429em;
-  border: 1px solid #a6a6a6;
   -moz-transition: border-color 0.2s, box-shadow 0.2s;
   -o-transition: border-color 0.2s, box-shadow 0.2s;
   -webkit-transition: border-color 0.2s, box-shadow 0.2s;
@@ -82,7 +81,6 @@ body .p-checkbox {
   height: 20px;
 }
 body .p-checkbox .p-checkbox-box {
-  border: 1px solid #a6a6a6;
   background-color: #ffffff;
   width: 20px;
   height: 20px;
@@ -132,7 +130,6 @@ body .p-radiobutton {
   height: 20px;
 }
 body .p-radiobutton .p-radiobutton-box {
-  border: 1px solid #a6a6a6;
   background-color: #ffffff;
   width: 20px;
   height: 20px;
@@ -371,7 +368,6 @@ body .p-chips > ul.p-inputtext .p-chips-token {
 }
 body .p-dropdown {
   background: #ffffff;
-  border: 1px solid #a6a6a6;
   -moz-transition: border-color 0.2s, box-shadow 0.2s;
   -o-transition: border-color 0.2s, box-shadow 0.2s;
   -webkit-transition: border-color 0.2s, box-shadow 0.2s;
@@ -466,7 +462,6 @@ body .p-dropdown-panel .p-dropdown-items .p-dropdown-item:not(.p-highlight):not(
 }
 body .p-multiselect {
   background: #ffffff;
-  border: 1px solid #a6a6a6;
   -moz-transition: border-color 0.2s, box-shadow 0.2s;
   -o-transition: border-color 0.2s, box-shadow 0.2s;
   -webkit-transition: border-color 0.2s, box-shadow 0.2s;
@@ -596,7 +591,6 @@ body .p-listbox {
   padding: 0;
   min-width: 12em;
   background: #ffffff;
-  border: 1px solid #a6a6a6;
 }
 body .p-listbox .p-checkbox {
   margin: 0 0.5em 0 0;
@@ -668,7 +662,6 @@ body .p-listbox:not(.p-disabled) .p-listbox-item:not(.p-highlight):not(.p-disabl
   background-color: #eaeaea;
 }
 body .p-listbox.p-disabled .p-checkbox-box:not(.p-disabled):not(.p-highlight):hover {
-  border: 1px solid #a6a6a6;
 }
 body .p-listbox .p-listbox-footer {
   padding: 0.429em 0.857em 0.429em 0.857em;
@@ -856,7 +849,6 @@ body .p-datepicker {
   min-width: 20em;
   background-color: #ffffff;
   color: #333333;
-  border: 1px solid #a6a6a6;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
@@ -3868,3 +3860,24 @@ body .p-fluid .p-inplace.p-inplace-closable .p-inplace-content > :first-child {
 }
 
 /* Add your customizations of theme here */
+
+  .p-datepicker {
+    border: none !important;
+  }
+
+  .p-datepicker table td.p-datepicker-today > span {
+    background-color: #F6F9FC !important;
+  }
+
+  .p-datepicker table td > span.p-highlight {
+    color: #fff !important;
+  }
+
+  .p-datepicker table td > span, .p-highlight {
+    height: 30px !important;
+    width: 30px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 50% !important;
+  }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { TextIconButton } from '../PrimaryButton';
-import './selector.css';
+import styles from './selector.module.css';
 import Spinner from '../Spinner';
 export { SelectorBuilder } from './SelectorBuilder';
 
@@ -22,15 +22,15 @@ export { SelectorBuilder } from './SelectorBuilder';
  * @return {JSX.Element} A `TextIconButton` with a text and clickable icon.
  */
 export default function Selector(props) {
-    const addClass = `selector tag ${props.addClass || ''}`;
+    const addClass = `${styles['selector']} ${props.addClass || ''}`;
 
     return (
-        <TextIconButton {...props} addClass={addClass} icon={props.icon} text={props.text} />
+        <TextIconButton {...props} className={addClass} icon={props.icon} text={props.text} />
     )
 }
 
 export function DarkSelector(props) {
-    const addClass = `dark-selector ${props.selected ? 'selected' : ''} ${props.addClass || ''}`;
+    const addClass = `${styles['dark-selector']} ${props.selected ? styles['selected'] : ''} ${props.addClass || ''}`;
 
     return (
         <Selector icon="close" {...props} addClass={addClass} text={props.text} />
@@ -38,7 +38,7 @@ export function DarkSelector(props) {
 }
 
 export function NormalSelector(props) {
-    const addClass = `normal-selector ${props.selected ? 'selected' : ''} ${props.addClass || ''}`;
+    const addClass = `${styles['normal-selector']} ${props.selected ? styles['selected'] : ''} ${props.addClass || ''}`;
 
     return (
         <Selector icon="close" {...props} addClass={addClass} text={props.text} />
@@ -46,7 +46,7 @@ export function NormalSelector(props) {
 }
 
 export function SuccessSelector(props) {
-    const addClass = `success-selector ${props.addClass || ''}`;
+    const addClass = `${styles['success-selector']} ${props.addClass || ''}`;
 
     return (
         <Selector icon="check" {...props} addClass={addClass} text={props.text} />
@@ -54,7 +54,7 @@ export function SuccessSelector(props) {
 }
 
 export function DangerSelector(props) {
-    const addClass = `danger-selector ${props.addClass || ''}`;
+    const addClass = `${styles['danger-selector']} ${props.addClass || ''}`;
 
     return (
         <Selector icon="close" {...props} addClass={addClass} text={props.text} />

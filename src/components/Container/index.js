@@ -1,5 +1,5 @@
 import React from 'react';
-import './container.css';
+import styles from './container.module.css';
 import { TextIconButton, DangerButton } from '../PrimaryButton';
 import ShouldRender from '../../utils/ShouldRender';
 
@@ -31,7 +31,7 @@ export default function Container(props) {
  * @returns {JSX.Element} A figure element with a `TextIconButton` and text children.
  */
 export function IntegrationContainer(props) {
-    const className = `integration-container ${props.addClass || ''}`;
+    const className = `${styles['integration-container']} ${props.addClass || ''}`.trim();
 
     const actionText = props.integrated ? 'Remove' : 'Connect';
 
@@ -46,11 +46,11 @@ export function IntegrationContainer(props) {
     return (
         <figure className={className} style={style}>
             <ShouldRender if={props.integrated}>
-                <i className="tag tag-1">check</i>
+                <i className={`${styles['tag']} ${styles['tag-1']}`}>check</i>
             </ShouldRender>
 
             <ShouldRender if={props.new}>
-                <i className="tag tag-2">N</i>
+                <i className={`${styles['tag']} ${styles['tag-2']}`}>N</i>
             </ShouldRender>
 
             <div>
@@ -62,7 +62,7 @@ export function IntegrationContainer(props) {
 
                 <a href={props.href}>
                     <ShouldRender if={props.integrated}>
-                        <DangerButton text={actionText} />
+                        <DangerButton addClass={styles['remove']} text={actionText} />
                     </ShouldRender>
 
                     <ShouldRender if={!props.integrated}>

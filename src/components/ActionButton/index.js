@@ -5,7 +5,7 @@
 import React from 'react';
 import { TextIconButton, RoundIconButton } from '../PrimaryButton';
 import { SuccessSecondaryButton } from '../SecondaryButton';
-import './action-button.css';
+import styles from './action-button.module.css';
 
 /**
  * @name DownloadButton
@@ -19,7 +19,7 @@ import './action-button.css';
  * @return {JSX.Element} A `SuccessSecondaryButton` with a download icon.
  */
 export function DownloadButton(props) {
-    const addClass = `download-button ${props.addClass || ''}`;
+    const addClass = `${styles['download-button']} ${props.addClass || ''}`;
 
     return (
         <SuccessSecondaryButton addClass={addClass} {...props}>
@@ -42,7 +42,7 @@ export function DownloadButton(props) {
  * @return {JSX.Element} A `RoundIconButton` with an _add_ icon.
  */
 export function RoundAddButton(props) {
-    const addClass = `round-add-button ${props.addClass || ''}`;
+    const addClass = `${styles['round-add-button']} ${props.addClass || ''}`;
 
     return (
         <RoundIconButton addClass={addClass} icon="add" {...props} />
@@ -64,7 +64,7 @@ export function RoundAddButton(props) {
  * @return {JSX.Element} A `TextIconButton` with an _add_ icon and _Add_ text.
  */
 export function RectAddButton(props) {
-    const addClass = `rect-add-button ${props.addClass || ''}`;
+    const addClass = `${styles['rect-add-button']} ${props.addClass || ''}`;
 
     return (
         <TextIconButton addClass={addClass} icon="add" text="Add" {...props} />
@@ -85,7 +85,7 @@ export function RectAddButton(props) {
  * @return {JSX.Element} A `RoundIconButton` with a _search_ icon.
  */
 export function SearchButton(props) {
-    const addClass = `search-button ${props.addClass || ''}`;
+    const addClass = `${styles['search-button']} ${props.addClass || ''}`;
 
     return (
         <RoundIconButton addClass={addClass} icon="search" {...props} />

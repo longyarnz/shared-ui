@@ -1,4 +1,5 @@
 @import '../scss/variables';
+@import '../scss/font';
 
 .shared-ui-button {
   cursor: pointer;
@@ -17,7 +18,7 @@
   }
 }
 
-.shared-ui-button.dark-active {
+.dark-active {
   transition: all .25s ease;
 
   i {
@@ -30,7 +31,7 @@
   }
 }
 
-.shared-ui-button.primary-active {
+.primary-active {
   transition: all .25s ease;
 
   i {
@@ -42,7 +43,7 @@
   }
 }
 
-.shared-ui-button.success-active {
+.success-active {
   transition: all .25s ease;
 
   i {
@@ -54,7 +55,7 @@
   }
 }
 
-.shared-ui-button.danger-active {
+.danger-active {
   transition: all .25s ease;
 
   i {
@@ -66,7 +67,7 @@
   }
 }
 
-.shared-ui-button.primary-icon-active {
+.primary-icon-active {
   transition: all .25s ease;
 
   i {

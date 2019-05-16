@@ -1,6 +1,6 @@
-@import '../scss/button';
+@import "../scss/button";
 
-.date-button {
+.date-picker {
   @extend .primary-active;
   background-color: #fff;
   color: $accent1;
@@ -8,30 +8,34 @@
   flex-direction: row-reverse;
   justify-content: space-between;
   width: 100%;
-
+  padding: 10px;
+  height: 100%;
+  min-height: 40px;
+  border: 1px solid $accent1;
+  
   i {
     font-size: 130%;
   }
-
+  
   span {
     padding: 0px;
   }
-
+  
   &:hover {
     background-color: $accent1-bg;
     color: $accent1;
   }
-
+  
   &.dark {
     border: 1px solid transparent;
     background-color: $dark1;
     color: $dark3;
-
+    
     &:hover {
       background-color: $dark2;
       color: $dark4;
     }
-
+    
     &:active {
       background-color: $dark3;
       color: #fff;
@@ -39,77 +43,60 @@
   }
 }
 
-button.date-picker > span {
+.date-picker > span {
   display: inline-flex;
   align-items: center;
   padding: 0px;
-
+  
   &:last-of-type {
     font-size: 110%;
     padding: 0px;
   }
 }
 
-span.icons > i {
-  margin: 0px 0px 0px 10px;
-  font-size: 14px;
-  transition: inherit;
-  font-size: 115%;
-  transition: all .25s ease;
-
-  &:first-of-type {
-    border-radius: 50%;
-    padding: 2px;
-    color: $danger;
-    background-color: $danger-bg;
+.icons {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 1px;
+  
+  i {
+    margin: 0px 0px 0px 10px;
+    transition: inherit;
+    font-size: 115%;
+    transition: all 0.25s ease;
     
-    &:hover,
-    &:focus {
-      background-color: $danger;
-      color: #fff;
+    &:first-of-type {
+      border-radius: 50%;
+      padding: 1px;
+      color: $danger;
+      background-color: $danger-bg;
+      
+      &:hover,
+      &:focus {
+        background-color: $danger;
+        color: #fff;
+      }
+      
+      &:active {
+        background-color: $danger-bg-dark;
+      }
     }
     
-    &:active {
-      background-color: $danger-bg-dark;
+    &:first-of-type {
+      color: $danger;
+      background-color: $danger-bg;
     }
-  }
-
-  &:first-of-type {
-    color: $danger;
-    background-color: $danger-bg;
   }
 }
 
 .date-picker-list {
   width: auto;
-
+  border: 1px solid $accent1;
+  border-radius: 5px;
+  transition-duration: .4s;
+  background-color: #fff;
+  
   & * {
-    color: $accent1;
-  }
-
-  .p-datepicker {
-    border: none;
-    display: none;
-  }
-
-  .p-datepicker table td.p-datepicker-today > span {
-    background-color: $accent1-bg;
-  }
-
-  .p-datepicker table td > span.p-highlight {
-    color: #fff !important;
-  }
-
-  .p-datepicker table td > span, .p-highlight {
-    height: 30px;
-    width: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
+    color: #3b73ff;
   }
 }
-
-@import './calendar.scss';
-@import './calendar.min.scss';
-@import './theme.scss';
