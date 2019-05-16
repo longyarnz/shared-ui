@@ -16,18 +16,19 @@ import './primary-button.css';
  * @param {number} props.width Width of the button.
  * @param {number} props.height Height of the button.
  * @param {string} props.text Text for the button.
+ * @param {object} props.ref Ref object for the button.
  * @param {JSX.Element} props.children React Elements
  * @param {function} props.onClick onclick event function of the button.
  * @returns {JSX.Element} A HTML `button`
  */
-export default function PrimaryButton(props) {
+function Button(props) {
     const unsupportedProps = [
         'addClass', 'spinnerColor', 'spinnerColors', 'onClickIcon', 'customClick',
         'customIcon', 'isActive', 'childHeight','component', 'preventDefaultClick',
-        'spinnerDepth', 'spinnerDuration', 'spinnerSize', 'listClass', 'iconStyle',
+        'spinnerDepth', 'spinnerDuration', 'spinnerSize', 'listClass', 'iconStyle', 'forwardRef'
     ];
 
-    const className = `${props.className || 'primary-button'} ${props.addClass || ''}`.trim();
+    const className = `shared-ui-button ${props.className || 'primary-button'} ${props.addClass || ''}`.trim();
     const style = {
         width: props.width,
         height: props.height,
@@ -47,11 +48,18 @@ export default function PrimaryButton(props) {
             {...newProps}
             style={style}
             className={className}
+            ref={props.forwardRef}
         >
             {props.children || props.text}
         </button>
     )
 }
+
+const PrimaryButton = React.forwardRef(
+    function PrimaryButton(props, ref) {
+        return <Button {...props} forwardRef={ref} />
+    }
+);
 
 /**
  * @name IconButton
@@ -161,6 +169,8 @@ export function TextIconButton(props) {
     const style = {
         width: props.width,
         height: props.height,
+        color: props.color,
+        borderColor: props.color
     }
 
     const onClickIcon = e => {
@@ -270,3 +280,5 @@ export function DangerButton(props) {
         <TextIconButton className="danger-button" icon={icon} text={text} {...props} />
     )
 }
+
+export default PrimaryButton;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Dropdown } from '../Dropdown';
 import { Calendar } from '@bit/primefaces.primereact.calendar';
 import './date-picker.css';
@@ -22,6 +22,7 @@ import './date-picker.css';
 export default function DatePicker(props) {
     const [text, setText] = useState(null);
     const [date, setDate] = useState(new Date(Date.now()));
+    const div = useRef(null);
 
     const CustomIcon = () => {
         const onClick = e => {
@@ -48,6 +49,7 @@ export default function DatePicker(props) {
         setText(text);
         setDate(value);
         props.onSelect && props.onSelect(text, value);
+        div.current.toggleDropdown();
     }
 
     const addClass = `date-picker ${props.addClass || ''}`;
@@ -62,7 +64,7 @@ export default function DatePicker(props) {
             listClass={listClass}
             childHeight={355}
         >
-            <div>
+            <div ref={div}>
                 <Calendar
                     value={date}
                     onChange={pickDate}

@@ -1,8 +1,5 @@
 @import '../scss/button';
-
-.loader {
-  cursor: progress;
-}
+@import '../scss/spin';
 
 .primary-button{
   @extend .dark-active;
@@ -31,14 +28,14 @@
   background-color: $accent1-bg;
   border: none;
   color: #fff;
-  width: 40px;
-  height: 40px;
+  width: 40px !important;
+  height: 40px !important;
   border: 1px solid $accent1;
   padding: 0px;
   border-radius: 50%;
   
   i {
-    @extend .fa-spin;
+    @extend .fa-spin !optional;
     animation-duration: .45s;
     background-color: $accent1;
     font-size: 200%;
@@ -81,12 +78,12 @@
   } 
 }
 
-button.loading-text-button{
+.shared-ui-button.loading-text-button{
   @extend .text-icon-button;
   cursor: progress;
 
   i {
-    @extend .fa-spin;
+    @extend .fa-spin !optional;
   }
 
   &:hover {
@@ -95,7 +92,7 @@ button.loading-text-button{
   }
 }
 
-button.success-button {
+.shared-ui-button.success-button {
   @extend .text-icon-button;
   color: $success;
   background-color: $success-bg;
@@ -117,7 +114,7 @@ button.success-button {
   }
 }
 
-button.danger-button {
+.shared-ui-button.danger-button {
   @extend .text-icon-button;
   color: $danger;
   background-color: $danger-bg;

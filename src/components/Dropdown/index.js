@@ -40,11 +40,12 @@ export function SelectButton(props) {
                 props.onSelect && props.onSelect(value);
                 toggleDropdown();
             } 
-            :  null; 
+            :  null;
     
         listElements.forEach(element => {
             element.onclick = onClickElement;
             element.classList.remove('selected');
+            element.toggleDropdown = toggleDropdown;
             element.getAttribute('value') === value 
                 && element.classList.add('selected');
         });

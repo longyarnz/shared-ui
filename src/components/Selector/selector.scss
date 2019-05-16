@@ -1,6 +1,7 @@
 @import "../scss/button";
+@import "../scss/tag-button";
 
-button.selector {
+.shared-ui-button.selector {
   @extend .primary-active;
   @extend .tag-button;
   cursor: default;
@@ -11,10 +12,34 @@ button.selector {
     transition: inherit;
     padding: 2px;
     font-size: 115%;
+    color: $danger;
+    background-color: $danger-bg;
 
     &:hover,
     &:focus {
       color: #fff;
+      background-color: $danger;
+    }
+  }
+
+  &:disabled {
+    color: $dark2;
+    cursor: not-allowed;
+
+    i,
+    i:hover,
+    i:focus,
+    i:active {
+      cursor: not-allowed;
+      color: $dark2;
+      background-color: $dark1;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: $dark2;
+      background-color: $dark1;
     }
   }
 
@@ -25,7 +50,7 @@ button.selector {
   }
 }
 
-button.normal-selector {
+.shared-ui-button.normal-selector {
   @extend .selector;
   border-color: $accent1;
 
@@ -49,32 +74,11 @@ button.normal-selector {
   }
 }
 
-button.dark-selector {
+.shared-ui-button.dark-selector {
   @extend .selector;
   color: $dark3;
   background-color: $dark1;
   border-color: $dark1;
-
-  &:disabled {
-    color: $dark2;
-    cursor: not-allowed;
-
-    i,
-    i:hover,
-    i:focus,
-    i:active {
-      cursor: not-allowed;
-      color: $dark2;
-      background-color: $dark1;
-    }
-
-    &:hover,
-    &:focus,
-    &:active {
-      color: $dark2;
-      background-color: $dark1;
-    }
-  }
 
   &.selected,
   &.selected:hover,
@@ -121,7 +125,7 @@ button.dark-selector {
   }
 }
 
-button.success-selector {
+.shared-ui-button.success-selector {
   @extend .selector;
   color: $success;
   border-color: $success;
@@ -146,7 +150,7 @@ button.success-selector {
   }
 }
 
-button.danger-selector {
+.shared-ui-button.danger-selector {
   @extend .selector;
   color: $danger;
   border-color: $danger;

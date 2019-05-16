@@ -1,6 +1,6 @@
 {
     "env": {
-        "compiler": "bit.envs/compilers/react@1.0.2"
+        "compiler": "bit.envs/compilers/react@1.0.1"
     },
     "dependencies": {},
     "componentsDefaultDirectory": "src/components/{name}",

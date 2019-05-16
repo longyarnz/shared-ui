@@ -13,6 +13,7 @@ export { SelectorBuilder } from './SelectorBuilder';
  * @param {number} props.width Width of the button.
  * @param {number} props.height Height of the button.
  * @param {string} props.text Text for the button.
+ * @param {string} props.color Default color for text and border of the button.
  * @param {object} props.textStyle Style Inline CSS styles for the button text.
  * @param {string} props.icon Google Material Icon for the button.
  * @param {object} props.iconStyle Style Inline CSS styles for icon.
@@ -20,15 +21,15 @@ export { SelectorBuilder } from './SelectorBuilder';
  * @param {function} props.onClickIcon onclick event function of the icon.
  * @return {JSX.Element} A `TextIconButton` with a text and clickable icon.
  */
-export function Selector(props) {
-    const addClass = `tag ${props.addClass || ''}`;
+export default function Selector(props) {
+    const addClass = `selector tag ${props.addClass || ''}`;
 
     return (
         <TextIconButton {...props} addClass={addClass} icon={props.icon} text={props.text} />
     )
 }
 
-export default function DarkSelector(props) {
+export function DarkSelector(props) {
     const addClass = `dark-selector ${props.selected ? 'selected' : ''} ${props.addClass || ''}`;
 
     return (

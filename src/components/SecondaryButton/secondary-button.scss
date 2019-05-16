@@ -28,14 +28,14 @@
   }
 }
 
-button.success-secondary-button {
+.shared-ui-button.success-secondary-button {
   @extend .secondary-button;
   @extend .success-active;
   border: 1px solid $success;
   color: $success;
   background-color: #fff;
   
-  &:hover, &:focus {
+  &:hover {
     background-color: $success-bg;
     color: $success;
   }
@@ -46,14 +46,14 @@ button.success-secondary-button {
   }
 }
 
-button.danger-secondary-button {
+.shared-ui-button.danger-secondary-button {
   @extend .secondary-button;
   @extend .danger-active;
   border: 1px solid $danger;
   color: $danger;
   background-color: #fff;
   
-  &:hover, &:focus {
+  &:hover {
     background-color: $danger-bg;
     color: $danger;
   }

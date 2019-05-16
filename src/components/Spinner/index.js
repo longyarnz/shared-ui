@@ -36,9 +36,7 @@ export default function Spinner(props) {
 
     const className = `spinner ${props.addClass || ''}`;
 
-    const color = props.colors
-        ? `${props.colors[counter % props.colors.length]} `
-        : props.color || '#3b73ff';
+    const color = '#3b73ff';
 
     const style = {
         borderColor: `${color.repeat(3)} transparent`,

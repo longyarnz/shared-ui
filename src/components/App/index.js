@@ -3,10 +3,11 @@ import './app.css';
 import PrimaryButton, { LoadingTextButton, SuccessButton, DangerButton, RoundSpinnerButton } from '../PrimaryButton';
 import Spinner from '../Spinner';
 import SecondaryButton, { NormalSecondaryButton, SuccessSecondaryButton, DangerSecondaryButton } from '../SecondaryButton';
+import Tile from '../Tile';
 import { DownloadButton, RoundAddButton, SearchButton, RectAddButton } from '../ActionButton';
 import { SelectButton, Dropdown } from '../Dropdown';
 import SearchBar, { LongSearchButton } from '../SearchBar';
-import DarkSelector, { NormalSelector, SuccessSelector, DangerSelector, SelectorBuilder } from '../Selector';
+import Selector, { DarkSelector, NormalSelector, SuccessSelector, DangerSelector, SelectorBuilder } from '../Selector';
 import DatePicker from '../DatePicker';
 import ListBuilder from '../ListBuilder';
 import ToggleButton from '../ToggleButton';
@@ -67,6 +68,24 @@ export default function App() {
             </div>
 
             <div>
+                <h3>Tiles</h3>
+
+                <span>
+                    <Tile color="#6a7499" text="Dark BG" />
+                </span>
+                <span>
+                    <Tile text="Normal" />
+                </span>
+                <span>
+                    <Tile color="#26BC8E" text="Success" />
+                </span>
+                <span>
+                    <Tile color="#F76378" text="Danger" />
+                </span>
+            </div>
+
+
+            <div>
                 <h3>Action Buttons</h3>
 
                 <span>
@@ -92,7 +111,7 @@ export default function App() {
                     </SelectButton>
                 </span>
                 <span style={{ width: 200 }}>
-                    <Dropdown placeholder="Click Me!" onSelect={e => console.log(e)}>
+                    <Dropdown placeholder="Click Me!" onSelect={e => console.log(e)} defaultValue="Selected 3">
                         <option value="Selected 1">Select 1</option>
                         <option value="Selected 2">Select 2</option>
                         <option value="Selected 3">Select 3</option>
@@ -100,7 +119,7 @@ export default function App() {
                     </Dropdown>
                 </span>
                 <span>
-                    <SelectButton addClass="prepend-icon" placeholder="Filter" onSelect={e => console.log(e)}>
+                    <SelectButton width={150} addClass="prepend-icon" placeholder="Filter" onSelect={e => console.log(e)}>
                         <option value="Selected 1">Select 1</option>
                         <option value="Selected 2">Select 2</option>
                         <option value="Selected 3">Select 3</option>
@@ -147,7 +166,7 @@ export default function App() {
                 </span>
 
                 <span style={{ width: 100 }}>
-                    <DarkSelector text="Dark" />
+                    <Selector icon="close" color="#000" text="Dark" />
                 </span>
 
                 <span style={{ width: 100 }}>
@@ -216,7 +235,7 @@ export default function App() {
                 </span>
 
                 <span>
-                    <ToggleButton color="#e82a73" defaultValue={true} height={80} width={200} onToggle={e => console.log(e)} />
+                    <ToggleButton offColor="#ccc" onColor="#e82a73" defaultValue={true} height={80} width={200} onToggle={e => console.log(e)} />
                 </span>
             </div>
 
