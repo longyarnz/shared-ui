@@ -62,9 +62,10 @@ export default function SearchBar(props) {
 
     const searchValue = e => {
         e.preventDefault();
-        props.onSearch && props.onSearch(e.target[0].value);
+        const target = e.target[0] ? e.target[0] : e.target;
+        props.onSearch && props.onSearch(target.value);
         setSearching(true);
-        setTimeout(() => input.current && input.current.blur(), 100);
+        e.target[0] && setTimeout(() => input.current && input.current.blur(), 100);
     }
 
     const setPlaceholder = text => {
@@ -85,6 +86,7 @@ export default function SearchBar(props) {
                 autoFocus={true}
                 onBlur={() => setPlaceholder(props.placeholder)}
                 onFocus={() => setPlaceholder('')}
+                onChange={searchValue}
             />
 
             <ShouldRender if={focus}>

@@ -44,7 +44,7 @@ export function SelectButton(props) {
     
         listElements.forEach(element => {
             element.onclick = onClickElement;
-            element.classList.remove('selected');
+            element.classList.remove(styles['selected']);
             element.toggleDropdown = toggleDropdown;
             element.getAttribute('value') === value 
                 && element.classList.add(styles['selected']);

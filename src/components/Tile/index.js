@@ -24,8 +24,8 @@ export default function Tile(props) {
         bgColor.current = !bgColor.current ? button.current.style.color : bgColor.current;
         let { current } = bgColor;
         current = !current ? button.current.style.color : current
-        const opaqueColor = `rgba(${current.slice(4, current.length - 1)}, .05)`;
-        const darkColor = `rgba(${current.slice(4, current.length - 1)}, .175)`;
+        const opaqueColor = `rgba(${current.slice(4, current.length - 1)}, .03)`;
+        const darkColor = `rgba(${current.slice(4, current.length - 1)}, .125)`;
         button.current.style.backgroundColor = toggle ? darkColor : opaqueColor;
     });
 

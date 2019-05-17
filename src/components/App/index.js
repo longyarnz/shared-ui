@@ -144,7 +144,7 @@ export default function App() {
                         onSearch={searchText => {
                             setSearchEnd(false);
                             console.log(searchText);
-                            setTimeout(() => setSearchEnd(true), 1000);
+                            setTimeout(() => setSearchEnd(true), 10000);
                         }}
                     />
                 </span>

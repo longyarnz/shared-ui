@@ -5,6 +5,19 @@ import { NormalSelector, ActiveSelector } from '.';
 import ShouldRender from '../../utils/ShouldRender';
 import SearchBar from '../SearchBar';
 
+/**
+ * @name SelectorBuilder
+ * @extends `SearchBar`
+ * @description Renders a form with selector style.
+ * @param {array} props.selectors An array of text to render as selectors.
+ * @param {array} props.isDeleting An array of text to be deleted asynchronously.
+ * @param {string} props.placeholder Placeholder text for adding more selectors.
+ * @param {string} props.containerClass CSS class for selector container.
+ * @param {object} props.containerStyle Inline style for selector container.
+ * @param {function} props.addSelector Function for adding text to selectors array. It must return a `Promise`.
+ * @param {function} props.removeSelector Function for deleting text from the selector array.
+ * @return {JSX.Element} A form for creating selectors.
+ */
 export function SelectorBuilder(props) {
     const [addingSelector, setAddingSelector] = useState(false);
     const input = useRef(null);
@@ -25,11 +38,13 @@ export function SelectorBuilder(props) {
         }
     }
 
+    const placeholder = props.placeholder || 'Add new tag';
+
     const AddTag = React.forwardRef((_, ref) => (
         <SearchBar
             className="input-selector"
             domRef={ref}
-            placeholder="Add new tag"
+            placeholder={placeholder}
             clearForm={() => setAddingSelector(false)}
             onSearch={toggleTag}
             searchIcon="add"
@@ -39,13 +54,13 @@ export function SelectorBuilder(props) {
     const append = (
         <Fragment key={`selector-${selectors.length}`}>
             <ShouldRender if={addingSelector}>
-                <span style={props.containerStyle}>
+                <span className={props.containerClass} style={props.containerStyle}>
                     <AddTag ref={input} />
                 </span>
             </ShouldRender>
 
             <ShouldRender if={!addingSelector}>
-                <span style={props.containerStyle}>
+                <span className={props.containerClass} style={props.containerStyle}>
                     <RoundAddButton onClick={toggleTag} />
                 </span>
             </ShouldRender>
@@ -55,13 +70,13 @@ export function SelectorBuilder(props) {
     const removeSelector = text => {
         if (addingSelector) return;
 
-        props.removeSelector(text);
+        props.removeSelector && props.removeSelector(text);
     }
 
     const view = (text, i) => {
-        const isActive = props.isDeleting.some(i => i === text);
+        const isActive = props.isDeleting && props.isDeleting.some(i => i === text);
         return (
-            <span style={props.containerStyle} key={`selector-${i}`}>
+            <span className={props.containerClass} style={props.containerStyle} key={`selector-${i}`}>
                 <ActiveSelector
                     text={text}
                     key={Math.random()}

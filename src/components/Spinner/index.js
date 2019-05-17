@@ -36,10 +36,12 @@ export default function Spinner(props) {
 
     const className = `${styles['spinner']} ${props.addClass || ''}`.trim();
 
-    const color = '#3b73ff';
+    const color = props.colors
+        ? `${props.colors[counter % props.colors.length]} `
+        : props.color || '#3b73ff';
 
     const style = {
-        borderColor: `${color.repeat(3)} transparent`,
+        borderColor: `${(color+' ').repeat(3)} transparent`,
         width: props.size || 0,
         height: props.size || 0,
         animationDuration: props.duration,
