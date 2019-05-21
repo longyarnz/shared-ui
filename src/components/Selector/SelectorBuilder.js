@@ -14,7 +14,8 @@ import SearchBar from '../SearchBar';
  * @param {string} props.placeholder Placeholder text for adding more selectors.
  * @param {string} props.containerClass CSS class for selector container.
  * @param {object} props.containerStyle Inline style for selector container.
- * @param {function} props.addSelector Function for adding text to selectors array. It must return a `Promise`.
+ * @param {function} props.addSelector Function for adding text to selectors array. It receives the text value and a promise resolver.
+ * @param {function} props.cancelSelector Function for cancelling the addition of a new text to the selectors array.
  * @param {function} props.removeSelector Function for deleting text from the selector array.
  * @return {JSX.Element} A form for creating selectors.
  */
@@ -26,7 +27,7 @@ export function SelectorBuilder(props) {
 
     const toggleTag = text => {
         if (addingSelector) {
-            props.addSelector && props.addSelector(text)
+            props.addSelector && new Promise(resolve => props.addSelector(text, resolve))
                 .then(() => setAddingSelector(false));
         }
 
@@ -40,12 +41,20 @@ export function SelectorBuilder(props) {
 
     const placeholder = props.placeholder || 'Add new tag';
 
+    const cancelSearch = () => {
+        setAddingSelector(false);
+        props.cancelSelector && props.cancelSelector();
+    }
+
+    const searchBarClassName = `input-selector ${props.searchBarClassName || ''}`.trim();
+
     const AddTag = React.forwardRef((_, ref) => (
         <SearchBar
-            className="input-selector"
+            className={searchBarClassName}
             domRef={ref}
             placeholder={placeholder}
             clearForm={() => setAddingSelector(false)}
+            cancelSearch={cancelSearch}
             onSearch={toggleTag}
             searchIcon="add"
         />

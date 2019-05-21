@@ -193,10 +193,10 @@ export default function App() {
                     selectors={selectors}
                     isDeleting={isDeleting}
                     containerStyle={{ width: 100 }}
-                    addSelector={text => {
-                        return new Promise(resolve => setTimeout(() => {
+                    addSelector={(text, resolve) => {
+                        setTimeout(() => {
                             resolve(setSelectors(cache.current.concat([text])));
-                        }, 3000));
+                        }, 3000);
                     }}
                     removeSelector={text => {
                         setIsDeleting(isDeleting.concat([text]));

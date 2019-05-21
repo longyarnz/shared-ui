@@ -10,12 +10,13 @@ import PrimaryButton from '../PrimaryButton';
  * @param {number} props.width Width of the button.
  * @param {number} props.height Height of the button.
  * @param {string} props.text Text for the button.
+ * @param {boolean} props.defaultValue Boolean value to set the initial state of the tile.
  * @param {JSX.Element} props.children React Elements
  * @param {function} props.onClick onclick event function of the button.
  * @return {JSX.Element} A `PrimaryButton` with secondary-button style.
  */
 export default function Tile(props) {
-    const [toggle, setToggle] = useState(props.defaultState || false);
+    const [toggle, setToggle] = useState(props.defaultValue || false);
     const button = useRef(null);
     const bgColor = useRef(false);
     const { color = '#3b73ff' } = props;
@@ -30,6 +31,7 @@ export default function Tile(props) {
     });
 
     const activateTile = () => {
+        props.onClick && props.onClick(!toggle);
         setToggle(!toggle);
     }
 
@@ -40,6 +42,6 @@ export default function Tile(props) {
     }
 
     return (
-        <PrimaryButton onClick={activateTile} {...props} style={style} ref={button} />
+        <PrimaryButton {...props} onClick={activateTile} style={style} ref={button} />
     )
 }

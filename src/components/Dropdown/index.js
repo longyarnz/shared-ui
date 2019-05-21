@@ -36,7 +36,8 @@ export function SelectButton(props) {
         
         const onClickElement = !props.preventDefaultClick 
             ?   e => {
-                setValue(e.target.getAttribute('value'));
+                const value = e.target.getAttribute('value');
+                setValue(value);
                 props.onSelect && props.onSelect(value);
                 toggleDropdown();
             } 

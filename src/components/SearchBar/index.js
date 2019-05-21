@@ -15,8 +15,10 @@ import styles from './search-bar.module.css';
  * @description Renders a search field and takes the size of the container.
  * @param {string} props.className The default class of the search-bar.
  * @param {boolean} props.done Accepts a boolean value to set the ongoing search as completed.
+ * @param {boolean} props.preventDefaultOnchange Accepts a boolean value to prevent the default onChange event handler.
  * @param {string} props.placeholder Placeholder text for the search bar.
  * @param {JSX.Element} props.children React Elements
+ * @param {function} props.clearForm A function to run when you clear the search field.
  * @param {function} props.onSearch A function to collect the search text.
  * @param {function} props.cancelSearch A function to cancel an ongoing search.
  * @return {JSX.Element} A search input with a spinner component.
@@ -39,11 +41,6 @@ export default function SearchBar(props) {
     const clearFormValue = () => {
         if (!focus) return;
 
-        else if (props.clearForm) {
-            props.clearForm();
-            return;
-        }
-
         else if (searching && !props.done) {
             setSearching(false);
             props.cancelSearch && props.cancelSearch();
@@ -58,14 +55,24 @@ export default function SearchBar(props) {
             input.current.value = null;
             input.current.focus();
         }
+
+        props.clearForm && props.clearForm();
     }
 
     const searchValue = e => {
         e.preventDefault();
         const target = e.target[0] ? e.target[0] : e.target;
-        props.onSearch && props.onSearch(target.value);
+        props.onSearch && props.onSearch(target.value, e);
         setSearching(true);
         e.target[0] && setTimeout(() => input.current && input.current.blur(), 100);
+    }
+
+    const onChange = e => {
+        if (!props.onChange) return;
+        
+        props.preventDefaultOnchange 
+            ? props.onChange && props.onChange(e)
+            : searchValue(e);
     }
 
     const setPlaceholder = text => {
@@ -86,7 +93,7 @@ export default function SearchBar(props) {
                 autoFocus={true}
                 onBlur={() => setPlaceholder(props.placeholder)}
                 onFocus={() => setPlaceholder('')}
-                onChange={searchValue}
+                onChange={onChange}
             />
 
             <ShouldRender if={focus}>
