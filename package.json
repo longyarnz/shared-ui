@@ -47,6 +47,7 @@
     "react-dev-utils": "^6.0.5",
     "react-dom": "^16.8.6",
     "react-hot-loader": "^4.5.3",
+    "react-html-parser": "^2.0.2",
     "resolve": "1.8.1",
     "sass-loader": "7.1.0",
     "style-loader": "0.23.0",

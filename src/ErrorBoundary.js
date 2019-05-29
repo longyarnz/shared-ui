@@ -15,13 +15,9 @@ export default class ErrorBoundary extends Component {
         this.setState({
             error: true,
             view: (
-                <AsyncLoader path="./components/Error" error={error} info={info} />
+                <AsyncLoader path="./Error" error={error} info={info} />
             )
         });
-
-        const reset = () => this.setState({ error: false });
-
-        setTimeout(reset, 2000);
     }
 
     render() {

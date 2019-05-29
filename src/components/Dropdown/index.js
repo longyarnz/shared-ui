@@ -4,6 +4,7 @@
  */
 import React, { useRef, useState, useEffect } from 'react';
 import { TextIconButton } from '../PrimaryButton';
+import ReactHtmlParser from "react-html-parser";
 import styles from './dropdown.module.css';
 
 /**`    
@@ -26,28 +27,29 @@ import styles from './dropdown.module.css';
  */
 export function SelectButton(props) {
     const [toggle, setToggle] = useState(true);
+    const [text, setText] = useState(props.placeholder);
     const [value, setValue] = useState(props.defaultValue);
     const div = useRef(null);
     const valueRef = useRef(null);
-    
+
     useEffect(() => {
         valueRef.current = toggle;
         const listElements = Array.from(div.current.children);
-        
-        const onClickElement = !props.preventDefaultClick 
-            ?   e => {
+
+        const onClickElement = !props.preventDefaultClick
+            ? e => {
                 const value = e.target.getAttribute('value');
                 setValue(value);
                 props.onSelect && props.onSelect(value);
                 toggleDropdown();
-            } 
-            :  null;
-    
+            }
+            : null;
+
         listElements.forEach(element => {
             element.onclick = onClickElement;
             element.classList.remove(styles['selected']);
             element.toggleDropdown = toggleDropdown;
-            element.getAttribute('value') === value 
+            element.getAttribute('value') === value
                 && element.classList.add(styles['selected']);
         });
 
@@ -57,7 +59,12 @@ export function SelectButton(props) {
         div.current.parentElement.style.borderColor = !toggle ? null : 'transparent';
     });
 
-    
+    useEffect(() => {
+        const [option] = value ? Array.from(div.current.children).filter(o => o.getAttribute('value') === value) : [];
+        const text = option ? ReactHtmlParser(option.innerHTML) : props.placeholder;
+        setText(text);
+    }, [value, props.placeholder]);
+
     const toggleDropdown = () => {
         const toggle = valueRef.current;
         setToggle(!toggle);
@@ -66,20 +73,18 @@ export function SelectButton(props) {
         childHeight = toggle ? childHeight : 0;
         div.current.parentElement.style.minHeight = `${numberOfChildren * childHeight}px`;
     };
-    
+
     const onClick = () => {
         toggleDropdown();
         props.onClick && props.onClick();
     }
 
-    let CustomIcon = props.customIcon; 
-    CustomIcon = CustomIcon 
-        ?   <CustomIcon toggleDropdown={toggleDropdown} /> 
-        :   null;
+    let CustomIcon = props.customIcon;
+    CustomIcon = CustomIcon
+        ? <CustomIcon toggleDropdown={toggleDropdown} />
+        : null;
 
     const iconName = toggle ? props.iconName || 'keyboard_arrow_down' : 'close';
-
-    const text = value || props.placeholder;
 
     const addClass = `${styles['select-button']} ${props.addClass || ''}`;
 

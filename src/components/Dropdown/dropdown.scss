@@ -55,13 +55,14 @@
 	& > div {
     width: 100%;
 
-		option {
+		& > option, & > span {
 			width: 100%;
 			height: 40px;
 			padding: 10px;
 			color: $dark3;
 			cursor: pointer;
-			text-align: left;
+      text-align: left;
+      display: inline-block;
 			transition: all 0.25s ease;
 
 			&:hover {
@@ -75,11 +76,11 @@
 				color: #fff;
 			}
 
-			&:first-of-type {
+			&:first-child {
 				border-radius: $radius $radius 0px 0px;
 			}
 
-			&:last-of-type {
+			&:last-child {
 				border-radius: 0px 0px $radius $radius;
 			}
 		}
@@ -115,9 +116,11 @@
 	color: $accent1;
 	width: 100%;
 
-	& > div option {
+	& > div > option, & > div > span {
 		color: $accent1;
-		transition: all 0.25s ease;
+    transition: all 0.25s ease;
+    border-radius: 0px;
+    display: inline-block;
 
 		&:hover {
 			background-color: $accent1-bg;
@@ -130,11 +133,11 @@
 			color: #fff;
 		}
 
-		&:first-of-type {
+		&:first-child {
 			border-radius: $radius $radius 0px 0px;
 		}
 
-		&:last-of-type {
+		&:last-child {
 			border-radius: 0px 0px $radius $radius;
 		}
 	}

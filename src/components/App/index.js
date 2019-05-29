@@ -103,27 +103,31 @@ export default function App() {
                 <h3>Dropdown Components</h3>
 
                 <span style={{ width: 200 }}>
-                    <SelectButton placeholder="Click Me!" onSelect={e => console.log(e)} defaultValue="Selected 1">
-                        <option value="Selected 1">Select 1</option>
-                        <option value="Selected 2">Select 2</option>
-                        <option value="Selected 3">Select 3</option>
-                        <option value="Selected 4">Select 4</option>
+                    <SelectButton placeholder="Click Me!" onSelect={e => console.log(e)} defaultValue="1">
+                        <option value="1">Asuma</option>
+                        <span value="2">
+                            <span style={{color: 'red'}}>Baki</span>
+                        </span>
+                        <option value="3">Choji</option>
+                        <option value="4">Danzou</option>
                     </SelectButton>
                 </span>
                 <span style={{ width: 200 }}>
-                    <Dropdown placeholder="Click Me!" onSelect={e => console.log(e)} defaultValue="Selected 3">
-                        <option value="Selected 1">Select 1</option>
-                        <option value="Selected 2">Select 2</option>
-                        <option value="Selected 3">Select 3</option>
-                        <option value="Selected 4">Select 4</option>
+                    <Dropdown placeholder="Click Me!" onSelect={e => console.log(e)} defaultValue="1">
+                        <span value="1">
+                            <span style={{color: 'red'}}>Aubergine</span>
+                        </span>
+                        <option value="2">Broccoli</option>
+                        <option value="3">Cabbage</option>
+                        <option value="4">Dewberry</option>
                     </Dropdown>
                 </span>
                 <span>
                     <SelectButton width={150} addClass="prepend-icon" placeholder="Filter" onSelect={e => console.log(e)}>
-                        <option value="Selected 1">Select 1</option>
-                        <option value="Selected 2">Select 2</option>
-                        <option value="Selected 3">Select 3</option>
-                        <option value="Selected 4">Select 4</option>
+                        <option value="1">Select 1</option>
+                        <option value="2">Select 2</option>
+                        <option value="3">Select 3</option>
+                        <option value="4">Select 4</option>
                     </SelectButton>
                 </span>
             </div>

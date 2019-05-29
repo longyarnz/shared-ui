@@ -81,16 +81,20 @@ export default function SearchBar(props) {
 
     const searchIcon = props.searchIcon || 'search';
 
+    const autoComplete = props.autoComplete || 'off';
+
+    const name = props.name || 'search';
+
     return (
-        <form className={className} onClick={triggerSearchField} onSubmit={searchValue}>
+        <form className={className} onClick={triggerSearchField} onSubmit={searchValue} autoComplete={autoComplete}>
             <input
                 type="text"
-                name="search"
+                name={name}
                 placeholder={props.placeholder || 'Search'}
-                required={true}
+                required={props.required ? props.required : true}
                 disabled={!focus}
                 ref={input}
-                autoFocus={true}
+                autoFocus={props.autoFocus ? props.autoFocus : true}
                 onBlur={() => setPlaceholder(props.placeholder)}
                 onFocus={() => setPlaceholder('')}
                 onChange={onChange}
