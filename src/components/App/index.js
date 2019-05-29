@@ -113,7 +113,7 @@ export default function App() {
                     </SelectButton>
                 </span>
                 <span style={{ width: 200 }}>
-                    <Dropdown placeholder="Click Me!" onSelect={e => console.log(e)} defaultValue="1">
+                    <Dropdown placeholder="Click Me!" onSelect={e => console.log(e)} defaultValue="1" childHeight={40}>
                         <span value="1">
                             <span style={{color: 'red'}}>Aubergine</span>
                         </span>
