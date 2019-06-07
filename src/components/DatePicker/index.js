@@ -5,6 +5,7 @@ import './calendar.css';
 import './calendar.x.css';
 import './theme.css';
 import styles from './date-picker.module.css';
+import ShouldRender from '../../utils/ShouldRender';
 
 /**
  * @name DatePicker
@@ -24,6 +25,7 @@ import styles from './date-picker.module.css';
  */
 export default function DatePicker(props) {
     const [text, setText] = useState(null);
+    const [calendarIsOpen, setCalendarIsOpen] = useState(false);
     const [date, setDate] = useState(new Date(Date.now()));
     const div = useRef(null);
 
@@ -36,7 +38,9 @@ export default function DatePicker(props) {
 
         return (
             <span className={styles['icons']}>
-                <i onClick={onClick}>close</i>
+                <ShouldRender if={calendarIsOpen}>
+                    <i id={styles["close-calendar"]} onClick={onClick}>close</i>
+                </ShouldRender>
                 <i>insert_invitation</i>
             </span>
         )
@@ -53,6 +57,7 @@ export default function DatePicker(props) {
         setDate(value);
         props.onSelect && props.onSelect(text, value);
         div.current.toggleDropdown();
+        setCalendarIsOpen(false);
     }
 
     const addClass = `${styles['date-picker']} ${props.addClass || ''}`;
@@ -67,6 +72,7 @@ export default function DatePicker(props) {
             listClass={listClass}
             childHeight={360}
             color="#3b73ff"
+            onClick={() => setCalendarIsOpen(!calendarIsOpen)}
         >
             <div ref={div}>
                 <Calendar

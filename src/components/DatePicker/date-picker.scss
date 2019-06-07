@@ -65,7 +65,7 @@
     font-size: 115%;
     transition: all 0.25s ease;
     
-    &:first-of-type {
+    &#close-calendar {
       border-radius: 50%;
       padding: 1px;
       color: $danger;
@@ -80,11 +80,6 @@
       &:active {
         background-color: $danger-bg-dark;
       }
-    }
-    
-    &:first-of-type {
-      color: $danger;
-      background-color: $danger-bg;
     }
   }
 }
