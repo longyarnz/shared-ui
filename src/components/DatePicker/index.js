@@ -66,6 +66,7 @@ export default function DatePicker(props) {
             preventDefaultClick={true}
             listClass={listClass}
             childHeight={360}
+            color="#3b73ff"
         >
             <div ref={div}>
                 <Calendar

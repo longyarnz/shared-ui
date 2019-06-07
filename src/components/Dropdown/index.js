@@ -31,6 +31,7 @@ export function SelectButton(props) {
     const [value, setValue] = useState(props.defaultValue);
     const div = useRef(null);
     const valueRef = useRef(null);
+    const button = useRef(null);
 
     useEffect(() => {
         valueRef.current = toggle;
@@ -53,10 +54,12 @@ export function SelectButton(props) {
                 && element.classList.add(styles['selected']);
         });
 
+        const color = props.color;
         const numberOfChildren = Array.from(div.current.children).length;
         const childHeight = props.childHeight || 40;
+        button.current.style.borderColor = color;
         div.current.style.height = `${numberOfChildren * childHeight}px`;
-        div.current.parentElement.style.borderColor = !toggle ? null : 'transparent';
+        div.current.parentElement.style.borderColor = !toggle ? color : 'transparent';
     });
 
     useEffect(() => {
@@ -94,6 +97,7 @@ export function SelectButton(props) {
         <div className={styles['select-button-container']}>
             <TextIconButton
                 {...props}
+                buttonRef={button}
                 className={addClass}
                 icon={iconName}
                 text={text}
@@ -131,8 +135,17 @@ export function SelectButton(props) {
 export function Dropdown(props) {
     const addClass = props.addClass || styles['dropdown'];
     const listClass = `${styles['dropdown-list']} ${props.listClass || ''}`;
+    const color = props.color || '#3b73ff';
+    const iconStyle = { color };
 
     return (
-        <SelectButton {...props} addClass={addClass} listClass={listClass} placeholder={props.placeholder} />
+        <SelectButton 
+            color={color} 
+            {...props} 
+            iconStyle={iconStyle} 
+            addClass={addClass} 
+            listClass={listClass} 
+            placeholder={props.placeholder} 
+        />
     )
 }

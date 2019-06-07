@@ -23,7 +23,7 @@ import styles from './primary-button.module.css';
 function Button(props) {
     const unsupportedProps = [
         'addClass', 'spinnerColor', 'spinnerColors', 'onClickIcon', 'customClick',
-        'customIcon', 'isActive', 'childHeight','component', 'preventDefaultClick',
+        'customIcon', 'isActive', 'childHeight','component', 'preventDefaultClick', 'buttonRef',
         'spinnerDepth', 'spinnerDuration', 'spinnerSize', 'listClass', 'iconStyle', 'forwardRef'
     ];
 
@@ -178,7 +178,7 @@ export function TextIconButton(props) {
     }
 
     return (
-        <PrimaryButton {...props} className={className} style={style}>
+        <PrimaryButton {...props} ref={props.buttonRef} className={className} style={style}>
             <ShouldRender if={!props.customIcon}>
                 <i style={props.iconStyle} onClick={onClickIcon}>{props.icon}</i>
             </ShouldRender>

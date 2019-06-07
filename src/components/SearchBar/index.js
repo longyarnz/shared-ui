@@ -91,7 +91,7 @@ export default function SearchBar(props) {
                 type="text"
                 name={name}
                 placeholder={props.placeholder || 'Search'}
-                required={props.required ? props.required : true}
+                required={props.required}
                 disabled={!focus}
                 ref={input}
                 autoFocus={props.autoFocus ? props.autoFocus : true}

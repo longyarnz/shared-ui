@@ -218,7 +218,7 @@ export default function App() {
                     headers={['Name', 'Alerts', 'Count', 'Call']}
                     rows={[
                         ['Pep Guardiola', 'Invoice', 87, 5],
-                        [{ text: 'Zenedine Zidane', src: 'assets/img/logo.png' }, 'Pricing', 7, 15],
+                        [{ text: 'Zenedine Zidane', src: 'assets/img/logo.png' }, <span>Pricing</span>, 7, 15],
                         [{ text: 'Alex Fergusson', src: 'assets/img/logo.png' }, 'Invites', 18, 50],
                         [{ text: 'Jose Mourinho', src: 'assets/img/logo.png' }, 'Upgrade', 0, 1],
                     ]}

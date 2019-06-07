@@ -8,8 +8,10 @@ function HeaderRow(props) {
         props.onClick && props.onClick(props.lists);
     }
 
+    const className = `${styles['list-row-header']} ${props.headerClass || ''}`.trim();
+
     return (
-        <div className={styles['list-row-header']} onClick={collectRowData}>
+        <div className={className} onClick={collectRowData}>
             <FlatList
                 list={props.lists}
                 listView={(item, i) => (
@@ -30,7 +32,7 @@ function Row(props) {
         props.onClick && props.onClick(props.lists);
     }
 
-    const className = `${styles['list-row']} ${props.selected ? styles['selected'] : ''}`.trim();
+    const className = `${styles['list-row']} ${props.selected ? styles['selected'] : ''} ${props.rowClass || ''}`.trim();
 
     return (
         <div className={className} ref={div} onClick={collectRowData} style={props.rowStyle}>
@@ -42,7 +44,11 @@ function Row(props) {
                             <span style={props.textStyle}>{item}</span>
                         </ShouldRender>
 
-                        <ShouldRender if={typeof item === 'object' && item.text}>
+                        <ShouldRender if={typeof item === 'object' && item['$$typeof'] && item.props}>
+                            {item}
+                        </ShouldRender>
+
+                        <ShouldRender if={typeof item === 'object' && item.text && !item['$$typeof']}>
                             <figure>
                                 <div>
                                     <img style={props.imgStyle} src={item.src} alt="profile avatar" />
@@ -61,6 +67,8 @@ function Row(props) {
  * @name ListBuilder
  * @description Renders a responsive table into a parent container;
  * @param {string} props.addClass Add extra class styles to overwrite default class.
+ * @param {string} props.headerClass Add extra class styles to overwrite default class of table header.
+ * @param {string} props.rowClass Add extra class styles to overwrite default class of table rows.
  * @param {[string]} props.headers An array of strings as table headers.
  * @param {[string]} props.rows An array of an array of strings as table data
  * @param {number} props.defaultSelectedRow An index for the row that should be highlighted by default.
@@ -77,22 +85,24 @@ export default function ListBuilder(props) {
 
     return (
         <section className={className} style={props.containerStyle}>
-            <HeaderRow 
-                lists={props.headers} 
-                onClick={props.onClick} 
-                style={props.headerStyle} 
+            <HeaderRow
+                lists={props.headers}
+                onClick={props.onClick}
+                style={props.headerStyle}
+                headerClass={props.headerClass}
             />
 
             <FlatList
                 list={props.rows}
                 listView={(items, i) => (
-                    <Row 
-                        key={`row-${i}`} 
-                        lists={items} 
+                    <Row
+                        key={`row-${i}`}
+                        lists={items}
                         imgStyle={props.imgStyle}
                         rowStyle={props.rowStyle}
                         textStyle={props.textStyle}
                         onClick={props.onClick}
+                        rowClass={props.rowClass}
                         selected={props.defaultSelectedRow === i}
                     />
                 )}
