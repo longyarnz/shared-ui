@@ -106,7 +106,7 @@ export function SelectButton(props) {
             <TextIconButton
                 {...props}
                 buttonRef={button}
-                className={addClass}
+                addClass={addClass}
                 icon={iconName}
                 text={text}
                 onClick={onClick}

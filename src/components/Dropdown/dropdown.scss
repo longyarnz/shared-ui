@@ -55,7 +55,7 @@
 	& > div {
     width: 100%;
     
-		& > option, & > span {
+		& > * {
       width: 100%;
 			height: 40px;
 			padding: 10px;
@@ -117,7 +117,7 @@
 	width: 100%;
   border-color: transparent;
   
-	& > div > option, & > div > span {
+	& > div > * {
     color: $accent1;
     transition: all 0.25s ease;
     border-radius: 0px;

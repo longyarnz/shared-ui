@@ -117,9 +117,9 @@ export default function App() {
                         <span value="1">
                             <span style={{color: 'red'}}>Aubergine</span>
                         </span>
-                        <option value="2">Broccoli</option>
-                        <option value="3">Cabbage</option>
-                        <option value="4">Dewberry</option>
+                        <span value="2">Broccoli</span>
+                        <span value="3">Cabbage</span>
+                        <div value="4">Dewberry</div>
                     </Dropdown>
                 </span>
                 <span>
