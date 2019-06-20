@@ -1,11 +1,10 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { SelectButton } from '../Dropdown';
 import { Calendar } from '@bit/primefaces.primereact.calendar';
 import './calendar.css';
 import './calendar.x.css';
 import './theme.css';
 import styles from './date-picker.module.css';
-import ShouldRender from '../../utils/ShouldRender';
 
 /**
  * @name DatePicker
@@ -38,13 +37,17 @@ export default function DatePicker(props) {
 
         return (
             <span className={styles['icons']}>
-                <ShouldRender if={calendarIsOpen}>
-                    <i id={styles["close-calendar"]} onClick={onClick}>close</i>
-                </ShouldRender>
+                <i id={styles["close-calendar"]} onClick={onClick}>close</i>
                 <i>insert_invitation</i>
             </span>
         )
     }
+
+    useEffect(() => {
+        div.current.onclick = e => {
+            return null;
+        }
+    });
 
     const pickDate = e => {
         e.stopPropagation();

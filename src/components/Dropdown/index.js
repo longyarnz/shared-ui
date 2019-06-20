@@ -32,6 +32,9 @@ export function SelectButton(props) {
     const UNMOUNTED = useRef(false);
     const div = useRef(null);
     const button = useRef(null);
+    const documentEventHandler = useRef(() => {
+        !UNMOUNTED.current && toggleDropdown(false);
+    });
 
     useEffect(() => {
         UNMOUNTED.current = false;
@@ -41,8 +44,8 @@ export function SelectButton(props) {
             ? e => {
                 const value = e.target.getAttribute('value');
                 setValue(value);
-                props.onSelect && props.onSelect(value);
                 toggleDropdown();
+                props.onSelect && props.onSelect(value);
             }
             : null;
 
@@ -70,22 +73,28 @@ export function SelectButton(props) {
         setText(text);
     }, [value, props.placeholder]);
 
-    const documentEventHandler = () => {
-        !UNMOUNTED.current && toggleDropdown(true);
-    }
+    useEffect(() => {
+        div.current.onmouseenter = () => {
+            document.removeEventListener('click', documentEventHandler.current);
+        }
+        div.current.onmouseleave = () => {
+            toggle && document.addEventListener('click', documentEventHandler.current);
+        }
+    });
 
-    const toggleDropdown = (toggleSetter = toggle) => {
-        setToggle(!toggleSetter);
+    const toggleDropdown = (dropdownIsOpened = !toggle) => {
         const numberOfChildren = Array.from(div.current.children).length;
         let childHeight = props.childHeight || 40;
-        childHeight = !toggleSetter ? childHeight : 0;
+        childHeight = dropdownIsOpened ? childHeight : 0;
         div.current.parentElement.style.minHeight = `${numberOfChildren * childHeight}px`;
 
-        !toggleSetter && document.addEventListener('click', documentEventHandler);
-        toggleSetter && document.removeEventListener('click', documentEventHandler);
+        dropdownIsOpened && document.addEventListener('click', documentEventHandler.current);
+        !dropdownIsOpened && document.removeEventListener('click', documentEventHandler.current);
+
+        setToggle(dropdownIsOpened);
     };
 
-    const onClick = () => {
+    const onClick = e => {
         toggleDropdown();
         props.onClick && props.onClick();
     }
@@ -147,13 +156,13 @@ export function Dropdown(props) {
     const iconStyle = { color };
 
     return (
-        <SelectButton 
-            color={color} 
-            {...props} 
-            iconStyle={iconStyle} 
-            addClass={addClass} 
-            listClass={listClass} 
-            placeholder={props.placeholder} 
+        <SelectButton
+            color={color}
+            {...props}
+            iconStyle={iconStyle}
+            addClass={addClass}
+            listClass={listClass}
+            placeholder={props.placeholder}
         />
     )
 }

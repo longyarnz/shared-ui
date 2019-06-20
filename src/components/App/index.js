@@ -15,6 +15,7 @@ import { IntegrationContainer } from '../Container';
 
 export default function App() {
     const cache = useRef(null);
+    const search = useRef(null);
     const [isDeleting, setIsDeleting] = useState([]);
     const [searchEnd, setSearchEnd] = useState(false);
     const [selectors, setSelectors] = useState(['Antelope', 'Buffalo', 'Cheetah', 'Dragon', 'Eagle', 'Flamingo']);
@@ -23,6 +24,17 @@ export default function App() {
         cache.current = selectors;
 
         return () => cache.current = selectors;
+    }, [selectors])
+
+    useEffect(() => {
+        const initiateFocus = e => {
+            e.ctrlKey && e.keyCode === 70 && e.preventDefault();
+            e.ctrlKey && e.keyCode === 70 && search.current.focus();
+            e.ctrlKey && e.keyCode === 70 && search.current.form.click();
+        };
+
+        document.addEventListener('keydown', initiateFocus);
+        return () => document.removeEventListener('keydown', initiateFocus)
     }, [selectors])
 
     return (
@@ -143,11 +155,13 @@ export default function App() {
                 </span>
                 <span style={{ width: 500 }}>
                     <SearchBar
+                        domRef={search}
                         placeholder="Search Bar"
                         done={searchEnd}
                         onSearch={searchText => {
                             setSearchEnd(false);
                             console.log(searchText);
+                            console.log(search);
                             setTimeout(() => setSearchEnd(true), 10000);
                         }}
                     />
