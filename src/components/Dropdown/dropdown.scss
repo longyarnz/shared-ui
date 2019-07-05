@@ -50,7 +50,7 @@
 	padding: 0px;
 	min-height: 0;
 	overflow: hidden;
-  transition: all 0.25s ease;
+  transition: min-height 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28), background-color 0.4s cubic-bezier(0.24, 0.34, 0, 1.01);
   
 	& > div {
     width: 100%;
@@ -112,7 +112,7 @@
   $radius: 5px;
 	border-radius: $radius;
 	border: 1px solid;
-	background-color: red;
+	background-color: #fff;
 	color: $accent1;
 	width: 100%;
   border-color: transparent;

@@ -64,7 +64,6 @@ export function SelectButton(props) {
         button.current.style.borderColor = color;
         div.current.style.height = `${numberOfChildren * childHeight}px`;
         div.current.parentElement.style.borderColor = toggle ? color : 'transparent';
-        div.current.parentElement.style.backgroundColor = toggle ? null : 'transparent';
 
         return () => UNMOUNTED.current = true;
     });
@@ -101,6 +100,11 @@ export function SelectButton(props) {
         props.onClick && props.onClick();
     }
 
+    const dropdownStyle = {
+        backgroundColor: toggle ? null : 'transparent',
+        ...props.dropdownStyle
+    }    
+
     let CustomIcon = props.customIcon;
     CustomIcon = CustomIcon ? <CustomIcon toggleDropdown={toggleDropdown} /> : null;
 
@@ -123,7 +127,7 @@ export function SelectButton(props) {
                 customIcon={CustomIcon}
             />
 
-            <div className={listClass} style={props.dropdownStyle}>
+            <div className={listClass} style={dropdownStyle}>
                 <div ref={div}>
                     {props.children}
                 </div>
