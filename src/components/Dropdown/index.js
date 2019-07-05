@@ -14,6 +14,7 @@ import styles from './dropdown.module.css';
  * @param {string} props.className The default class of the button.
  * @param {string} props.addClass Add extra class styles to overwrite default class.
  * @param {string} props.listClass Add extra class styles to overwrite default class of the dropdown list.
+ * @param {string} props.color Color theme for the drop down button.
  * @param {string} props.placeholder Placeholder text for the button.
  * @param {string} props.defaultValue Default value for initial render.
  * @param {object} props.textStyle Inline CSS styles for the button text.
@@ -63,6 +64,7 @@ export function SelectButton(props) {
         button.current.style.borderColor = color;
         div.current.style.height = `${numberOfChildren * childHeight}px`;
         div.current.parentElement.style.borderColor = toggle ? color : 'transparent';
+        div.current.parentElement.style.backgroundColor = toggle ? null : 'transparent';
 
         return () => UNMOUNTED.current = true;
     });
@@ -100,9 +102,7 @@ export function SelectButton(props) {
     }
 
     let CustomIcon = props.customIcon;
-    CustomIcon = CustomIcon
-        ? <CustomIcon toggleDropdown={toggleDropdown} />
-        : null;
+    CustomIcon = CustomIcon ? <CustomIcon toggleDropdown={toggleDropdown} /> : null;
 
     const iconName = toggle ? 'close' : props.iconName || 'keyboard_arrow_down';
 
