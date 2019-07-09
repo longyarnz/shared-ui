@@ -60,15 +60,13 @@ export function IntegrationContainer(props) {
             <figcaption>
                 <span>{spanText} {props.name}</span>
 
-                <a href={props.href}>
-                    <ShouldRender if={props.integrated}>
-                        <DangerButton addClass={styles['remove']} text={actionText} />
-                    </ShouldRender>
+                <ShouldRender if={props.integrated}>
+                    <DangerButton addClass={styles['remove']} text={actionText} onClick={props.onClick} />
+                </ShouldRender>
 
-                    <ShouldRender if={!props.integrated}>
-                        <TextIconButton text={actionText} icon="chevron_right" />
-                    </ShouldRender>
-                </a>
+                <ShouldRender if={!props.integrated}>
+                    <TextIconButton text={actionText} icon="chevron_right" onClick={props.onClick} />
+                </ShouldRender>
             </figcaption>
         </figure>
     )

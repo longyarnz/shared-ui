@@ -30,7 +30,7 @@
     border: 1px solid;
     position: absolute;
     top: 10px;
-    
+
     &.tag-1 {
       color: $success;
       border-color: $success;
@@ -38,7 +38,7 @@
       background-color: $success-bg;
       padding: 1px;
     }
-    
+
     &.tag-2 {
       color: $danger;
       border-color: $danger;
@@ -70,32 +70,29 @@
       color: $black;
     }
 
-    a {
-      text-decoration: none;
-      
-      & > button {
-        flex-direction: row-reverse;
-        height: auto;
+    & > button {
+      flex-direction: row-reverse;
+      height: auto;
+      padding: 5px;
+      align-items: center;
+      width: auto;
+
+      &.remove {
         padding: 5px;
+      }
+
+      span {
+        margin: 0px 10px 0px 0px;
+        text-transform: uppercase;
+        display: inline-flex;
         align-items: center;
-        
-        &.remove {
-          padding: 5px;
-        }
+        justify-content: center;
+        font-size: 95%;
+        padding: 0px;
+      }
 
-        span {
-          margin: 0px 10px 0px 0px;
-          text-transform: uppercase;
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 95%;
-          padding: 0px;
-        }
-
-        i {
-          font-size: 100%;
-        }
+      i {
+        font-size: 100%;
       }
     }
   }

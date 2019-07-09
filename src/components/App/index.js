@@ -264,7 +264,7 @@ export default function App() {
                     <IntegrationContainer
                         name="Zapier"
                         src="/assets/img/zapier.png"
-                        href="https://fireflies.ai"
+                        onClick={() => console.log('https://fireflies.ai')}
                         integrated={true}
                     />
                 </span>
@@ -274,7 +274,7 @@ export default function App() {
                         name="Hubpot"
                         new={true}
                         src="/assets/img/hubspot.png"
-                        href="https://fireflies.ai"
+                        onClick={() => console.log('https://fireflies.ai')}
                     />
                 </span>
 
@@ -282,7 +282,7 @@ export default function App() {
                     <IntegrationContainer
                         name="Salesforce"
                         src="/assets/img/salesforce.png"
-                        href="https://fireflies.ai"
+                        onClick={() => console.log('https://fireflies.ai')}
                     />
                 </span>
 
@@ -290,7 +290,7 @@ export default function App() {
                     <IntegrationContainer
                         name="Slack"
                         src="/assets/img/slack.png"
-                        href="https://fireflies.ai"
+                        onClick={() => console.log('https://fireflies.ai')}
                     />
                 </span>
 
@@ -298,7 +298,7 @@ export default function App() {
                     <IntegrationContainer
                         name="Gmail"
                         src="/assets/img/gmail.png"
-                        href="https://fireflies.ai"
+                        onClick={() => console.log('https://fireflies.ai')}
                         integrated={true}
                     />
                 </span>
