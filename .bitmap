@@ -178,23 +178,6 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "sudo.firefliesai/shared-ui/container@1.0.7": {
-        "files": [
-            {
-                "relativePath": "src/components/Container/container.module.css",
-                "test": false,
-                "name": "container.module.css"
-            },
-            {
-                "relativePath": "src/components/Container/index.js",
-                "test": false,
-                "name": "index.js"
-            }
-        ],
-        "mainFile": "src/components/Container/index.js",
-        "origin": "AUTHORED",
-        "exported": true
-    },
     "sudo.firefliesai/shared-ui/dropdown@1.1.3": {
         "files": [
             {
@@ -251,6 +234,23 @@
             }
         ],
         "mainFile": "src/components/DatePicker/index.js",
+        "origin": "AUTHORED",
+        "exported": true
+    },
+    "sudo.firefliesai/shared-ui/container@1.0.8": {
+        "files": [
+            {
+                "relativePath": "src/components/Container/container.module.css",
+                "test": false,
+                "name": "container.module.css"
+            },
+            {
+                "relativePath": "src/components/Container/index.js",
+                "test": false,
+                "name": "index.js"
+            }
+        ],
+        "mainFile": "src/components/Container/index.js",
         "origin": "AUTHORED",
         "exported": true
     },
